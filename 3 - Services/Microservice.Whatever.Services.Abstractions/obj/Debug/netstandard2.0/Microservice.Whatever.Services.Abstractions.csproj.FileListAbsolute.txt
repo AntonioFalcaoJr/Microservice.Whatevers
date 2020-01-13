@@ -1,0 +1,8 @@
+/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/bin/Debug/netstandard2.0/Microservice.Whatever.Services.Abstractions.deps.json
+/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/bin/Debug/netstandard2.0/Microservice.Whatever.Services.Abstractions.dll
+/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/bin/Debug/netstandard2.0/Microservice.Whatever.Services.Abstractions.pdb
+/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/obj/Debug/netstandard2.0/Microservice.Whatever.Services.Abstractions.csprojAssemblyReference.cache
+/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/obj/Debug/netstandard2.0/Microservice.Whatever.Services.Abstractions.AssemblyInfoInputs.cache
+/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/obj/Debug/netstandard2.0/Microservice.Whatever.Services.Abstractions.AssemblyInfo.cs
+/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/obj/Debug/netstandard2.0/Microservice.Whatever.Services.Abstractions.dll
+/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/obj/Debug/netstandard2.0/Microservice.Whatever.Services.Abstractions.pdb
