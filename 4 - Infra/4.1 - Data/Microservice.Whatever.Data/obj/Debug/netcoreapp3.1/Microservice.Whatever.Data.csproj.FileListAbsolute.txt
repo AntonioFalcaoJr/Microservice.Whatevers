@@ -1,0 +1,8 @@
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.1 - Data/Microservice.Whatever.Data/bin/Debug/netcoreapp3.1/Microservice.Whatever.Data.deps.json
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.1 - Data/Microservice.Whatever.Data/bin/Debug/netcoreapp3.1/Microservice.Whatever.Data.dll
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.1 - Data/Microservice.Whatever.Data/bin/Debug/netcoreapp3.1/Microservice.Whatever.Data.pdb
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.1 - Data/Microservice.Whatever.Data/obj/Debug/netcoreapp3.1/Microservice.Whatever.Data.csprojAssemblyReference.cache
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.1 - Data/Microservice.Whatever.Data/obj/Debug/netcoreapp3.1/Microservice.Whatever.Data.AssemblyInfoInputs.cache
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.1 - Data/Microservice.Whatever.Data/obj/Debug/netcoreapp3.1/Microservice.Whatever.Data.AssemblyInfo.cs
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.1 - Data/Microservice.Whatever.Data/obj/Debug/netcoreapp3.1/Microservice.Whatever.Data.dll
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.1 - Data/Microservice.Whatever.Data/obj/Debug/netcoreapp3.1/Microservice.Whatever.Data.pdb
