@@ -1,0 +1,53 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/Microservice.Whatever.Services.Abstractions.csproj",
+    "projectName": "Microservice.Whatever.Services.Abstractions",
+    "projectPath": "/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/Microservice.Whatever.Services.Abstractions.csproj",
+    "outputPath": "/home/antonio/Projects/Microservice.Whatever/3 - Services/Microservice.Whatever.Services.Abstractions/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netstandard2.0"
+    ],
+    "sources": {
+      "http://artifactory.softplan.com.br/artifactory/api/nuget/v3/nuget-local": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netstandard2.0": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netstandard2.0": {
+      "dependencies": {
+        "NETStandard.Library": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.0.3, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+    }
+  }
+}
