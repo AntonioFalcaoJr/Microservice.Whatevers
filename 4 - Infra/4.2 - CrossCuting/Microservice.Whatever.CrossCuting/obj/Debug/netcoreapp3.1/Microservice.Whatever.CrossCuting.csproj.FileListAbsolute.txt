@@ -1,0 +1,8 @@
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.2 - CrossCuting/Microservice.Whatever.CrossCuting/bin/Debug/netcoreapp3.1/Microservice.Whatever.CrossCuting.deps.json
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.2 - CrossCuting/Microservice.Whatever.CrossCuting/bin/Debug/netcoreapp3.1/Microservice.Whatever.CrossCuting.dll
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.2 - CrossCuting/Microservice.Whatever.CrossCuting/bin/Debug/netcoreapp3.1/Microservice.Whatever.CrossCuting.pdb
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.2 - CrossCuting/Microservice.Whatever.CrossCuting/obj/Debug/netcoreapp3.1/Microservice.Whatever.CrossCuting.csprojAssemblyReference.cache
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.2 - CrossCuting/Microservice.Whatever.CrossCuting/obj/Debug/netcoreapp3.1/Microservice.Whatever.CrossCuting.AssemblyInfoInputs.cache
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.2 - CrossCuting/Microservice.Whatever.CrossCuting/obj/Debug/netcoreapp3.1/Microservice.Whatever.CrossCuting.AssemblyInfo.cs
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.2 - CrossCuting/Microservice.Whatever.CrossCuting/obj/Debug/netcoreapp3.1/Microservice.Whatever.CrossCuting.dll
+/home/antonio/Projects/Microservice.Whatever/4 - Infra/4.2 - CrossCuting/Microservice.Whatever.CrossCuting/obj/Debug/netcoreapp3.1/Microservice.Whatever.CrossCuting.pdb
