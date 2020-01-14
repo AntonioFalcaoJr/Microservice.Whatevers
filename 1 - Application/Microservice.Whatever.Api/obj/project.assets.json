@@ -8,28 +8,31 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "/home/antonio/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\anton\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/antonio/Projects/Microservice.Whatever/1 - Application/Microservice.Whatever.Api/Microservice.Whatever.Api.csproj",
+      "projectUniqueName": "C:\\Projetos\\Microservice.Whatever\\1 - Application\\Microservice.Whatever.Api\\Microservice.Whatever.Api.csproj",
       "projectName": "Microservice.Whatever.Api",
-      "projectPath": "/home/antonio/Projects/Microservice.Whatever/1 - Application/Microservice.Whatever.Api/Microservice.Whatever.Api.csproj",
-      "packagesPath": "/home/antonio/.nuget/packages/",
-      "outputPath": "/home/antonio/Projects/Microservice.Whatever/1 - Application/Microservice.Whatever.Api/obj/",
+      "projectPath": "C:\\Projetos\\Microservice.Whatever\\1 - Application\\Microservice.Whatever.Api\\Microservice.Whatever.Api.csproj",
+      "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
+      "outputPath": "C:\\Projetos\\Microservice.Whatever\\1 - Application\\Microservice.Whatever.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/antonio/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://nuget.sistemahiper.com.br/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -63,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

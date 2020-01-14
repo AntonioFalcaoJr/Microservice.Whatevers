@@ -1,8 +1,8 @@
-/home/antonio/Projects/Microservice.Whatever/2 - Domain/Microservice.Whatever.Domain/bin/Debug/netstandard2.0/Microservice.Whatever.Domain.deps.json
-/home/antonio/Projects/Microservice.Whatever/2 - Domain/Microservice.Whatever.Domain/bin/Debug/netstandard2.0/Microservice.Whatever.Domain.dll
-/home/antonio/Projects/Microservice.Whatever/2 - Domain/Microservice.Whatever.Domain/bin/Debug/netstandard2.0/Microservice.Whatever.Domain.pdb
-/home/antonio/Projects/Microservice.Whatever/2 - Domain/Microservice.Whatever.Domain/obj/Debug/netstandard2.0/Microservice.Whatever.Domain.csprojAssemblyReference.cache
-/home/antonio/Projects/Microservice.Whatever/2 - Domain/Microservice.Whatever.Domain/obj/Debug/netstandard2.0/Microservice.Whatever.Domain.AssemblyInfoInputs.cache
-/home/antonio/Projects/Microservice.Whatever/2 - Domain/Microservice.Whatever.Domain/obj/Debug/netstandard2.0/Microservice.Whatever.Domain.AssemblyInfo.cs
-/home/antonio/Projects/Microservice.Whatever/2 - Domain/Microservice.Whatever.Domain/obj/Debug/netstandard2.0/Microservice.Whatever.Domain.dll
-/home/antonio/Projects/Microservice.Whatever/2 - Domain/Microservice.Whatever.Domain/obj/Debug/netstandard2.0/Microservice.Whatever.Domain.pdb
+C:\Projetos\Microservice.Whatever\2 - Domain\Microservice.Whatever.Domain\bin\Debug\netstandard2.0\Microservice.Whatever.Domain.deps.json
+C:\Projetos\Microservice.Whatever\2 - Domain\Microservice.Whatever.Domain\bin\Debug\netstandard2.0\Microservice.Whatever.Domain.dll
+C:\Projetos\Microservice.Whatever\2 - Domain\Microservice.Whatever.Domain\bin\Debug\netstandard2.0\Microservice.Whatever.Domain.pdb
+C:\Projetos\Microservice.Whatever\2 - Domain\Microservice.Whatever.Domain\obj\Debug\netstandard2.0\Microservice.Whatever.Domain.csprojAssemblyReference.cache
+C:\Projetos\Microservice.Whatever\2 - Domain\Microservice.Whatever.Domain\obj\Debug\netstandard2.0\Microservice.Whatever.Domain.AssemblyInfoInputs.cache
+C:\Projetos\Microservice.Whatever\2 - Domain\Microservice.Whatever.Domain\obj\Debug\netstandard2.0\Microservice.Whatever.Domain.AssemblyInfo.cs
+C:\Projetos\Microservice.Whatever\2 - Domain\Microservice.Whatever.Domain\obj\Debug\netstandard2.0\Microservice.Whatever.Domain.dll
+C:\Projetos\Microservice.Whatever\2 - Domain\Microservice.Whatever.Domain\obj\Debug\netstandard2.0\Microservice.Whatever.Domain.pdb
