@@ -36,6 +36,7 @@ bld/
 
 # Visual Studio Code cache/options directory
 .vscode/
+[Pp]roperties
 
 # Rider cache/options directory
 .idea/
