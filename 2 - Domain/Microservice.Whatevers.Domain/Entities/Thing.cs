@@ -7,6 +7,3 @@ namespace Microservice.Whatevers.Domain.Entities
         public double Value { get; set; }
     }
 }
-
-
-
