@@ -1,6 +1,6 @@
 using System;
 
-namespace Microservice.Whatever.Domain.Entities
+namespace Microservice.Whatevers.Domain.Entities
 {
     public abstract class BaseEntity
     {

@@ -5,27 +5,27 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{827B2E3A-DCCF-4CA5-B7BA-3456F0B51673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatever.Api", "1 - Application\Microservice.Whatever.Api\Microservice.Whatever.Api.csproj", "{0188895B-794E-4E64-B63F-0F05849C324C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Api", "1 - Application\Microservice.Whatevers.Api\Microservice.Whatevers.Api.csproj", "{0188895B-794E-4E64-B63F-0F05849C324C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{041EF32C-A00F-4313-980F-FF6425BA9DDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatever.Domain", "2 - Domain\Microservice.Whatever.Domain\Microservice.Whatever.Domain.csproj", "{F175C1C1-B8D8-4035-B174-42FCB4C8887B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Domain", "2 - Domain\Microservice.Whatevers.Domain\Microservice.Whatevers.Domain.csproj", "{F175C1C1-B8D8-4035-B174-42FCB4C8887B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Services", "3 - Services", "{17B9255A-A9B8-4842-B46B-090555B658DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatever.Services", "3 - Services\Microservice.Whatever.Services\Microservice.Whatever.Services.csproj", "{90A2ADF0-8683-41AE-B564-FC657277BC52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Services", "3 - Services\Microservice.Whatevers.Services\Microservice.Whatevers.Services.csproj", "{90A2ADF0-8683-41AE-B564-FC657277BC52}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{5CA96EE6-7C75-41FC-942E-3151740ED06B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{32A19BA8-5F13-4306-927C-B8F01C6528DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatever.Data", "4 - Infra\4.1 - Data\Microservice.Whatever.Data\Microservice.Whatever.Data.csproj", "{03E4FDC4-FBC9-4CA8-BBDA-FEA1DAA709C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Data", "4 - Infra\4.1 - Data\Microservice.Whatevers.Data\Microservice.Whatevers.Data.csproj", "{03E4FDC4-FBC9-4CA8-BBDA-FEA1DAA709C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCuting", "4.2 - CrossCuting", "{41051B2F-7A69-41F2-A787-1DD23A7D89F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatever.CrossCuting", "4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\Microservice.Whatever.CrossCuting.csproj", "{63618577-2A3B-4497-8802-C552A39AC435}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.CrossCuting", "4 - Infra\4.2 - CrossCuting\Microservice.Whatevers.CrossCuting\Microservice.Whatevers.CrossCuting.csproj", "{63618577-2A3B-4497-8802-C552A39AC435}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatever.Services.Abstractions", "3 - Services\Microservice.Whatever.Services.Abstractions\Microservice.Whatever.Services.Abstractions.csproj", "{31763B2B-3EA7-478C-AC6F-71922A129BBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Services.Abstractions", "3 - Services\Microservice.Whatevers.Services.Abstractions\Microservice.Whatevers.Services.Abstractions.csproj", "{31763B2B-3EA7-478C-AC6F-71922A129BBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

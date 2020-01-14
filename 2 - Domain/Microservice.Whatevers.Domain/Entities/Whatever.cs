@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Microservice.Whatever.Domain.Entities
+namespace Microservice.Whatevers.Domain.Entities
 {
     public class Whatever : BaseEntity
     {

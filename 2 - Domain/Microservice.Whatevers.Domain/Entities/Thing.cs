@@ -1,5 +1,4 @@
-using System;
-namespace Microservice.Whatever.Domain.Entities
+namespace Microservice.Whatevers.Domain.Entities
 {
     public class Thing : BaseEntity
     {

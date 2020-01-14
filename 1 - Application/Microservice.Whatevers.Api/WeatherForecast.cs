@@ -1,6 +1,6 @@
 using System;
 
-namespace Microservice.Whatever.Api
+namespace Microservice.Whatevers.Api
 {
     public class WeatherForecast
     {
