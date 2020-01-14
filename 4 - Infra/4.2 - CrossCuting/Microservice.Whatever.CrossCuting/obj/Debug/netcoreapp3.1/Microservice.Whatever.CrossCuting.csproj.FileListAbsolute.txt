@@ -1,8 +1,0 @@
-C:\Projetos\Microservice.Whatever\4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\bin\Debug\netcoreapp3.1\Microservice.Whatever.CrossCuting.deps.json
-C:\Projetos\Microservice.Whatever\4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\bin\Debug\netcoreapp3.1\Microservice.Whatever.CrossCuting.dll
-C:\Projetos\Microservice.Whatever\4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\bin\Debug\netcoreapp3.1\Microservice.Whatever.CrossCuting.pdb
-C:\Projetos\Microservice.Whatever\4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\obj\Debug\netcoreapp3.1\Microservice.Whatever.CrossCuting.csprojAssemblyReference.cache
-C:\Projetos\Microservice.Whatever\4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\obj\Debug\netcoreapp3.1\Microservice.Whatever.CrossCuting.AssemblyInfoInputs.cache
-C:\Projetos\Microservice.Whatever\4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\obj\Debug\netcoreapp3.1\Microservice.Whatever.CrossCuting.AssemblyInfo.cs
-C:\Projetos\Microservice.Whatever\4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\obj\Debug\netcoreapp3.1\Microservice.Whatever.CrossCuting.dll
-C:\Projetos\Microservice.Whatever\4 - Infra\4.2 - CrossCuting\Microservice.Whatever.CrossCuting\obj\Debug\netcoreapp3.1\Microservice.Whatever.CrossCuting.pdb
