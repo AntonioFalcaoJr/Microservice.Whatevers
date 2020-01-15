@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using Microservice.Whatevers.Data.Repository;
 using Microservice.Whatevers.Domain.Entities;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -7,35 +7,35 @@ using Microservice.Whatevers.Data.Contexts;
 
 namespace Microservice.Whatevers.Data.Repositories
 {
-    public class BaseRepository<T> : IRepository<T> where T : BaseEntity
+    public abstract class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly IWhateverContext _whateverContext;
+        private readonly IWhateverContext _context;
 
         public BaseRepository(IWhateverContext whateverContext)
         {
-            _whateverContext = whateverContext;
+            _context = whateverContext;
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
-            _whateverContext.Set<T>().Remove(Select(id));
-            _whateverContext.SaveChanges();
+            _context.Set<T>().Remove(Select(id));
+            _context.SaveChanges();
         }
 
         public void Insert(T entity)
         {
-            _whateverContext.Set<T>().Add(entity);
-            _whateverContext.SaveChanges();
+            _context.Set<T>().Add(entity);
+            _context.SaveChanges();
         }
 
-        public T Select(int id) => _whateverContext.Set<T>().Find(id);
+        public T Select(Guid id) => _context.Set<T>().Find(id);
 
-        public IList<T> SelectAll() => _whateverContext.Set<T>().ToList();
+        public IList<T> SelectAll() => _context.Set<T>().ToList();
 
         public void Update(T entity)
         {
-            _whateverContext.Entry(entity).State = EntityState.Modified;
-            _whateverContext.SaveChanges();
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }
