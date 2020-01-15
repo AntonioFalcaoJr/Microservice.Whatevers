@@ -1,15 +1,20 @@
 using System.Collections.Generic;
 using Microservice.Whatevers.Data.Repository;
 using Microservice.Whatevers.Domain.Entities;
-using Microservice.Whatevers.Data.Context;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microservice.Whatevers.Data.Contexts;
 
 namespace Microservice.Whatevers.Data.Repositories
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly WhateverContext _whateverContext = new WhateverContext();
+        private readonly IWhateverContext _whateverContext;
+
+        public BaseRepository(IWhateverContext whateverContext)
+        {
+            _whateverContext = whateverContext;
+        }
 
         public void Delete(int id)
         {
