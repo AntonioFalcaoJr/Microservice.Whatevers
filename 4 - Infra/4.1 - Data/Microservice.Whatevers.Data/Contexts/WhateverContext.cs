@@ -22,7 +22,7 @@ namespace Microservice.Whatevers.Data.Context
             // modelBuilder.Entity<Whatever>(new WhateverConfig().Configure);
             // modelBuilder.Entity<Thing>(new ThingConfig().Configure);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(IWhateverContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(WhateverContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
     }
