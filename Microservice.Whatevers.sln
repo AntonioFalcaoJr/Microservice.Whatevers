@@ -25,8 +25,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCuting", "4.2 - 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.CrossCuting", "4 - Infra\4.2 - CrossCuting\Microservice.Whatevers.CrossCuting\Microservice.Whatevers.CrossCuting.csproj", "{63618577-2A3B-4497-8802-C552A39AC435}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Services.Abstractions", "3 - Services\Microservice.Whatevers.Services.Abstractions\Microservice.Whatevers.Services.Abstractions.csproj", "{31763B2B-3EA7-478C-AC6F-71922A129BBA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,18 +98,6 @@ Global
 		{63618577-2A3B-4497-8802-C552A39AC435}.Release|x64.Build.0 = Release|Any CPU
 		{63618577-2A3B-4497-8802-C552A39AC435}.Release|x86.ActiveCfg = Release|Any CPU
 		{63618577-2A3B-4497-8802-C552A39AC435}.Release|x86.Build.0 = Release|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Debug|x64.Build.0 = Debug|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Debug|x86.Build.0 = Debug|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Release|x64.ActiveCfg = Release|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Release|x64.Build.0 = Release|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Release|x86.ActiveCfg = Release|Any CPU
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0188895B-794E-4E64-B63F-0F05849C324C} = {827B2E3A-DCCF-4CA5-B7BA-3456F0B51673}
@@ -121,6 +107,5 @@ Global
 		{03E4FDC4-FBC9-4CA8-BBDA-FEA1DAA709C6} = {32A19BA8-5F13-4306-927C-B8F01C6528DD}
 		{41051B2F-7A69-41F2-A787-1DD23A7D89F8} = {5CA96EE6-7C75-41FC-942E-3151740ED06B}
 		{63618577-2A3B-4497-8802-C552A39AC435} = {41051B2F-7A69-41F2-A787-1DD23A7D89F8}
-		{31763B2B-3EA7-478C-AC6F-71922A129BBA} = {17B9255A-A9B8-4842-B46B-090555B658DE}
 	EndGlobalSection
 EndGlobal
