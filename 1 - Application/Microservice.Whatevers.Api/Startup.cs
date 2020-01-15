@@ -1,3 +1,5 @@
+using Microservice.Whatevers.Data;
+using Microservice.Whatevers.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +21,9 @@ namespace Microservice.Whatevers.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            IocServices.Register(services);
+            IoCData.Register(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
