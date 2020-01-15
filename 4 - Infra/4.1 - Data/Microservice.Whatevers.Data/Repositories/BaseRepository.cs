@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Microservice.Whatevers.Data.Repository;
 using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Data.Context;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Data.Repositories
 {
@@ -11,6 +13,8 @@ namespace Microservice.Whatevers.Data.Repositories
 
         public void Delete(int id)
         {
+            _whateverContext.Set<T>().Remove(Select(id));
+            _whateverContext.SaveChanges();
         }
 
         public void Insert(T entity)
@@ -19,19 +23,14 @@ namespace Microservice.Whatevers.Data.Repositories
             _whateverContext.SaveChanges();
         }
 
-        public T Select(int id)
-        {
-            throw new System.NotImplementedException();
-        }
+        public T Select(int id) => _whateverContext.Set<T>().Find(id);
 
-        public IList<T> SelectAll()
-        {
-            throw new System.NotImplementedException();
-        }
+        public IList<T> SelectAll() => _whateverContext.Set<T>().ToList();
 
         public void Update(T entity)
         {
-            throw new System.NotImplementedException();
+            _whateverContext.Entry(entity).State = EntityState.Modified;
+            _whateverContext.SaveChanges();
         }
     }
 }
