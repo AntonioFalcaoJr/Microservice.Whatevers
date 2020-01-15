@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microservice.Whatevers.Domain.Entities;
-using Microservice.Whatevers.Data.Contexts;
 
-namespace Microservice.Whatevers.Data.Context
+namespace Microservice.Whatevers.Data.Contexts
 {
     public class WhateverContext : DbContext, IWhateverContext
     {
