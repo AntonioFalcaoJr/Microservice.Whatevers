@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\2 - Domain\Microservice.Whatevers.Domain\Microservice.Whatevers.Domain.csproj" />
+    <ProjectReference Include="..\..\4 - Infra\4.1 - Data\Microservice.Whatevers.Data\Microservice.Whatevers.Data.csproj" />
   </ItemGroup>
 
 </Project>
