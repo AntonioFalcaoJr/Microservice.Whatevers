@@ -1,5 +1,4 @@
 using System;
-using FluentValidation;
 using System.Collections.Generic;
 using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Data.Repositories;
@@ -23,10 +22,8 @@ namespace Microservice.Whatevers.Services.Services
             _repository.Delete(id);
         }
 
-        public TEntity Edit<TValidator>(TEntity entity) where TValidator : AbstractValidator<TEntity>
+        public TEntity Edit(TEntity entity) 
         {
-            Validate(entity, Activator.CreateInstance<TValidator>());
-
             _repository.Update(entity);
             return entity;
         }
@@ -35,26 +32,15 @@ namespace Microservice.Whatevers.Services.Services
 
         public TEntity GetById(Guid id)
         {
-            return id != Guid.Empty
-                ? _repository.Select(id)
-                : throw new ArgumentException("Id inválido");
-
+            return id == Guid.Empty
+                ? throw new ArgumentException("Id inválido")
+                : _repository.Select(id);
         }
 
-        public TEntity Save<TValidator>(TEntity entity) where TValidator : AbstractValidator<TEntity>
+        public TEntity Save(TEntity entity)
         {
-            Validate(entity, Activator.CreateInstance<TValidator>());
-
             _repository.Insert(entity);
             return entity;
-        }
-
-        private void Validate(TEntity entity, AbstractValidator<TEntity> validator)
-        {
-            if (entity is null)
-                throw new Exception("Entidade não encontrada/informada");
-
-            validator.ValidateAndThrow(entity);
         }
     }
 }
