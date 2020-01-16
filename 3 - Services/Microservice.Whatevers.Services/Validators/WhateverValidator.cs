@@ -4,7 +4,7 @@ using Microservice.Whatevers.Domain.Entities;
 
 namespace Microservice.Whatevers.Services.Validators
 {
-    public class WhateverValidator : AbstractValidator<Whatever>
+    public class WhateverValidator : AbstractValidator<Whatever>, IWhateverValidator
     {
         public WhateverValidator()
         {

@@ -3,7 +3,7 @@ using Microservice.Whatevers.Domain.Entities;
 
 namespace Microservice.Whatevers.Services.Validators
 {
-    public class ThingValidator : AbstractValidator<Thing>
+    public class ThingValidator : AbstractValidator<Thing>, IThingValidator
     {
         public ThingValidator()
         {
