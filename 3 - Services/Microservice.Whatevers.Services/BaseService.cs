@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Data.Repositories;
 
-namespace Microservice.Whatevers.Services.Services
+namespace Microservice.Whatevers.Services
 {
     public abstract class BaseService<TEntity> : IService<TEntity> where TEntity : BaseEntity
     {

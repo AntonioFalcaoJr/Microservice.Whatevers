@@ -1,7 +1,7 @@
 using Microservice.Whatevers.Data.Repositories;
 using Microservice.Whatevers.Domain.Entities;
 
-namespace Microservice.Whatevers.Services.Services
+namespace Microservice.Whatevers.Services
 {
     public class WhateverService : BaseService<Whatever>, IWhateverService
     {
