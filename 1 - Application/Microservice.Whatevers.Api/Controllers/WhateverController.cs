@@ -4,6 +4,7 @@ using Microservice.Whatevers.Domain.Entities;
 using System.Collections.Generic;
 using Microservice.Whatevers.Services.Validators;
 
+
 namespace Microservice.Whatevers.Api.Controllers
 {
     [ApiController]
@@ -11,10 +12,12 @@ namespace Microservice.Whatevers.Api.Controllers
     public class WhateverController : ControllerBase
     {
         private readonly IWhateverService _whateverService;
+        private readonly IWhateverValidator _validator;
 
-        public WhateverController(IWhateverService whateverService)
+        public WhateverController(IWhateverService whateverService, IWhateverValidator validator)
         {
             _whateverService = whateverService;
+            _validator = validator;
         }
 
         [HttpGet]
@@ -23,14 +26,13 @@ namespace Microservice.Whatevers.Api.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Whatever whatever)
         {
+            var validationResult = _validator.Validate(whatever);
 
-            if (whatever is null)
-                return BadRequest("Objeto não informado");
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors);
 
-            _whateverService.Save<WhateverValidator>(whatever);
-
+            _whateverService.Save(whatever);
             return new ObjectResult(whatever.Id);
         }
-
     }
 }
