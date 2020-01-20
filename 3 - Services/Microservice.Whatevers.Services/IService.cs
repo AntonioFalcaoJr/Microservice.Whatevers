@@ -10,6 +10,6 @@ namespace Microservice.Whatevers.Services
         TEntity Edit(TEntity entity);
         void Delete(Guid id);
         TEntity GetById(Guid id);
-        IList<TEntity> Get();
+        IList<TEntity> GetAll();
     }
 }
