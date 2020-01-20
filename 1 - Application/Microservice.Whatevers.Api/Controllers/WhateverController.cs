@@ -7,8 +7,7 @@ using System;
 
 namespace Microservice.Whatevers.Api.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
+    [ApiController,Route("[controller]")]
     public class WhateverController : ControllerBase
     {
         private readonly IWhateverService _whateverService;
@@ -21,9 +20,9 @@ namespace Microservice.Whatevers.Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Whatever>> Get()
+        public ActionResult<IEnumerable<Whatever>> GetAll()
         {
-            var result = _whateverService.Get();
+            var result = _whateverService.GetAll();
 
             if (result is null || result.Count == 0)
                 return NoContent();
@@ -34,13 +33,11 @@ namespace Microservice.Whatevers.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
-            if (id == Guid.Empty)
-                return NotFound();
+            if (id == Guid.Empty) return BadRequest();
 
             var whatever = _whateverService.GetById(id);
 
-            if (whatever is null)
-                return NotFound();
+            if (whatever is null) return NotFound();
 
             return Ok(whatever);
         }
@@ -48,6 +45,8 @@ namespace Microservice.Whatevers.Api.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Whatever whatever)
         {
+            if (whatever is null) return BadRequest();
+            
             var validationResult = _validator.Validate(whatever);
 
             if (!validationResult.IsValid)
@@ -60,22 +59,14 @@ namespace Microservice.Whatevers.Api.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, [FromBody] Whatever whatever)
         {
-            if (id == Guid.Empty)
-                return NotFound();
+            if (Guid.Empty == id) return BadRequest();
+            if (whatever?.Id != id) return BadRequest();
 
             var whateverFromContext = _whateverService.GetById(id);
-
-            if (whateverFromContext is null)
-                return NotFound();
+            if (whateverFromContext is null) return NotFound();
 
             var validationResult = _validator.Validate(whatever);
-
-            if (!validationResult.IsValid)
-                return BadRequest(validationResult.Errors);
-
-            whateverFromContext.Name = whatever.Name;
-            whateverFromContext.Things = whatever.Things;
-            whateverFromContext.Time = whatever.Time;
+            if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
 
             _whateverService.Edit(whateverFromContext);
             return Ok(whateverFromContext);
@@ -84,13 +75,11 @@ namespace Microservice.Whatevers.Api.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
-            if (id == Guid.Empty)
-                return NotFound();
+            if (id == Guid.Empty) return BadRequest();
 
             var whatever = _whateverService.GetById(id);
 
-            if (whatever is null)
-                return NotFound();
+            if (whatever is null) return NotFound();
 
             _whateverService.Delete(id);
             return NoContent();
