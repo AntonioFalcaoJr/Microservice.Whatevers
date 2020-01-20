@@ -1,6 +1,8 @@
 # WIP - Microservice.Whatever (Work in progress) 
 
-Projeto inicial para meetup/hand's-on .NET. Nos próximos encontros, iremos evoluir o projeto para tópicos:
+Projeto inicial para meetup/hand's-on .NET Core 
+
+Nos próximos encontros, iremos evoluir o projeto para tópicos:
 
 - Alta disponibilidade com processamento assíncrono.
 - Resiliência com Polly e Refresh token with Polly-retry.
