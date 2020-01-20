@@ -28,7 +28,7 @@ namespace Microservice.Whatevers.Services
             return entity;
         }
 
-        public IList<TEntity> Get() => _repository.SelectAll();
+        public IList<TEntity> GetAll() => _repository.SelectAll();
 
         public TEntity GetById(Guid id)
         {
