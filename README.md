@@ -6,7 +6,7 @@ Nos próximos encontros, iremos evoluir o projeto para tópicos:
 
 - Alta disponibilidade com processamento assíncrono.
 - Resiliência com Polly e Refresh token with Polly-retry.
-- Tratar esgotamento de socket com IHttpClient e respectivo design para clients.
+- Tratar esgotamento de socket com IHttpClientFactory e respectivo design para clients.
 - Versionamento de API.
 - Swagger.
 - Serviço de Log utilizando ILogger e Log4Net. 
