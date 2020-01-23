@@ -1,8 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
-using Microservice.Whatevers.Services;
-using Microservice.Whatevers.Domain.Entities;
-using System.Collections.Generic;
 using Microservice.Whatevers.Services.Validators;
+using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Services;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using System.Threading;
 using System;
 
 namespace Microservice.Whatevers.Api.Controllers
@@ -20,9 +22,9 @@ namespace Microservice.Whatevers.Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Whatever>> GetAll()
+        public async Task<ActionResult<IEnumerable<Whatever>>> GetAll(CancellationToken cancellationToken)
         {
-            var result = _whateverService.GetAll();
+            var result = await _whateverService.GetAllAsync(cancellationToken);
 
             if (result is null || result.Count == 0)
                 return NoContent();
@@ -31,11 +33,11 @@ namespace Microservice.Whatevers.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
             if (id == Guid.Empty) return BadRequest();
 
-            var whatever = _whateverService.GetById(id);
+            var whatever = await _whateverService.GetByIdAsync(id, cancellationToken);
 
             if (whatever is null) return NotFound();
 
@@ -43,45 +45,42 @@ namespace Microservice.Whatevers.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Whatever whatever)
+        public async Task<IActionResult> PostAsync([FromBody] Whatever whatever, CancellationToken cancellationToken)
         {
             if (whatever is null) return BadRequest();
             
-            var validationResult = _validator.Validate(whatever);
+            var validationResult = await _validator.ValidateAsync(whatever,cancellationToken);
 
             if (!validationResult.IsValid)
                 return BadRequest(validationResult.Errors);
 
-            _whateverService.Save(whatever);
-            return CreatedAtAction(nameof(GetById), new { id = whatever.Id }, whatever);
+            await _whateverService.SaveAsync(whatever, cancellationToken);
+            return CreatedAtAction(nameof(GetByIdAsync), new { id = whatever.Id }, whatever);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, [FromBody] Whatever whatever)
+        public async Task<IActionResult> PutAsync(Guid id, [FromBody] Whatever whatever, CancellationToken cancellationToken)
         {
             if (Guid.Empty == id) return BadRequest();
             if (whatever?.Id != id) return BadRequest();
-
-            var whateverFromContext = _whateverService.GetById(id);
-            if (whateverFromContext is null) return NotFound();
-
-            var validationResult = _validator.Validate(whatever);
+            
+            var validationResult = await _validator.ValidateAsync(whatever, cancellationToken);
             if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
-
-            _whateverService.Edit(whateverFromContext);
-            return Ok(whateverFromContext);
+            
+            await _whateverService.EditAsync(whatever, cancellationToken);
+            return Ok(whatever);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
             if (id == Guid.Empty) return BadRequest();
 
-            var whatever = _whateverService.GetById(id);
+            var whatever = _whateverService.GetByIdAsync(id, cancellationToken);
 
             if (whatever is null) return NotFound();
 
-            _whateverService.Delete(id);
+            await _whateverService.DeleteAsync(id, cancellationToken);
             return NoContent();
         }
     }
