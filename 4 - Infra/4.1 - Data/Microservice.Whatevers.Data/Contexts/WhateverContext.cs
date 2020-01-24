@@ -11,16 +11,13 @@ namespace Microservice.Whatevers.Data.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseInMemoryDatabase(databaseName: "WhateverDb");
+                optionsBuilder.UseInMemoryDatabase("WhateverDb");
 
             base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // modelBuilder.Entity<Whatever>(new WhateverConfig().Configure);
-            // modelBuilder.Entity<Thing>(new ThingConfig().Configure);
-
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(WhateverContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
