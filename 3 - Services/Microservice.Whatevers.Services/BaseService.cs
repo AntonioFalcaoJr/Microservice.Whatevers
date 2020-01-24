@@ -11,7 +11,7 @@ namespace Microservice.Whatevers.Services
     {
         private readonly IRepository<TEntity> _repository;
 
-        public BaseService(IRepository<TEntity> repository)
+        protected BaseService(IRepository<TEntity> repository)
         {
             _repository = repository;
         }
@@ -44,29 +44,27 @@ namespace Microservice.Whatevers.Services
             return entity;
         }
 
-        public bool Exists(Guid id) => _repository.Exists(id);
+        public bool Exists(Guid id) => 
+            _repository.Exists(id);
 
         public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken) => 
             await _repository.ExistsAsync(id, cancellationToken);
 
-        public IList<TEntity> GetAll() => _repository.SelectAll();
+        public IList<TEntity> GetAll() => 
+            _repository.SelectAll();
 
         public async Task<IList<TEntity>> GetAllAsync(CancellationToken cancellationToken) => 
             await _repository.SelectAllAsync(cancellationToken);
 
-        public TEntity GetById(Guid id)
-        {
-            return id == Guid.Empty
+        public TEntity GetById(Guid id) => 
+            id == Guid.Empty
                 ? throw new ArgumentException("Id inválido")
-                : _repository.Select(id);
-        }
+                : _repository.SelectById(id);
 
-        public async Task<TEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken)
-        {
-            return id == Guid.Empty
+        public async Task<TEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken) => 
+            id == Guid.Empty
                 ? throw new ArgumentException("Id inválido")
-                : await _repository.SelectAsync(id, cancellationToken);
-        }
+                : await _repository.SelectByIdAsync(id, cancellationToken);
 
         public TEntity Save(TEntity entity)
         {
