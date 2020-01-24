@@ -17,8 +17,8 @@ namespace Microservice.Whatevers.Data.Repositories
         void Delete(Guid id);
         Task DeleteAsync(Guid id, CancellationToken cancellationToken);
 
-        T Select(Guid id);
-        Task<T> SelectAsync(Guid id, CancellationToken cancellationToken);
+        T SelectById(Guid id);
+        Task<T> SelectByIdAsync(Guid id, CancellationToken cancellationToken);
 
         IList<T> SelectAll();
         Task<IList<T>> SelectAllAsync(CancellationToken cancellationToken);
