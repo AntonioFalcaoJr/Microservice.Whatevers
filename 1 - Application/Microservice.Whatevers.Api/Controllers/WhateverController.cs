@@ -72,9 +72,7 @@ namespace Microservice.Whatevers.Api.Controllers
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
             if (id == Guid.Empty) return BadRequest();
-
-            var whatever = await _whateverService.GetByIdAsync(id, cancellationToken);
-            if (whatever is null) return NotFound();
+            if (!await _whateverService.ExistsAsync(id, cancellationToken)) return NotFound();
 
             await _whateverService.DeleteAsync(id, cancellationToken);
             return Accepted();
