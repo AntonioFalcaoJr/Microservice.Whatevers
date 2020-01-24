@@ -9,7 +9,8 @@ using System;
 
 namespace Microservice.Whatevers.Api.Controllers
 {
-    [ApiController,Route("[controller]")]
+    [ApiController]
+    [Route("[controller]")]
     public class WhateverController : ControllerBase
     {
         private readonly IWhateverService _whateverService;
@@ -22,23 +23,21 @@ namespace Microservice.Whatevers.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Whatever>>> GetAll(CancellationToken cancellationToken)
+        public async Task<ActionResult<IEnumerable<Whatever>>> GetAllAsync(CancellationToken cancellationToken)
         {
-            var result = await _whateverService.GetAllAsync(cancellationToken);
+            var whatevers = await _whateverService.GetAllAsync(cancellationToken);
+            if (whatevers is {Count: 0}) return NotFound();
 
-            if (result is null || result.Count == 0)
-                return NoContent();
-
-            return Ok(result);
+            return Ok(whatevers);
         }
 
         [HttpGet("{id}")]
+        [ActionName("GetByIdAsync")]
         public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
             if (id == Guid.Empty) return BadRequest();
 
             var whatever = await _whateverService.GetByIdAsync(id, cancellationToken);
-
             if (whatever is null) return NotFound();
 
             return Ok(whatever);
@@ -50,12 +49,10 @@ namespace Microservice.Whatevers.Api.Controllers
             if (whatever is null) return BadRequest();
             
             var validationResult = await _validator.ValidateAsync(whatever,cancellationToken);
-
-            if (!validationResult.IsValid)
-                return BadRequest(validationResult.Errors);
+            if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
 
             await _whateverService.SaveAsync(whatever, cancellationToken);
-            return CreatedAtAction(nameof(GetByIdAsync), new { id = whatever.Id }, whatever);
+            return CreatedAtAction(nameof(GetByIdAsync), new { id = whatever.Id, cancellationToken }, whatever);
         }
 
         [HttpPut("{id}")]
@@ -76,12 +73,11 @@ namespace Microservice.Whatevers.Api.Controllers
         {
             if (id == Guid.Empty) return BadRequest();
 
-            var whatever = _whateverService.GetByIdAsync(id, cancellationToken);
-
+            var whatever = await _whateverService.GetByIdAsync(id, cancellationToken);
             if (whatever is null) return NotFound();
 
             await _whateverService.DeleteAsync(id, cancellationToken);
-            return NoContent();
+            return Accepted();
         }
     }
 }
