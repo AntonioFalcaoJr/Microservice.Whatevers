@@ -49,3 +49,4 @@ End with an example of getting some data out of the system or using it for a lit
 
 * [Microsoft .NET](https://dotnet.microsoft.com/)
 * [Entity Framework Core](https://docs.microsoft.com/en-us/ef/#pivot=efcore) 
+* [Fluent Validation](https://fluentvalidation.net/) 
