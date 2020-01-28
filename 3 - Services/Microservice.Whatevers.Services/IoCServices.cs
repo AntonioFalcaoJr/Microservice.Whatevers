@@ -1,5 +1,6 @@
 using FluentValidation;
 using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Services.Models;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,9 +10,9 @@ namespace Microservice.Whatevers.Services
     {
         public static void Register(IServiceCollection services)
         {
-            services.AddScoped<IService<Whatever>, WhateverService>();
-            services.AddScoped<IValidator<Whatever>, WhateverValidator>();
-            services.AddScoped<IValidator<Thing>, ThingValidator>();
+            services.AddScoped<IWhateverService, WhateverService>();
+            services.AddScoped<IValidator<WhateverModel>, WhateverModelValidator>();
+            services.AddScoped<IValidator<ThingModel>, ThingModelValidator>();
         }
     }
 }
