@@ -1,3 +1,4 @@
+using AutoMapper;
 using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Data;
 using Microservice.Whatevers.Services;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microservice.Whatevers.Services.Mapper;
 
 namespace Microservice.Whatevers.Api
 {
@@ -24,6 +26,8 @@ namespace Microservice.Whatevers.Api
             services.AddControllers();
 
             services.AddMvcCore().AddFluentValidation();
+
+            services.AddAutoMapper(typeof(DomainToModelMappingProfile), typeof(ModelToDomainMappingProfile));
 
             IocServices.Register(services);
             IoCData.Register(services);
