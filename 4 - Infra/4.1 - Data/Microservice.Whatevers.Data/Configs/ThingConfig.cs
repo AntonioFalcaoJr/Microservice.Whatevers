@@ -1,8 +1,8 @@
+using Microservice.Whatevers.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microservice.Whatevers.Domain.Entities;
 
-namespace Microservice.Whatevers.Data.Config
+namespace Microservice.Whatevers.Data.Configs
 {
     public class ThingConfig : IEntityTypeConfiguration<Thing>
     {
