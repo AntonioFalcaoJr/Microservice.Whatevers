@@ -20,8 +20,8 @@ namespace Microservice.Whatevers.Services
         TEntity GetById(Guid id);
         Task<TEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken);
 
-        IList<TEntity> GetAll();
-        Task<IList<TEntity>> GetAllAsync(CancellationToken cancellationToken);
+        IEnumerable<TEntity> GetAll();
+        Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken);
 
         bool Exists(Guid id);
         Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken);
