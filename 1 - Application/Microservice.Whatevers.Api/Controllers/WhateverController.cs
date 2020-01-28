@@ -1,11 +1,10 @@
-using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Services;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-using FluentValidation;
+using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Api.Controllers
 {
@@ -14,13 +13,13 @@ namespace Microservice.Whatevers.Api.Controllers
     {
         private readonly IWhateverService _whateverService;
 
-        public WhateverController(IWhateverService whateverService, IValidator<Whatever> validator)
+        public WhateverController(IWhateverService whateverService)
         {
             _whateverService = whateverService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Whatever>>> GetAllAsync(CancellationToken cancellationToken)
+        public async Task<ActionResult<IEnumerable<WhateverModel>>> GetAllAsync(CancellationToken cancellationToken)
         {
             var whatevers = await _whateverService.GetAllAsync(cancellationToken);
             if (whatevers is {Count: 0}) return NoContent();
@@ -31,8 +30,8 @@ namespace Microservice.Whatevers.Api.Controllers
         [HttpGet("{id}"),ActionName("GetByIdAsync")]
         public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            if (Guid.Empty == id) return BadRequest();
-
+            if (Guid.Empty == id) return BadRequest("Identificador inválido.");
+            
             var whatever = await _whateverService.GetByIdAsync(id, cancellationToken);
             if (whatever is null) return NotFound();
 
@@ -40,25 +39,25 @@ namespace Microservice.Whatevers.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] Whatever whatever, CancellationToken cancellationToken)
+        public async Task<IActionResult> PostAsync([FromBody] WhateverModel model, CancellationToken cancellationToken)
         {
-            await _whateverService.SaveAsync(whatever, cancellationToken);
+            var whatever = await _whateverService.SaveAsync(model, cancellationToken);
             return CreatedAtAction(nameof(GetByIdAsync), new { id = whatever.Id, cancellationToken }, whatever);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(Guid id, [FromBody] Whatever whatever, CancellationToken cancellationToken)
-        {
-            if (Guid.Empty == id || whatever?.Id != id) return BadRequest();
+        public async Task<IActionResult> PutAsync(Guid id, [FromBody] WhateverModel model, CancellationToken cancellationToken)
+        {            
+            if (Guid.Empty == id) return BadRequest("Identificador inválido.");
+            if (model?.Id != id) return BadRequest("Identificador diverge do objeto solicitado.");
             
-            await _whateverService.EditAsync(whatever, cancellationToken);
+            var whatever = await _whateverService.EditAsync(model, cancellationToken);
             return Ok(whatever);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
-            if (Guid.Empty == id) return BadRequest();
             if (!await _whateverService.ExistsAsync(id, cancellationToken)) return NotFound();
             
             await _whateverService.DeleteAsync(id, cancellationToken);
