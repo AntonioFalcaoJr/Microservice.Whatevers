@@ -60,7 +60,7 @@ namespace Microservice.Whatevers.Data.Repositories
         public async Task<T> SelectByIdAsync(Guid id, CancellationToken cancellationToken) => 
             await _dbSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
-        public IList<T> SelectAll() => 
+        public IEnumerable<T> SelectAll() => 
             _dbSet.AsNoTracking().ToList();
 
         public async Task<IList<T>> SelectAllAsync(CancellationToken cancellationToken) => 
