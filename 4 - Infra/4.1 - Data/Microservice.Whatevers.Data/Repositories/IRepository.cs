@@ -1,5 +1,4 @@
 using Microservice.Whatevers.Domain.Entities;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Linq;
@@ -21,12 +20,9 @@ namespace Microservice.Whatevers.Data.Repositories
         TEntity SelectById(Guid id);
         Task<TEntity> SelectByIdAsync(Guid id, CancellationToken cancellationToken);
 
-        IEnumerable<TEntity> SelectAll();
-        Task<IList<TEntity>> SelectAllAsync(CancellationToken cancellationToken);
+        IQueryable<TEntity> SelectAll();
         
         bool Exists(Guid id);
         Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken);
-        
-        IQueryable<TEntity> GetAllQueryable();
     }
 }
