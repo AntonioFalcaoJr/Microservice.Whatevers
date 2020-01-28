@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Data;
 using Microservice.Whatevers.Services;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +22,8 @@ namespace Microservice.Whatevers.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddMvcCore().AddFluentValidation();
 
             IocServices.Register(services);
             IoCData.Register(services);
