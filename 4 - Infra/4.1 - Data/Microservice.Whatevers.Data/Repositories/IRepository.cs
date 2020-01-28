@@ -1,29 +1,32 @@
-using System.Threading.Tasks;
-using System;
 using Microservice.Whatevers.Domain.Entities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Threading;
+using System.Linq;
+using System;
 
 namespace Microservice.Whatevers.Data.Repositories
 {
-    public interface IRepository<T> where T : BaseEntity
+    public interface IRepository<TEntity> where TEntity : BaseEntity
     {
-        void Insert(T entity);
-        Task InsertAsync(T entity, CancellationToken cancellationToken);
+        void Insert(TEntity entity);
+        Task InsertAsync(TEntity entity, CancellationToken cancellationToken);
 
-        void Update(T entity);
-        Task UpdateAsync(T entity, CancellationToken cancelletionToken);
+        void Update(TEntity entity);
+        Task UpdateAsync(TEntity entity, CancellationToken cancelletionToken);
 
         void Delete(Guid id);
         Task DeleteAsync(Guid id, CancellationToken cancellationToken);
 
-        T SelectById(Guid id);
-        Task<T> SelectByIdAsync(Guid id, CancellationToken cancellationToken);
+        TEntity SelectById(Guid id);
+        Task<TEntity> SelectByIdAsync(Guid id, CancellationToken cancellationToken);
 
-        IList<T> SelectAll();
-        Task<IList<T>> SelectAllAsync(CancellationToken cancellationToken);
+        IEnumerable<TEntity> SelectAll();
+        Task<IList<TEntity>> SelectAllAsync(CancellationToken cancellationToken);
         
         bool Exists(Guid id);
         Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken);
+        
+        IQueryable<TEntity> GetAllQueryable();
     }
 }
