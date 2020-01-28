@@ -4,13 +4,13 @@ using Microservice.Whatevers.Domain.Entities;
 
 namespace Microservice.Whatevers.Services.Validators
 {
-    public class WhateverValidator : AbstractValidator<Whatever>, IWhateverValidator
+    public class WhateverValidator : AbstractValidator<Whatever>
     {
         public WhateverValidator()
         {
             RuleFor(x => x)
             .NotNull()
-            .OnAnyFailure(x => throw new ArgumentNullException("Objeto Whatever não localizado."));
+            .OnAnyFailure(x => throw new ArgumentNullException($"Objeto Whatever não localizado."));
 
             RuleFor(x => x.Name)
             .NotEmpty().WithMessage("O Nome deve ser informado")
