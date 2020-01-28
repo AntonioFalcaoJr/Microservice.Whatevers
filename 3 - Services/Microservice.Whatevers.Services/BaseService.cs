@@ -7,7 +7,9 @@ using System.Threading;
 
 namespace Microservice.Whatevers.Services
 {
-    public abstract class BaseService<TEntity> : IService<TEntity> where TEntity : BaseEntity
+    public abstract class BaseService<TEntity, TModel> : IService<TEntity> 
+        where TEntity : BaseEntity 
+        where TModel: class
     {
         private readonly IRepository<TEntity> _repository;
 
@@ -44,16 +46,14 @@ namespace Microservice.Whatevers.Services
             return entity;
         }
 
-        public bool Exists(Guid id) => 
-            _repository.Exists(id);
+        public bool Exists(Guid id) => _repository.Exists(id);
 
         public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken) => 
             await _repository.ExistsAsync(id, cancellationToken);
 
-        public IList<TEntity> GetAll() => 
-            _repository.SelectAll();
+        public IEnumerable<TEntity> GetAll() => _repository.SelectAll();
 
-        public async Task<IList<TEntity>> GetAllAsync(CancellationToken cancellationToken) => 
+        public async Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken) => 
             await _repository.SelectAllAsync(cancellationToken);
 
         public TEntity GetById(Guid id) => 
