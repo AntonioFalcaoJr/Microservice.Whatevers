@@ -1,5 +1,3 @@
-using System;
-
 namespace Microservice.Whatevers.Services.Models
 {
     public class ThingModel : BaseModel
