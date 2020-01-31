@@ -1,15 +1,14 @@
-using Microservice.Whatevers.Domain.Entities;
-using Microservice.Whatevers.Data.Contexts;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Linq;
 using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Microservice.Whatevers.Data.Contexts;
+using Microservice.Whatevers.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Data.Repositories
 {
-    public abstract class BaseRepository<TEntity> : IRepository<TEntity> 
+    public abstract class BaseRepository<TEntity> : IRepository<TEntity>
         where TEntity : BaseEntity
     {
         private readonly IWhateverContext _context;
@@ -35,7 +34,7 @@ namespace Microservice.Whatevers.Data.Repositories
 
         public virtual bool Exists(Guid id) => _dbSet.AsNoTracking().Any(x => x.Id == id);
 
-        public virtual async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken) => 
+        public virtual async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken) =>
             await _dbSet.AsNoTracking().AnyAsync(x => x.Id == id, cancellationToken);
 
         public virtual void Insert(TEntity entity)
@@ -49,15 +48,15 @@ namespace Microservice.Whatevers.Data.Repositories
         public virtual async Task InsertAsync(TEntity entity, CancellationToken cancellationToken)
         {
             if (await ExistsAsync(entity.Id, cancellationToken)) return;
-            
+
             await _dbSet.AddAsync(entity, cancellationToken);
             await _context.SaveChangesAsync(true, cancellationToken);
         }
 
-        public virtual TEntity SelectById(Guid id) => 
+        public virtual TEntity SelectById(Guid id) =>
             _dbSet.AsNoTracking().FirstOrDefault(x => x.Id == id);
 
-        public virtual async Task<TEntity> SelectByIdAsync(Guid id, CancellationToken cancellationToken) => 
+        public virtual async Task<TEntity> SelectByIdAsync(Guid id, CancellationToken cancellationToken) =>
             await _dbSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
         public IQueryable<TEntity> SelectAll() => _dbSet.AsNoTracking();
@@ -73,7 +72,7 @@ namespace Microservice.Whatevers.Data.Repositories
         public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken)
         {
             if (!await ExistsAsync(entity.Id, cancellationToken)) return;
-            
+
             _context.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync(true, cancellationToken);
         }
