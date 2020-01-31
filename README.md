@@ -1,5 +1,7 @@
 # WIP - Microservice.Whatevers (Work in progress) 
 
+[![CodeFactor](https://www.codefactor.io/repository/github/antoniofalcao/microservice.whatevers/badge/master)](https://www.codefactor.io/repository/github/antoniofalcao/microservice.whatevers/overview/master)
+
 Projeto inicial para meetup/hand's-on .NET Core 
 
 Nos próximos encontros, iremos evoluir o projeto para tópicos:
