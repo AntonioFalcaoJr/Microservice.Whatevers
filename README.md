@@ -1,4 +1,4 @@
-# WIP - Microservice.Whatever (Work in progress) 
+# WIP - Microservice.Whatevers (Work in progress) 
 
 Projeto inicial para meetup/hand's-on .NET Core 
 
@@ -8,7 +8,9 @@ Nos próximos encontros, iremos evoluir o projeto para tópicos:
 - Conhecendo o Dotnet CLI;
 - Conhecendo o *.SLN e *.CSPROJ;
 - Implementação de designs, tais como: Template Method, Strategy, Repository, dentre outros... 
-- Fluent Validation
+- Fluent Validation;
+- Auto Mapper;
+- Entity Framework in Memory;
 - Evoluindo API para alta disponibilidade com processamento assíncrono;
 - Versionamento de API;
 - Documentação de API's com Swagger;
