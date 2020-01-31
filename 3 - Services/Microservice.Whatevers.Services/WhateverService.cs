@@ -7,7 +7,7 @@ namespace Microservice.Whatevers.Services
 {
     public class WhateverService : BaseService<Whatever, WhateverModel>, IWhateverService
     {
-        public WhateverService(IWhateverRepository whateverRepository, IMapper mapper) 
-        : base(whateverRepository, mapper) { }
+        public WhateverService(IWhateverRepository whateverRepository, IMapper mapper)
+            : base(whateverRepository, mapper) { }
     }
 }
