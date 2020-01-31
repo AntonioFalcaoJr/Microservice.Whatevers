@@ -1,23 +1,23 @@
-using Microservice.Whatevers.Data.Repositories;
-using Microservice.Whatevers.Services.Models;
-using Microservice.Whatevers.Domain.Entities;
-using AutoMapper.QueryableExtensions;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Linq;
-using AutoMapper;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microservice.Whatevers.Data.Repositories;
+using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Services.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Services
 {
-    public abstract class BaseService<TEntity, TModel> : IService<TEntity, TModel> 
-        where TEntity : BaseEntity 
-        where TModel: BaseModel
+    public abstract class BaseService<TEntity, TModel> : IService<TEntity, TModel>
+        where TEntity : BaseEntity
+        where TModel : BaseModel
     {
-        private readonly IRepository<TEntity> _repository;
         private readonly IMapper _mapper;
+        private readonly IRepository<TEntity> _repository;
 
         protected BaseService(IRepository<TEntity> repository, IMapper mapper)
         {
@@ -27,16 +27,14 @@ namespace Microservice.Whatevers.Services
 
         public void Delete(Guid id)
         {
-            if (id == Guid.Empty)
-                throw new ArgumentException("Id inválido");
+            if (id == Guid.Empty) throw new ArgumentException("Id inválido");
 
             _repository.Delete(id);
         }
 
         public async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
-            if (id == Guid.Empty)
-                throw new ArgumentException("Id inválido");
+            if (id == Guid.Empty) throw new ArgumentException("Id inválido");
 
             await _repository.DeleteAsync(id, cancellationToken);
         }
@@ -57,10 +55,10 @@ namespace Microservice.Whatevers.Services
 
         public bool Exists(Guid id) => _repository.Exists(id);
 
-        public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken) => 
+        public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken) =>
             await _repository.ExistsAsync(id, cancellationToken);
 
-        public IList<TModel> GetAll() => 
+        public IList<TModel> GetAll() =>
             _repository.SelectAll().ProjectTo<TModel>(_mapper.ConfigurationProvider).ToList();
 
         public async Task<IList<TModel>> GetAllAsync(CancellationToken cancellationToken) =>
