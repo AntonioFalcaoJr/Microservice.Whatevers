@@ -1,11 +1,11 @@
-using Microsoft.EntityFrameworkCore;
 using Microservice.Whatevers.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Data.Contexts
 {
     public interface IWhateverContext : IDbContext
     {
-         DbSet<Whatever> Whatevers {get;set;}
-         DbSet<Thing> Things { get; set; }      
+        DbSet<Thing> Things { get; set; }
+        DbSet<Whatever> Whatevers { get; set; }
     }
 }
