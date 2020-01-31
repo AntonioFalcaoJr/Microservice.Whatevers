@@ -3,8 +3,5 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services
 {
-    public interface IWhateverService : IService<Whatever, WhateverModel>
-    {
-         
-    }
+    public interface IWhateverService : IService<Whatever, WhateverModel> { }
 }
