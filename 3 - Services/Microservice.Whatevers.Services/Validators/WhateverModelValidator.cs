@@ -1,6 +1,5 @@
 using System;
 using FluentValidation;
-using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Validators
@@ -11,7 +10,7 @@ namespace Microservice.Whatevers.Services.Validators
         {
             RuleFor(x => x)
                .NotNull().WithMessage("Objeto Whatever não informado.");
-            
+
             RuleFor(x => x.Id)
                .NotEqual(Guid.Empty).WithMessage("Identificador inválido.");
 
