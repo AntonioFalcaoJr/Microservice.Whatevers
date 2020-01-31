@@ -1,5 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using Microservice.Whatevers.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Data.Contexts
 {
@@ -10,8 +10,7 @@ namespace Microservice.Whatevers.Data.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseInMemoryDatabase("WhateverDb");
+            if (!optionsBuilder.IsConfigured) optionsBuilder.UseInMemoryDatabase("WhateverDb");
 
             base.OnConfiguring(optionsBuilder);
         }
