@@ -1,5 +1,4 @@
 using FluentValidation;
-using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Services.Models;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.Extensions.DependencyInjection;
