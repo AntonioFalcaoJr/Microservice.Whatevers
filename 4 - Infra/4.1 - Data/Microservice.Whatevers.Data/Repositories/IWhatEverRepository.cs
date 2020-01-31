@@ -2,8 +2,5 @@ using Microservice.Whatevers.Domain.Entities;
 
 namespace Microservice.Whatevers.Data.Repositories
 {
-    public interface IWhateverRepository : IRepository<Whatever>
-    {
-         
-    }
+    public interface IWhateverRepository : IRepository<Whatever> { }
 }
