@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Api.Controllers
 {
@@ -47,6 +48,8 @@ namespace Microservice.Whatevers.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] WhateverModel model, CancellationToken cancellationToken)
         {
+            if (!ModelState.IsValid) return BadRequest(model);
+
             var whatever = await _whateverService.SaveAsync(model, cancellationToken);
             return CreatedAtAction(nameof(GetByIdAsync), new {id = whatever.Id, cancellationToken}, whatever);
         }

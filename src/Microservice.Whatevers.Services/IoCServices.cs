@@ -11,8 +11,8 @@ namespace Microservice.Whatevers.Services
     {
         public static void Register(IServiceCollection services)
         {
-            services.AddTransient<IValidator<WhateverModel>, WhateverModelValidator>();
-            services.AddTransient<IValidator<ThingModel>, ThingModelValidator>();
+            // services.AddTransient<IValidator<WhateverModel>, WhateverModelValidator>();
+            // services.AddTransient<IValidator<ThingModel>, ThingModelValidator>();
             
             services.AddAutoMapper(typeof(DomainToModelMappingProfile), typeof(ModelToDomainMappingProfile));
             
