@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microservice.Whatevers.Data.Contexts;
 using Microservice.Whatevers.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,13 +10,13 @@ namespace Microservice.Whatevers.Data.Repositories
     public abstract class BaseRepository<TEntity> : IRepository<TEntity>
         where TEntity : BaseEntity
     {
-        private readonly IWhateverContext _context;
+        private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        protected BaseRepository(IWhateverContext whateverContext)
+        protected BaseRepository(DbContext context)
         {
-            _context = whateverContext;
-            _dbSet = whateverContext.Set<TEntity>();
+            _context = context;
+            _dbSet = context.Set<TEntity>();
         }
 
         public virtual void Delete(Guid id)
