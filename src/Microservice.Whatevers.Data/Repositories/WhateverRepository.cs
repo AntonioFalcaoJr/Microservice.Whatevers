@@ -5,7 +5,7 @@ namespace Microservice.Whatevers.Data.Repositories
 {
     public class WhateverRepository : BaseRepository<Whatever>, IWhateverRepository
     {
-        public WhateverRepository(WhateverContext dbContext)
-            : base(dbContext) { }
+        public WhateverRepository(WhateverContext whateverContext)
+            : base(whateverContext) { }
     }
 }
