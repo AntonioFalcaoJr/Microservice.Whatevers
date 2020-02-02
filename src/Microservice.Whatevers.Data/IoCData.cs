@@ -1,5 +1,6 @@
 using Microservice.Whatevers.Data.Contexts;
 using Microservice.Whatevers.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Microservice.Whatevers.Data
@@ -8,8 +9,12 @@ namespace Microservice.Whatevers.Data
     {
         public static void Register(IServiceCollection services)
         {
-            services.AddScoped<IWhateverContext, WhateverContext>();
-            services.AddScoped<IWhateverRepository, WhateverRepository>();
+            services
+               .AddDbContext<WhateverContext>(options => 
+                    options.UseInMemoryDatabase("WhateverDb"));
+            
+            services
+               .AddScoped<IWhateverRepository, WhateverRepository>();
         }
     }
 }
