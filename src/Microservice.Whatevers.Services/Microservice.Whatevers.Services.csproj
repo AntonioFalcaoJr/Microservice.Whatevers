@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microservice.Whatevers.Data\Microservice.Whatevers.Data.csproj" />
+    <ProjectReference Include="..\Microservice.Whatevers.Domain\Microservice.Whatevers.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
