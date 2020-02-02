@@ -14,6 +14,7 @@ namespace Microservice.Whatevers.Data.Repositories
 
         bool Exists(Guid id);
         Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken);
+
         void Insert(TEntity entity);
         Task InsertAsync(TEntity entity, CancellationToken cancellationToken);
 
