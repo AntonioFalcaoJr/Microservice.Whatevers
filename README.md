@@ -47,7 +47,6 @@ To run the tests use dotnet CLI
 ```
 dotnet test
 ```
-
 ## Built With
 
 * [Microsoft .NET Core](https://dotnet.microsoft.com/)
