@@ -10,8 +10,8 @@ namespace Microservice.Whatevers.Services
         public static void Register(IServiceCollection services)
         {
             services.AddScoped<IWhateverService, WhateverService>();
-            services.AddScoped<IValidator<WhateverModel>, WhateverModelValidator>();
-            services.AddScoped<IValidator<ThingModel>, ThingModelValidator>();
+            services.AddTransient<IValidator<WhateverModel>, WhateverModelValidator>();
+            services.AddTransient<IValidator<ThingModel>, ThingModelValidator>();
         }
     }
 }
