@@ -8,8 +8,8 @@ namespace Microservice.Whatevers.Services.Mapper
     {
         public DomainToModelMappingProfile()
         {
-            CreateMap<Whatever, WhateverModel>();
-            CreateMap<Thing, ThingModel>();
+            CreateMap<Whatever, WhateverModel>().ReverseMap();
+            CreateMap<Thing, ThingModel>().ReverseMap();
         }
     }
 }
