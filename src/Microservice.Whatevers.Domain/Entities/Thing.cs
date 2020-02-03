@@ -5,6 +5,6 @@ namespace Microservice.Whatevers.Domain.Entities
         public string Name { get; set; }
         public string Type { get; set; }
         public double Value { get; set; }
-        public virtual Whatever  Whatever { get; set; }
+        public virtual Whatever Whatever { get; set; }
     }
 }
