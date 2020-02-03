@@ -1,8 +1,6 @@
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Data;
 using Microservice.Whatevers.Services;
-using Microservice.Whatevers.Services.Models;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,13 +38,12 @@ namespace Microservice.Whatevers.Api
         {
             services.AddControllers();
 
-            services.AddMvcCore().AddFluentValidation();
+            services
+               .AddMvcCore()
+               .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<WhateverModelValidator>());
 
             IocServices.Register(services);
             IoCData.Register(services);
-
-            services.AddTransient<IValidator<ThingModel>, ThingModelValidator>();
-            services.AddTransient<IValidator<WhateverModel>, WhateverModelValidator>();
         }
     }
 }
