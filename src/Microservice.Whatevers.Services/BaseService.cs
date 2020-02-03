@@ -41,14 +41,14 @@ namespace Microservice.Whatevers.Services
         {
             var entity = _mapper.Map<TEntity>(model);
             _repository.Update(entity);
-            return model;
+            return _mapper.Map<TModel>(entity);
         }
 
         public async Task<TModel> EditAsync(TModel model, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<TEntity>(model);
             await _repository.UpdateAsync(entity, cancellationToken);
-            return model;
+            return _mapper.Map<TModel>(entity);
         }
 
         public bool Exists(Guid id) => _repository.Exists(id);
@@ -75,14 +75,14 @@ namespace Microservice.Whatevers.Services
         {
             var entity = _mapper.Map<TEntity>(model);
             _repository.Insert(entity);
-            return model;
+            return _mapper.Map<TModel>(entity);
         }
 
         public async Task<TModel> SaveAsync(TModel model, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<TEntity>(model);
             await _repository.InsertAsync(entity, cancellationToken);
-            return model;
+            return _mapper.Map<TModel>(entity);
         }
     }
 }
