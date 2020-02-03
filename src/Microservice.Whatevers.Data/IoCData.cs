@@ -11,7 +11,8 @@ namespace Microservice.Whatevers.Data
         {
             services
                .AddDbContext<WhateverContext>(options =>
-                    options.UseInMemoryDatabase("WhateverDb"));
+                    options.UseInMemoryDatabase("WhateverDb")
+                       .UseLazyLoadingProxies());
 
             services.AddScoped<IWhateverRepository, WhateverRepository>();
         }
