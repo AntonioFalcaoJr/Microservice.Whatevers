@@ -6,13 +6,6 @@ namespace Microservice.Whatevers.Services.Validators
 {
     public class WhateverModelValidator : AbstractValidator<WhateverModel>
     {
-        private readonly IValidator<ThingModel> _thingModelValidator;
-
-        public WhateverModelValidator(IValidator<ThingModel> thingModelValidator)
-        {
-            _thingModelValidator = thingModelValidator;
-        }
-        
         public WhateverModelValidator()
         {
             RuleFor(x => x)
@@ -26,7 +19,7 @@ namespace Microservice.Whatevers.Services.Validators
                .NotEmpty().WithMessage("O Nome deve ser informado.");
 
             RuleForEach(x => x.Things)
-               .SetValidator(_thingModelValidator);
+               .InjectValidator();
         }
     }
 }
