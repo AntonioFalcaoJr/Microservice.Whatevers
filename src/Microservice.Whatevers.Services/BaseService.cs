@@ -1,14 +1,14 @@
 using System;
-using System.Collections.Generic;
+using AutoMapper;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using AutoMapper.QueryableExtensions;
-using Microservice.Whatevers.Data.Repositories;
 using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Services.Models;
-using Microsoft.EntityFrameworkCore;
+using Microservice.Whatevers.Data.Repositories;
 
 namespace Microservice.Whatevers.Services
 {
@@ -27,30 +27,28 @@ namespace Microservice.Whatevers.Services
 
         public void Delete(Guid id)
         {
-            if (id == Guid.Empty) throw new ArgumentException("Id inválido");
-
+            if (id == Guid.Empty) return;
             _repository.Delete(id);
         }
 
         public async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
-            if (id == Guid.Empty) throw new ArgumentException("Id inválido");
-
+            if (id == Guid.Empty) return;
             await _repository.DeleteAsync(id, cancellationToken);
         }
 
-        public TEntity Edit(TModel model)
+        public TModel Edit(TModel model)
         {
             var entity = _mapper.Map<TEntity>(model);
             _repository.Update(entity);
-            return entity;
+            return model;
         }
 
-        public async Task<TEntity> EditAsync(TModel model, CancellationToken cancellationToken)
+        public async Task<TModel> EditAsync(TModel model, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<TEntity>(model);
             await _repository.UpdateAsync(entity, cancellationToken);
-            return entity;
+            return model;
         }
 
         public bool Exists(Guid id) => _repository.Exists(id);
@@ -59,10 +57,13 @@ namespace Microservice.Whatevers.Services
             await _repository.ExistsAsync(id, cancellationToken);
 
         public IList<TModel> GetAll() =>
-            _repository.SelectAll().ProjectTo<TModel>(_mapper.ConfigurationProvider).ToList();
+            _repository.SelectAll()
+               .ProjectTo<TModel>(_mapper.ConfigurationProvider)
+               .ToList();
 
         public async Task<IList<TModel>> GetAllAsync(CancellationToken cancellationToken) =>
-            await _repository.SelectAll().ProjectTo<TModel>(_mapper.ConfigurationProvider)
+            await _repository.SelectAll()
+               .ProjectTo<TModel>(_mapper.ConfigurationProvider)
                .ToListAsync(cancellationToken);
 
         public TModel GetById(Guid id) => _mapper.Map<TModel>(_repository.SelectById(id));
@@ -70,18 +71,18 @@ namespace Microservice.Whatevers.Services
         public async Task<TModel> GetByIdAsync(Guid id, CancellationToken cancellationToken) =>
             _mapper.Map<TModel>(await _repository.SelectByIdAsync(id, cancellationToken));
 
-        public TEntity Save(TModel model)
+        public TModel Save(TModel model)
         {
             var entity = _mapper.Map<TEntity>(model);
             _repository.Insert(entity);
-            return entity;
+            return model;
         }
 
-        public async Task<TEntity> SaveAsync(TModel model, CancellationToken cancellationToken)
+        public async Task<TModel> SaveAsync(TModel model, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<TEntity>(model);
             await _repository.InsertAsync(entity, cancellationToken);
-            return entity;
+            return model;
         }
     }
 }
