@@ -70,7 +70,7 @@ namespace Microservice.Whatevers.Data.Repositories
         public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken)
         {
             if (!await ExistsAsync(entity.Id, cancellationToken)) return;
-            
+
             _dbSet.Update(entity);
             await _context.SaveChangesAsync(cancellationToken);
         }
