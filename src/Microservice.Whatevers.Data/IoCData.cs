@@ -10,11 +10,10 @@ namespace Microservice.Whatevers.Data
         public static void Register(IServiceCollection services)
         {
             services
-               .AddDbContext<WhateverContext>(options => 
+               .AddDbContext<WhateverContext>(options =>
                     options.UseInMemoryDatabase("WhateverDb"));
-            
-            services
-               .AddScoped<IWhateverRepository, WhateverRepository>();
+
+            services.AddScoped<IWhateverRepository, WhateverRepository>();
         }
     }
 }
