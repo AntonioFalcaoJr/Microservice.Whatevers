@@ -12,7 +12,7 @@ namespace Microservice.Whatevers.Data.Configs
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Name).IsRequired().HasColumnName("Name");
             builder.Property(c => c.Time);
-            builder.HasMany(c => c.Things);
+            builder.HasMany(c => c.Things).WithOne(c => c.Whatever);
         }
     }
 }
