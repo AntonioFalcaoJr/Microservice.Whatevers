@@ -1,14 +1,14 @@
 using System;
-using AutoMapper;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microservice.Whatevers.Data.Repositories;
 using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Services.Models;
-using Microservice.Whatevers.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Services
 {
