@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Services.Models;
 
