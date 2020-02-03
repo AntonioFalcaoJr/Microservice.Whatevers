@@ -1,7 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Services.Models;
 
@@ -14,8 +14,8 @@ namespace Microservice.Whatevers.Services
         void Delete(Guid id);
         Task DeleteAsync(Guid id, CancellationToken cancellationToken);
 
-        TEntity Edit(TModel model);
-        Task<TEntity> EditAsync(TModel model, CancellationToken cancellationToken);
+        TModel Edit(TModel model);
+        Task<TModel> EditAsync(TModel model, CancellationToken cancellationToken);
 
         bool Exists(Guid id);
         Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken);
@@ -25,7 +25,8 @@ namespace Microservice.Whatevers.Services
 
         TModel GetById(Guid id);
         Task<TModel> GetByIdAsync(Guid id, CancellationToken cancellationToken);
-        TEntity Save(TModel model);
-        Task<TEntity> SaveAsync(TModel model, CancellationToken cancellationToken);
+
+        TModel Save(TModel model);
+        Task<TModel> SaveAsync(TModel model, CancellationToken cancellationToken);
     }
 }
