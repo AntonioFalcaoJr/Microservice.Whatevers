@@ -8,7 +8,7 @@ namespace Microservice.Whatevers.Services
     {
         public static void Register(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(DomainToModelMappingProfile), typeof(ModelToDomainMappingProfile));
+            services.AddAutoMapper(typeof(DomainToModelMappingProfile));
             services.AddScoped<IWhateverService, WhateverService>();
         }
     }
