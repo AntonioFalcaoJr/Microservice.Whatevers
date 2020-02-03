@@ -1,10 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Microservice.Whatevers.Api.Controllers
 {
