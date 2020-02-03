@@ -5,10 +5,11 @@ namespace Microservice.Whatevers.Data.Contexts
 {
     public class WhateverContext : DbContext
     {
-        public DbSet<Whatever> Whatevers { get; set; }
-        public DbSet<Thing> Things { get; set; }
+        public WhateverContext(DbContextOptions options)
+            : base(options) { }
 
-        public WhateverContext(DbContextOptions options) : base(options) { }
+        public DbSet<Thing> Things { get; set; }
+        public DbSet<Whatever> Whatevers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
