@@ -52,11 +52,10 @@ namespace Microservice.Whatevers.Data.Repositories
             await _context.SaveChangesAsync(true, cancellationToken);
         }
 
-        public virtual TEntity SelectById(Guid id) =>
-            _dbSet.AsNoTracking().FirstOrDefault(x => x.Id == id);
+        public virtual TEntity SelectById(Guid id) => _dbSet.Find(id);
 
         public virtual async Task<TEntity> SelectByIdAsync(Guid id, CancellationToken cancellationToken) =>
-            await _dbSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            await _dbSet.FindAsync(new object[] {id}, cancellationToken);
 
         public IQueryable<TEntity> SelectAll() => _dbSet.AsNoTracking();
 
@@ -64,16 +63,16 @@ namespace Microservice.Whatevers.Data.Repositories
         {
             if (!Exists(entity.Id)) return;
 
-            _context.Entry(entity).State = EntityState.Modified;
+            _dbSet.Update(entity);
             _context.SaveChanges();
         }
 
         public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken)
         {
             if (!await ExistsAsync(entity.Id, cancellationToken)) return;
-
-            _context.Entry(entity).State = EntityState.Modified;
-            await _context.SaveChangesAsync(true, cancellationToken);
+            
+            _dbSet.Update(entity);
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }
