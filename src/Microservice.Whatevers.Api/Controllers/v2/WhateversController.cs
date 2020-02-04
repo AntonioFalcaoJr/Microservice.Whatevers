@@ -6,14 +6,17 @@ using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Microservice.Whatevers.Api.Controllers
+namespace Microservice.Whatevers.Api.Controllers.v2
 {
-    [ApiController, Route("[controller]")]
-    public class WhateverController : ControllerBase
+    [ApiVersion("2")]
+    public class WhateversController : WhateverControllerBase
     {
-        private readonly IWhateverService _whateverService;
+         private readonly IWhateverService _whateverService;
 
-        public WhateverController(IWhateverService whateverService) => _whateverService = whateverService;
+        public WhateversController(IWhateverService whateverService)
+        {
+            _whateverService = whateverService;
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
@@ -33,7 +36,7 @@ namespace Microservice.Whatevers.Api.Controllers
             return Ok(whatevers);
         }
 
-        [HttpGet("{id}"), ActionName("GetByIdAsync")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
             if (Guid.Empty == id) return BadRequest("Identificador inválido.");
@@ -48,7 +51,7 @@ namespace Microservice.Whatevers.Api.Controllers
         public async Task<IActionResult> PostAsync([FromBody] WhateverModel model, CancellationToken cancellationToken)
         {
             var whatever = await _whateverService.SaveAsync(model, cancellationToken);
-            return CreatedAtAction(nameof(GetByIdAsync), new {id = whatever.Id, cancellationToken}, whatever);
+            return CreatedAtAction(nameof(GetByIdAsync), new {id = whatever.Id, cancellationToken, version = "2"}, whatever);
         }
 
         [HttpPut("{id}")]
