@@ -11,12 +11,9 @@ namespace Microservice.Whatevers.Api.Controllers.v2
     [ApiVersion("2")]
     public class WhateversController : WhateverControllerBase
     {
-         private readonly IWhateverService _whateverService;
+        private readonly IWhateverService _whateverService;
 
-        public WhateversController(IWhateverService whateverService)
-        {
-            _whateverService = whateverService;
-        }
+        public WhateversController(IWhateverService whateverService) => _whateverService = whateverService;
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
@@ -51,7 +48,10 @@ namespace Microservice.Whatevers.Api.Controllers.v2
         public async Task<IActionResult> PostAsync([FromBody] WhateverModel model, CancellationToken cancellationToken)
         {
             var whatever = await _whateverService.SaveAsync(model, cancellationToken);
-            return CreatedAtAction(nameof(GetByIdAsync), new {id = whatever.Id, cancellationToken, version = "2"}, whatever);
+
+            return CreatedAtAction(nameof(GetByIdAsync),
+                new {id = whatever.Id, cancellationToken, version = HttpContext.GetRequestedApiVersion()},
+                whatever);
         }
 
         [HttpPut("{id}")]
