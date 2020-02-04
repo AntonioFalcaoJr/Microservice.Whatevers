@@ -11,10 +11,7 @@ namespace Microservice.Whatevers.Api.Controllers.v1
     {
         private readonly IWhateverService _whateverService;
 
-        public WhateversController(IWhateverService whateverService)
-        {
-            _whateverService = whateverService;
-        }
+        public WhateversController(IWhateverService whateverService) => _whateverService = whateverService;
 
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
@@ -49,7 +46,10 @@ namespace Microservice.Whatevers.Api.Controllers.v1
         public IActionResult Post([FromBody] WhateverModel model)
         {
             var whatever = _whateverService.Save(model);
-            return CreatedAtAction(nameof(GetById), new {id = whatever.Id, version = "1"}, whatever);
+
+            return CreatedAtAction(nameof(GetById),
+                new {id = whatever.Id, version = HttpContext.GetRequestedApiVersion()},
+                whatever);
         }
 
         [HttpPut("{id}")]
