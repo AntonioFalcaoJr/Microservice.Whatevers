@@ -4,7 +4,6 @@ using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -38,7 +37,7 @@ namespace Microservice.Whatevers.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
+
             services.AddApiVersioning();
 
             services.AddMvcCore(options => options.SuppressAsyncSuffixInActionNames = false)
