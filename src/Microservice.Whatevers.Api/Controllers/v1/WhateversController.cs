@@ -48,7 +48,7 @@ namespace Microservice.Whatevers.Api.Controllers.v1
             var whatever = _whateverService.Save(model);
 
             return CreatedAtAction(nameof(GetById),
-                new {id = whatever.Id, version = HttpContext.GetRequestedApiVersion()},
+                new {id = whatever.Id, version = HttpContext.GetRequestedApiVersion().ToString()},
                 whatever);
         }
 
