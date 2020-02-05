@@ -4,7 +4,7 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Validators
 {
-    public class WhateverModelValidator : AbstractValidator<WhateverModel>
+    public class WhateverModelValidator : AbstractModelValidator<WhateverModel>
     {
         public WhateverModelValidator()
         {
