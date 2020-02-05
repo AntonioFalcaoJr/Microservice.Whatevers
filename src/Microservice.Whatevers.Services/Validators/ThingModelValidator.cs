@@ -4,10 +4,13 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Validators
 {
-    public class ThingModelValidator : AbstractValidator<ThingModel>
+    public class ThingModelValidator : AbstractModelValidator<ThingModel>
     {
         public ThingModelValidator()
         {
+            RuleFor(x => x)
+               .NotNull().WithMessage("Objeto Thing não informado.");
+            
             RuleFor(x => x.Id)
                .NotEqual(Guid.Empty).WithMessage("Identificador inválido");
 
