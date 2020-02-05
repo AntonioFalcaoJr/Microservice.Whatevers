@@ -4,9 +4,9 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Mapper
 {
-    public class DomainToModelMappingProfile : Profile
+    public class MappingProfile : Profile
     {
-        public DomainToModelMappingProfile()
+        public MappingProfile()
         {
             CreateMap<Whatever, WhateverModel>().ReverseMap();
             CreateMap<Thing, ThingModel>().ReverseMap();
