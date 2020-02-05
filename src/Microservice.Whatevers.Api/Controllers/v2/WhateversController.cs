@@ -50,7 +50,7 @@ namespace Microservice.Whatevers.Api.Controllers.v2
             var whatever = await _whateverService.SaveAsync(model, cancellationToken);
 
             return CreatedAtAction(nameof(GetByIdAsync),
-                new {id = whatever.Id, cancellationToken, version = HttpContext.GetRequestedApiVersion()},
+                new {id = whatever.Id, cancellationToken, version = HttpContext.GetRequestedApiVersion().ToString()},
                 whatever);
         }
 
