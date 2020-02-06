@@ -4,7 +4,6 @@ using System.Net.Http;
 using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Data;
 using Microservice.Whatevers.Services;
-using Microservice.Whatevers.Services.Models;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,10 +17,7 @@ namespace Microservice.Whatevers.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         private IConfiguration Configuration { get; }
 
@@ -49,8 +45,12 @@ namespace Microservice.Whatevers.Api
 
             services.AddMvcCore(options => options.SuppressAsyncSuffixInActionNames = false)
                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<WhateverModelValidator>());
-            
-            services.AddHttpClient("google", c => { c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]); })
+
+            services.AddHttpClient("google",
+                    c =>
+                    {
+                        c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]);
+                    })
                .AddPolicyHandler(GetRetryPolicy());
 
             IocServices.Register(services);
