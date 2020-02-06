@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microservice.Whatevers.Services.Abstractions
+namespace Microservice.Whatevers.Services
 {
     public abstract class BaseError
     {
@@ -15,17 +15,18 @@ namespace Microservice.Whatevers.Services.Abstractions
             _errors.Add(erro);
         }
 
-        public void AddErrors(IEnumerable<string> errors)
-        {
-             errors ??= new List<string>();
-             errors.ToList().ForEach(AddError);
-        }
-
         public void AddError(BaseError baseError) => AddErrors(baseError?.GetErrors());
 
-        public void AddError(IEnumerable<BaseError> baseErrors) => baseErrors?.ToList().ForEach(AddError);
+        public void AddErrors(IEnumerable<BaseError> baseErrors) => 
+            AddErrors(baseErrors?.SelectMany(x => x.GetErrors()));
 
-        public IEnumerable<string> GetErrors() => _errors;
+        public void AddErrors(IEnumerable<string> errors)
+        {
+            errors ??= new List<string>();
+            _errors.AddRange(errors);
+        }
+
+        public IEnumerable<string> GetErrors() => _errors ?? new List<string>();
 
         public bool IsValid() => !(_errors is {Count: 0});
     }
