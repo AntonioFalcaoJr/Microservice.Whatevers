@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Services
 {
-    public abstract class BaseService<TEntity, TModel> : IService<TEntity, TModel>
+    public abstract class ServiceBase<TEntity, TModel> : IService<TEntity, TModel>
         where TEntity : BaseEntity
         where TModel : BaseModel
     {
         private readonly IMapper _mapper;
         private readonly IRepository<TEntity> _repository;
 
-        protected BaseService(IRepository<TEntity> repository, IMapper mapper)
+        protected ServiceBase(IRepository<TEntity> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
