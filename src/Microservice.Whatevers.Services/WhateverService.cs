@@ -1,6 +1,7 @@
 using AutoMapper;
-using Microservice.Whatevers.Data.Repositories;
 using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Repositories;
+using Microservice.Whatevers.Services.Interfaces;
 using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services

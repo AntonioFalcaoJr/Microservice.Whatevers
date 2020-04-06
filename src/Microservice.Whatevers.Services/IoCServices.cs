@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microservice.Whatevers.Services.Clients;
+using Microservice.Whatevers.Services.Interfaces;
 using Microservice.Whatevers.Services.Mapper;
 using Microsoft.Extensions.DependencyInjection;
 

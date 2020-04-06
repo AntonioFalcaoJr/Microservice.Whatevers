@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microservice.Whatevers.Domain.Entities;
 
-namespace Microservice.Whatevers.Data.Repositories
+namespace Microservice.Whatevers.Repositories.Base
 {
     public interface IRepository<TEntity>
         where TEntity : EntityBase

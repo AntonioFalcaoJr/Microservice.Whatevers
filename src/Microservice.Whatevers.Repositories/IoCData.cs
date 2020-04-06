@@ -1,9 +1,8 @@
-using Microservice.Whatevers.Data.Contexts;
-using Microservice.Whatevers.Data.Repositories;
+using Microservice.Whatevers.Repositories.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Microservice.Whatevers.Data
+namespace Microservice.Whatevers.Repositories
 {
     public class IoCData
     {

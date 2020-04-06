@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microservice.Whatevers.Services
+namespace Microservice.Whatevers.Services.Models
 {
     public abstract class BaseError
     {

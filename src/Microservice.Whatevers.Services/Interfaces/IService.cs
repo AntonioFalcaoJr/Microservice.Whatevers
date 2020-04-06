@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microservice.Whatevers.Domain.Entities;
 using Microservice.Whatevers.Services.Models;
 
-namespace Microservice.Whatevers.Services
+namespace Microservice.Whatevers.Services.Interfaces
 {
     public interface IService<TEntity, TModel>
         where TEntity : EntityBase

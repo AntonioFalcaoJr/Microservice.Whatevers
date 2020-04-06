@@ -2,7 +2,7 @@ using Microservice.Whatevers.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Microservice.Whatevers.Data.Configs
+namespace Microservice.Whatevers.Repositories.Configs
 {
     public class ThingConfig : IEntityTypeConfiguration<Thing>
     {

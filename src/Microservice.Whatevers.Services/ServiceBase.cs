@@ -5,8 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Microservice.Whatevers.Data.Repositories;
 using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Repositories.Base;
+using Microservice.Whatevers.Services.Interfaces;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.EntityFrameworkCore;
 

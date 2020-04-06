@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microservice.Whatevers.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Microservice.Whatevers.Data.Repositories
+namespace Microservice.Whatevers.Repositories.Base
 {
     public abstract class BaseRepository<TEntity> : IRepository<TEntity>
         where TEntity : EntityBase

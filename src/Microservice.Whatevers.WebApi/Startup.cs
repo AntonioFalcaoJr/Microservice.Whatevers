@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.Net.Http;
 using FluentValidation.AspNetCore;
-using Microservice.Whatevers.Data;
+using Microservice.Whatevers.Repositories;
 using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;

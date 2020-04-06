@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.Whatevers.Data\Microservice.Whatevers.Data.csproj" />
     <ProjectReference Include="..\Microservice.Whatevers.Domain\Microservice.Whatevers.Domain.csproj" />
+    <ProjectReference Include="..\Microservice.Whatevers.Repositories\Microservice.Whatevers.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

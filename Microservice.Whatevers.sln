@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{433E4D5F-BAA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.WebApi", "src\Microservice.Whatevers.WebApi\Microservice.Whatevers.WebApi.csproj", "{17361F99-CFFE-4D63-A87E-EB83613568B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Data", "src\Microservice.Whatevers.Data\Microservice.Whatevers.Data.csproj", "{EC9F5C58-2378-40D6-A33B-5390C1EAD82C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Repositories", "src\Microservice.Whatevers.Repositories\Microservice.Whatevers.Repositories.csproj", "{EC9F5C58-2378-40D6-A33B-5390C1EAD82C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Whatevers.Domain", "src\Microservice.Whatevers.Domain\Microservice.Whatevers.Domain.csproj", "{150F8C9E-317C-4200-B452-EDD1F0A32071}"
 EndProject
