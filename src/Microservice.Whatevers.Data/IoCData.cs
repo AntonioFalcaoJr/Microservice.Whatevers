@@ -9,10 +9,8 @@ namespace Microservice.Whatevers.Data
     {
         public static void Register(IServiceCollection services)
         {
-            services
-               .AddDbContext<WhateverContext>(options =>
-                    options.UseInMemoryDatabase("WhateverDb")
-                       .UseLazyLoadingProxies());
+            services.AddDbContext<WhateverContext>(options =>
+                    options.UseInMemoryDatabase("WhateverDb").UseLazyLoadingProxies());
 
             services.AddScoped<IWhateverRepository, WhateverRepository>();
         }

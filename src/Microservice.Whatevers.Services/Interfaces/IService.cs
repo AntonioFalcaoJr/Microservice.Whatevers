@@ -8,7 +8,7 @@ using Microservice.Whatevers.Services.Models;
 namespace Microservice.Whatevers.Services
 {
     public interface IService<TEntity, TModel>
-        where TEntity : BaseEntity
+        where TEntity : EntityBase
         where TModel : BaseModel
     {
         void Delete(Guid id);

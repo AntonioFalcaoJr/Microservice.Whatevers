@@ -7,7 +7,7 @@ using Microservice.Whatevers.Domain.Entities;
 namespace Microservice.Whatevers.Data.Repositories
 {
     public interface IRepository<TEntity>
-        where TEntity : BaseEntity
+        where TEntity : EntityBase
     {
         void Delete(Guid id);
         Task DeleteAsync(Guid id, CancellationToken cancellationToken);

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Microservice.Whatevers.Data.Repositories
 {
     public abstract class BaseRepository<TEntity> : IRepository<TEntity>
-        where TEntity : BaseEntity
+        where TEntity : EntityBase
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;

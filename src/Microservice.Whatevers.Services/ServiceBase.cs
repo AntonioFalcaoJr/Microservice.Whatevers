@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Microservice.Whatevers.Services
 {
     public abstract class ServiceBase<TEntity, TModel> : IService<TEntity, TModel>
-        where TEntity : BaseEntity
+        where TEntity : EntityBase
         where TModel : BaseModel
     {
         private readonly IMapper _mapper;

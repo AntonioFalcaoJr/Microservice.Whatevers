@@ -1,6 +1,6 @@
 namespace Microservice.Whatevers.Domain.Entities
 {
-    public class Thing : BaseEntity
+    public class Thing : EntityBase
     {
         public string Name { get; set; }
         public string Type { get; set; }
