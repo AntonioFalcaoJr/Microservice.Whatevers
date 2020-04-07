@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Interfaces;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +11,10 @@ namespace Microservice.Whatevers.Api.Controllers.v1
     {
         private readonly IWhateverService _whateverService;
 
-        public WhateversController(IWhateverService whateverService) => _whateverService = whateverService;
+        public WhateversController(IWhateverService whateverService)
+        {
+            _whateverService = whateverService;
+        }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)

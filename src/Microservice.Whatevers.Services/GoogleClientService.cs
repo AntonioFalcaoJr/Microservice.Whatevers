@@ -10,9 +10,12 @@ namespace Microservice.Whatevers.Services
     {
         private readonly IGoogleClient _googleClient;
 
-        public GoogleClientService(IGoogleClient googleClient) => _googleClient = googleClient;
+        public GoogleClientService(IGoogleClient googleClient)
+        {
+            _googleClient = googleClient;
+        }
 
-        public async Task<GoogleClientModel> GetAsync(CancellationToken cancellationToken) => 
+        public async Task<GoogleClientModel> GetAsync(CancellationToken cancellationToken) =>
             await _googleClient.GetAsync(cancellationToken);
     }
 }

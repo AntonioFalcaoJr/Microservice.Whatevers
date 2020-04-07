@@ -12,7 +12,8 @@ namespace Microservice.Whatevers.Repositories.Configs
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Name).IsRequired().HasColumnName("Name");
             builder.Property(c => c.Time);
-           // builder.HasMany(c => c.Things).WithOne(c => c.Whatever);
+
+            // builder.HasMany(c => c.Things).WithOne(c => c.Whatever);
         }
     }
 }

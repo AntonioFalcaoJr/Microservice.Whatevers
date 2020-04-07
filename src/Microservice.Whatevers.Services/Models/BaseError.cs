@@ -7,7 +7,10 @@ namespace Microservice.Whatevers.Services.Models
     {
         private List<string> _errors;
 
-        protected BaseError() => _errors = new List<string>();
+        protected BaseError()
+        {
+            _errors = new List<string>();
+        }
 
         public void AddError(string erro)
         {
@@ -17,7 +20,7 @@ namespace Microservice.Whatevers.Services.Models
 
         public void AddError(BaseError baseError) => AddErrors(baseError?.GetErrors());
 
-        public void AddErrors(IEnumerable<BaseError> baseErrors) => 
+        public void AddErrors(IEnumerable<BaseError> baseErrors) =>
             AddErrors(baseErrors?.SelectMany(x => x.GetErrors()));
 
         public void AddErrors(IEnumerable<string> errors)

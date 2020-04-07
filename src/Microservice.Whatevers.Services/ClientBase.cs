@@ -10,7 +10,11 @@ namespace Microservice.Whatevers.Services
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        protected ClientBase(IHttpClientFactory httpClientFactory) => _httpClientFactory = httpClientFactory;
+        protected ClientBase(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
         protected abstract string ClientName { get; }
         protected abstract string Endpoint { get; }
 

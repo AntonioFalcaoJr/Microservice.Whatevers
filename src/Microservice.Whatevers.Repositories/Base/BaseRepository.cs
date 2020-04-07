@@ -34,7 +34,7 @@ namespace Microservice.Whatevers.Repositories.Base
         public virtual bool Exists(TId id) => _dbSet.AsNoTracking().Any(x => Equals(x.Id, id));
 
         public virtual async Task<bool> ExistsAsync(TId id, CancellationToken cancellationToken) =>
-            await _dbSet.AsNoTracking().AnyAsync(x =>  Equals(x.Id, id), cancellationToken);
+            await _dbSet.AsNoTracking().AnyAsync(x => Equals(x.Id, id), cancellationToken);
 
         public virtual void Insert(TEntity entity)
         {

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Interfaces;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +13,10 @@ namespace Microservice.Whatevers.Api.Controllers.v2
     {
         private readonly IWhateverService _whateverService;
 
-        public WhateversController(IWhateverService whateverService) => _whateverService = whateverService;
+        public WhateversController(IWhateverService whateverService)
+        {
+            _whateverService = whateverService;
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
@@ -56,7 +58,8 @@ namespace Microservice.Whatevers.Api.Controllers.v2
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(Guid id, [FromBody] WhateverModel model, CancellationToken cancellationToken)
+        public async Task<IActionResult> PutAsync(Guid id, [FromBody] WhateverModel model,
+            CancellationToken cancellationToken)
         {
             if (Guid.Empty == id) return BadRequest("Identificador inválido.");
             if (model?.Id != id) return BadRequest("Identificador diverge do objeto solicitado.");

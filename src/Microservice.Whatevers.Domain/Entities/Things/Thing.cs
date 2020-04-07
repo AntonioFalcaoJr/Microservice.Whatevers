@@ -5,16 +5,27 @@ namespace Microservice.Whatevers.Domain.Entities.Things
 {
     public class Thing : EntityBase<Guid>
     {
-        public string Name { get; private set; }
-        public string Type { get; private set; }
-        public double Value { get; private set; }
-
         internal Thing(Guid id, string name, string type, double value)
         {
             SetId(id);
             SetName(name);
             SetType(type);
             SetValue(value);
+        }
+
+        public string Name { get; private set; }
+        public string Type { get; private set; }
+        public double Value { get; private set; }
+
+        public sealed override void SetId(Guid id)
+        {
+            if (id.Equals(Guid.Empty))
+            {
+                AddError(DomainResource.Identifier_invalid);
+                return;
+            }
+
+            Id = id;
         }
 
         public void SetName(string name)
@@ -48,17 +59,6 @@ namespace Microservice.Whatevers.Domain.Entities.Things
             }
 
             Value = value;
-        }
-
-        public sealed override void SetId(Guid id)
-        {
-            if (id.Equals(Guid.Empty))
-            {
-                AddError(DomainResource.Identifier_invalid);
-                return;
-            }
-
-            Id = id;
         }
     }
 }

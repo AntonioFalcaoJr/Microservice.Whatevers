@@ -1,6 +1,5 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,8 +10,10 @@ namespace Microservice.Whatevers.Api.Controllers.v1
     {
         private readonly IGoogleClientService _googleClientService;
 
-        public GoogleClientController(IGoogleClientService googleClientService) =>
+        public GoogleClientController(IGoogleClientService googleClientService)
+        {
             _googleClientService = googleClientService;
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAsync(CancellationToken cancellationToken)
