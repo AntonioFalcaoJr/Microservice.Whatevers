@@ -13,28 +13,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Services
 {
-    public abstract class ServiceBase<TEntity, TModel> : IService<TEntity, TModel>
-        where TEntity : EntityBase
+    public abstract class ServiceBase<TEntity, TModel, TId> : IService<TEntity, TModel, TId>
+        where TEntity : EntityBase<TId>
         where TModel : BaseModel
+        where TId : struct
     {
         private readonly IMapper _mapper;
-        private readonly IRepository<TEntity> _repository;
+        private readonly IRepository<TEntity, TId> _repository;
 
-        protected ServiceBase(IRepository<TEntity> repository, IMapper mapper)
+        protected ServiceBase(IRepository<TEntity, TId> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public void Delete(Guid id)
+        public void Delete(TId id)
         {
-            if (id == Guid.Empty) return;
+            if (Equals(id, Guid.Empty)) return;
             _repository.Delete(id);
         }
 
-        public async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
+        public async Task DeleteAsync(TId id, CancellationToken cancellationToken)
         {
-            if (id == Guid.Empty) return;
+            if (Equals(id, Guid.Empty)) return;
             await _repository.DeleteAsync(id, cancellationToken);
         }
 
@@ -52,9 +53,9 @@ namespace Microservice.Whatevers.Services
             return _mapper.Map<TModel>(entity);
         }
 
-        public bool Exists(Guid id) => _repository.Exists(id);
+        public bool Exists(TId id) => _repository.Exists(id);
 
-        public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken) =>
+        public async Task<bool> ExistsAsync(TId id, CancellationToken cancellationToken) =>
             await _repository.ExistsAsync(id, cancellationToken);
 
         public IList<TModel> GetAll() =>
@@ -67,9 +68,9 @@ namespace Microservice.Whatevers.Services
                .ProjectTo<TModel>(_mapper.ConfigurationProvider)
                .ToListAsync(cancellationToken);
 
-        public TModel GetById(Guid id) => _mapper.Map<TModel>(_repository.SelectById(id));
+        public TModel GetById(TId id) => _mapper.Map<TModel>(_repository.SelectById(id));
 
-        public async Task<TModel> GetByIdAsync(Guid id, CancellationToken cancellationToken) =>
+        public async Task<TModel> GetByIdAsync(TId id, CancellationToken cancellationToken) =>
             _mapper.Map<TModel>(await _repository.SelectByIdAsync(id, cancellationToken));
 
         public TModel Save(TModel model)

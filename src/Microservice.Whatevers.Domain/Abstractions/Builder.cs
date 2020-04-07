@@ -1,19 +1,17 @@
-using Microservice.Whatevers.Domain.Entities;
-
-namespace Microservice.Whatevers.Domain.Base
+namespace Microservice.Whatevers.Domain.Abstractions
 {
-    public abstract class Builder<TBuilder, TEntity, TId> : IBuilder<TEntity>
+    public abstract class Builder<TBuilder, TEntity, TId> : IBuilder<TEntity, TId>
         where TBuilder : Builder<TBuilder, TEntity, TId>
-        where TEntity : EntityBase
+        where TEntity : EntityBase<TId>
         where TId : struct
     {
-        private TId _id;
+        protected TId Id;
 
         public abstract TEntity Build();
 
         public TBuilder WithId(TId id)
         {
-            _id = id;
+            Id = id;
             return (TBuilder) this;
         }
     }

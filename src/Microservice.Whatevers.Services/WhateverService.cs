@@ -1,3 +1,4 @@
+using System;
 using AutoMapper;
 using Microservice.Whatevers.Domain.Entities.Whatevers;
 using Microservice.Whatevers.Repositories;
@@ -6,7 +7,7 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services
 {
-    public class WhateverService : ServiceBase<Whatever, WhateverModel>, IWhateverService
+    public class WhateverService : ServiceBase<Whatever, WhateverModel, Guid>, IWhateverService
     {
         public WhateverService(IWhateverRepository whateverRepository, IMapper mapper)
             : base(whateverRepository, mapper) { }

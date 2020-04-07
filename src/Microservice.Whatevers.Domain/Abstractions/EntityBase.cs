@@ -1,9 +1,11 @@
-using System;
+using Microservice.Whatevers.Domain.Abstractions.Notifications;
 
 namespace Microservice.Whatevers.Domain.Abstractions
 {
-    public abstract class EntityBase
+    public abstract class EntityBase<TId> : Notification<EntityBase<TId>>
+        where TId : struct
     {
-        public virtual Guid Id { get; set; }
+        public TId Id { get; protected set; }
+        public abstract void SetId(TId id);
     }
 }

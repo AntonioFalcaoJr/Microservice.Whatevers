@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Microservice.Whatevers.Domain.Abstractions.Notifications
 {
-    internal class Notification<TNotification> : INotification<TNotification>
+    public abstract class Notification<TNotification> : INotification<TNotification>
         where TNotification : INotification<TNotification>
     {
         private readonly List<string> _errors = new List<string>();

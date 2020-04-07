@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,8 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Repositories.Base
 {
-    public abstract class BaseRepository<TEntity> : IRepository<TEntity>
-        where TEntity : EntityBase
+    public abstract class BaseRepository<TEntity, TId> : IRepository<TEntity, TId>
+        where TEntity : EntityBase<TId>
+        where TId : struct
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
@@ -19,22 +19,22 @@ namespace Microservice.Whatevers.Repositories.Base
             _dbSet = context.Set<TEntity>();
         }
 
-        public virtual void Delete(Guid id)
+        public virtual void Delete(TId id)
         {
             _dbSet.Remove(SelectById(id));
             _context.SaveChanges();
         }
 
-        public virtual async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
+        public virtual async Task DeleteAsync(TId id, CancellationToken cancellationToken)
         {
             _dbSet.Remove(await SelectByIdAsync(id, cancellationToken));
             await _context.SaveChangesAsync(true, cancellationToken);
         }
 
-        public virtual bool Exists(Guid id) => _dbSet.AsNoTracking().Any(x => x.Id == id);
+        public virtual bool Exists(TId id) => _dbSet.AsNoTracking().Any(x => Equals(x.Id, id));
 
-        public virtual async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken) =>
-            await _dbSet.AsNoTracking().AnyAsync(x => x.Id == id, cancellationToken);
+        public virtual async Task<bool> ExistsAsync(TId id, CancellationToken cancellationToken) =>
+            await _dbSet.AsNoTracking().AnyAsync(x =>  Equals(x.Id, id), cancellationToken);
 
         public virtual void Insert(TEntity entity)
         {
@@ -52,9 +52,9 @@ namespace Microservice.Whatevers.Repositories.Base
             await _context.SaveChangesAsync(true, cancellationToken);
         }
 
-        public virtual TEntity SelectById(Guid id) => _dbSet.Find(id);
+        public virtual TEntity SelectById(TId id) => _dbSet.Find(id);
 
-        public virtual async Task<TEntity> SelectByIdAsync(Guid id, CancellationToken cancellationToken) =>
+        public virtual async Task<TEntity> SelectByIdAsync(TId id, CancellationToken cancellationToken) =>
             await _dbSet.FindAsync(new object[] {id}, cancellationToken);
 
         public IQueryable<TEntity> SelectAll() => _dbSet.AsNoTracking();
