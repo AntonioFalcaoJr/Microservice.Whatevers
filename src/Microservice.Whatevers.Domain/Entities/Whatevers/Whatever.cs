@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Microservice.Whatevers.Domain.Abstractions;
+using Microservice.Whatevers.Domain.Entities.Things;
 
-namespace Microservice.Whatevers.Domain.Entities
+namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {
     public class Whatever : EntityBase
     {

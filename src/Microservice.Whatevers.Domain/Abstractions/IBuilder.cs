@@ -1,6 +1,4 @@
-using Microservice.Whatevers.Domain.Entities;
-
-namespace Microservice.Whatevers.Domain.Base
+namespace Microservice.Whatevers.Domain.Abstractions
 {
     public interface IBuilder<out TEntity>
         where TEntity : EntityBase

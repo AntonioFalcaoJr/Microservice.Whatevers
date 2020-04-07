@@ -1,4 +1,4 @@
-using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Domain.Entities.Whatevers;
 using Microservice.Whatevers.Repositories.Base;
 using Microservice.Whatevers.Repositories.Contexts;
 

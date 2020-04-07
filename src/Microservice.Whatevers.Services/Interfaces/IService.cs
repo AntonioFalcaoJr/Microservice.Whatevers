@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Domain.Abstractions;
 using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Interfaces

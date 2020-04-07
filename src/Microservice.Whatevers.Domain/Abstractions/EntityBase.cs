@@ -1,6 +1,6 @@
 using System;
 
-namespace Microservice.Whatevers.Domain.Entities
+namespace Microservice.Whatevers.Domain.Abstractions
 {
     public abstract class EntityBase
     {

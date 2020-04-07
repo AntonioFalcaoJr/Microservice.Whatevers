@@ -1,4 +1,4 @@
-using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Domain.Entities.Things;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

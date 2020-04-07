@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Domain.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Repositories.Base

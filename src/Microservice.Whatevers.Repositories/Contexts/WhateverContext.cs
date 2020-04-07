@@ -1,4 +1,5 @@
-using Microservice.Whatevers.Domain.Entities;
+using Microservice.Whatevers.Domain.Entities.Things;
+using Microservice.Whatevers.Domain.Entities.Whatevers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Microservice.Whatevers.Repositories.Contexts
