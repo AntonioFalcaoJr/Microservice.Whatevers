@@ -12,7 +12,7 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
         public DateTime Time { get; private set; }
         public string Type { get; private set; }
 
-        public Whatever(string name, DateTime time, string type)
+        internal Whatever(string name, DateTime time, string type)
         {
             SetName(name);
             SetTime(time);
