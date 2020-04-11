@@ -8,12 +8,18 @@ namespace Microservice.Whatevers.Repositories.Configs
     {
         public void Configure(EntityTypeBuilder<Whatever> builder)
         {
-            builder.ToTable(nameof(Whatever));
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.Name).IsRequired().HasColumnName("Name");
-            builder.Property(c => c.Time);
+            builder
+               .ToTable(nameof(Whatever));
+            
+            builder
+               .HasKey(c => c.Id);
 
-            // builder.HasMany(c => c.Things).WithOne(c => c.Whatever);
+            builder
+               .Property(c => c.Name)
+               .IsRequired();
+            
+            builder
+               .Property(c => c.Time);
         }
     }
 }

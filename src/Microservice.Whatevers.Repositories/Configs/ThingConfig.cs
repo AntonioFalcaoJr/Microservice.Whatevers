@@ -8,10 +8,20 @@ namespace Microservice.Whatevers.Repositories.Configs
     {
         public void Configure(EntityTypeBuilder<Thing> builder)
         {
-            builder.ToTable(nameof(Thing));
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.Name).IsRequired().HasColumnName("Name");
-            builder.Property(c => c.Value).IsRequired().HasColumnName("Value");
+            builder
+               .ToTable(nameof(Thing));
+            
+            builder
+               .HasKey(c => c.Id);
+
+            builder
+               .Property(c => c.Name)
+               .HasColumnName("Name")
+               .IsRequired();
+            
+            builder
+               .Property(c => c.Value)
+               .IsRequired();
         }
     }
 }

@@ -34,8 +34,8 @@ namespace Microservice.Whatevers.Domain.Abstractions.Notifications
 
         public IEnumerable<string> GetErrors() => _errors;
 
-        public string GetError() => string.Join(",", _errors);
+        public string GetError() => string.Join(", ", _errors);
 
-        public bool IsValid() => _errors.Any() == false;
+        public bool IsValid() => _errors?.Any() == false;
     }
 }

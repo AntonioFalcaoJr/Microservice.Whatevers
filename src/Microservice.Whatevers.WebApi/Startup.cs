@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Repositories;
+using Microservice.Whatevers.Repositories.IoC;
 using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;
@@ -57,7 +58,7 @@ namespace Microservice.Whatevers.Api
                .AddPolicyHandler(GetRetryPolicy());
 
             IocServices.Register(services);
-            IoCData.Register(services);
+            IoCRepositories.Register(services);
         }
 
         private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() =>

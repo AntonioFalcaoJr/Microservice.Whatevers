@@ -1,5 +1,6 @@
 using System;
 using Microservice.Whatevers.Domain.Abstractions;
+using Microservice.Whatevers.Domain.Abstractions.Builders;
 
 namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {
