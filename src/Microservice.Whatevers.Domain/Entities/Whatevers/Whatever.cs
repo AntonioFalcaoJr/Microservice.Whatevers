@@ -7,11 +7,6 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {
     public class Whatever : EntityBase<Guid>
     {
-        public string Name { get; private set; }
-        public ICollection<Thing> Things { get; set; }
-        public DateTime Time { get; private set; }
-        public string Type { get; private set; }
-
         internal Whatever(string name, DateTime time, string type)
         {
             SetName(name);
@@ -19,16 +14,10 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
             SetType(type);
         }
 
-        private void SetTime(DateTime time)
-        {
-            if (time.Equals(DateTime.MinValue))
-            {
-                AddError(DomainResource.Whatever_Time_invalid);
-                return;
-            }
-            
-            Time = time;
-        }
+        public string Name { get; private set; }
+        public ICollection<Thing> Things { get; set; }
+        public DateTime Time { get; private set; }
+        public string Type { get; private set; }
 
         protected sealed override void SetId(Guid id)
         {
@@ -40,7 +29,7 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
 
             Id = id;
         }
-        
+
         private void SetName(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -50,6 +39,17 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
             }
 
             Name = name;
+        }
+
+        private void SetTime(DateTime time)
+        {
+            if (time.Equals(DateTime.MinValue))
+            {
+                AddError(DomainResource.Whatever_Time_invalid);
+                return;
+            }
+
+            Time = time;
         }
 
         private void SetType(string type)

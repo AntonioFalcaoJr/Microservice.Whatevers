@@ -10,7 +10,7 @@ namespace Microservice.Whatevers.Repositories.Configs
         {
             builder
                .ToTable(nameof(Thing));
-            
+
             builder
                .HasKey(c => c.Id);
 
@@ -18,7 +18,7 @@ namespace Microservice.Whatevers.Repositories.Configs
                .Property(c => c.Name)
                .HasColumnName("Name")
                .IsRequired();
-            
+
             builder
                .Property(c => c.Value)
                .IsRequired();

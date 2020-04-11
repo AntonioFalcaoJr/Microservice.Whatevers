@@ -1,5 +1,4 @@
 using System;
-using Microservice.Whatevers.Domain.Abstractions;
 using Microservice.Whatevers.Domain.Abstractions.Builders;
 
 namespace Microservice.Whatevers.Domain.Entities.Whatevers
@@ -7,10 +6,8 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
     public class WhateverBuilder : Builder<WhateverBuilder, Whatever, Guid>, IWhateverBuilder
     {
         private string _name;
-        private string _type;
         private DateTime _time;
-
-        public override Whatever Build() => new Whatever(_name, _time, _type);
+        private string _type;
 
         public IWhateverBuilder WithName(string name)
         {
@@ -29,5 +26,7 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
             _time = time;
             return this;
         }
+
+        public override Whatever Build() => new Whatever(_name, _time, _type);
     }
 }

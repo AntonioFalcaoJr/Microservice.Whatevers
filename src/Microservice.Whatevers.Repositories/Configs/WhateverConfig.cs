@@ -10,14 +10,14 @@ namespace Microservice.Whatevers.Repositories.Configs
         {
             builder
                .ToTable(nameof(Whatever));
-            
+
             builder
                .HasKey(c => c.Id);
 
             builder
                .Property(c => c.Name)
                .IsRequired();
-            
+
             builder
                .Property(c => c.Time);
         }
