@@ -6,6 +6,6 @@ namespace Microservice.Whatevers.Domain.Abstractions
         where TId : struct
     {
         public TId Id { get; protected set; }
-        public abstract void SetId(TId id);
+        protected abstract void SetId(TId id);
     }
 }

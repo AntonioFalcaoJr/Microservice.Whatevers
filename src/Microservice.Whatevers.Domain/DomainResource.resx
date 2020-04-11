@@ -18,21 +18,28 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-
-    <data name="Identifier_invalid" xml:space="preserve">
-        <value>O Identificador informado é inválido.</value>
+    <data name="Thing_Identifier_invalid" xml:space="preserve">
+        <value>O Identificador informado para Thing é inválido.</value>
     </data>
-
     <data name="Thing_Name_invalid" xml:space="preserve">
         <value>O Nome informado para Thing é inválido.</value>
     </data>
-
     <data name="Thing_Type_invalid" xml:space="preserve">
         <value>O Tipo informado para Thing é inválido.</value>
     </data>
-
     <data name="Thing_Value_less_than_zero" xml:space="preserve">
         <value>O Valor informado para Thing deve ser maior que zero.</value>
     </data>
-    
+    <data name="Whatever_Identifier_invalid" xml:space="preserve">
+        <value>O Identificador informado para Whatever é inválido.</value>
+    </data>
+    <data name="Whatever_Name_invalid" xml:space="preserve">
+        <value>O Nome informado para Whatever é inválido.</value>
+    </data>
+    <data name="Whatever_Type_invalid" xml:space="preserve">
+        <value>O Tipo informado para Whatever é inválido.</value>
+    </data>
+    <data name="Whatever_Time_invalid" xml:space="preserve">
+        <value>O Tempo informado para Whatever é inválido.</value>
+    </data>
 </root>

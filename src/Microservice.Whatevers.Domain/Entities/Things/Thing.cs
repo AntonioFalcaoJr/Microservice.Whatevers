@@ -17,18 +17,18 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         public string Type { get; private set; }
         public double Value { get; private set; }
 
-        public sealed override void SetId(Guid id)
+        protected sealed override void SetId(Guid id)
         {
             if (id.Equals(Guid.Empty))
             {
-                AddError(DomainResource.Identifier_invalid);
+                AddError(DomainResource.Thing_Identifier_invalid);
                 return;
             }
 
             Id = id;
         }
 
-        public void SetName(string name)
+        private void SetName(string name)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -39,7 +39,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
             Name = name;
         }
 
-        public void SetType(string type)
+        private void SetType(string type)
         {
             if (string.IsNullOrEmpty(type))
             {
@@ -50,7 +50,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
             Type = type;
         }
 
-        public void SetValue(double value)
+        private void SetValue(double value)
         {
             if (value <= 0)
             {

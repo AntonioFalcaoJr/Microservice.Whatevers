@@ -15,7 +15,7 @@ namespace Microservice.Whatevers.Domain {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class DomainResource {
+    public class DomainResource {
         
         private static System.Resources.ResourceManager resourceMan;
         
@@ -26,7 +26,7 @@ namespace Microservice.Whatevers.Domain {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Resources.ResourceManager ResourceManager {
+        public static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
                     System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Microservice.Whatevers.Domain.DomainResource", typeof(DomainResource).Assembly);
@@ -37,7 +37,7 @@ namespace Microservice.Whatevers.Domain {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Globalization.CultureInfo Culture {
+        public static System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -46,27 +46,51 @@ namespace Microservice.Whatevers.Domain {
             }
         }
         
-        internal static string Identifier_invalid {
+        public static string Thing_Identifier_invalid {
             get {
-                return ResourceManager.GetString("Identifier_invalid", resourceCulture);
+                return ResourceManager.GetString("Thing_Identifier_invalid", resourceCulture);
             }
         }
         
-        internal static string Thing_Name_invalid {
+        public static string Thing_Name_invalid {
             get {
                 return ResourceManager.GetString("Thing_Name_invalid", resourceCulture);
             }
         }
         
-        internal static string Thing_Type_invalid {
+        public static string Thing_Type_invalid {
             get {
                 return ResourceManager.GetString("Thing_Type_invalid", resourceCulture);
             }
         }
         
-        internal static string Thing_Value_less_than_zero {
+        public static string Thing_Value_less_than_zero {
             get {
                 return ResourceManager.GetString("Thing_Value_less_than_zero", resourceCulture);
+            }
+        }
+        
+        public static string Whatever_Identifier_invalid {
+            get {
+                return ResourceManager.GetString("Whatever_Identifier_invalid", resourceCulture);
+            }
+        }
+        
+        public static string Whatever_Name_invalid {
+            get {
+                return ResourceManager.GetString("Whatever_Name_invalid", resourceCulture);
+            }
+        }
+        
+        public static string Whatever_Type_invalid {
+            get {
+                return ResourceManager.GetString("Whatever_Type_invalid", resourceCulture);
+            }
+        }
+        
+        public static string Whatever_Time_invalid {
+            get {
+                return ResourceManager.GetString("Whatever_Time_invalid", resourceCulture);
             }
         }
     }
