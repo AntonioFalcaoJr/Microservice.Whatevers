@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using Microservice.Whatevers.Domain.Abstractions;
-using Microservice.Whatevers.Domain.Entities.Things;
 
 namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {
@@ -16,9 +14,10 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
         }
 
         protected Whatever() { }
-        
+
         public string Name { get; private set; }
-      //  public virtual ICollection<Thing> Things { get; set; }
+
+        //  public virtual ICollection<Thing> Things { get; set; }
         public DateTime Time { get; private set; }
         public string Type { get; private set; }
 

@@ -14,7 +14,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         }
 
         protected Thing() { }
-        
+
         public string Name { get; private set; }
         public string Type { get; private set; }
         public double Value { get; private set; }

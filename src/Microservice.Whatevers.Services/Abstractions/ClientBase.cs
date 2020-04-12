@@ -9,13 +9,14 @@ namespace Microservice.Whatevers.Services.Abstractions
         where TClientModel : ClientModelBase, new()
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        protected abstract string ClientName { get; }
-        protected abstract string Endpoint { get; }
 
         protected ClientBase(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
+
+        protected abstract string ClientName { get; }
+        protected abstract string Endpoint { get; }
 
         public async Task<TClientModel> GetAsync(CancellationToken cancellationToken)
         {

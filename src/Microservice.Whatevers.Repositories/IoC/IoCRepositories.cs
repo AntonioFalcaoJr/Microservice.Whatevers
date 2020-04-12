@@ -10,8 +10,9 @@ namespace Microservice.Whatevers.Repositories.IoC
         public static void Register(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<WhateverContext>(dbContextOptions =>
-                dbContextOptions.UseSqlite(configuration.GetConnectionString("DefaultConnection"), 
-                    sqliteOptions => sqliteOptions.MigrationsAssembly(typeof(WhateverContext).Assembly.GetName().Name)));
+                dbContextOptions.UseSqlite(configuration.GetConnectionString("DefaultConnection"),
+                    sqliteOptions =>
+                        sqliteOptions.MigrationsAssembly(typeof(WhateverContext).Assembly.GetName().Name)));
 
             services.AddScoped<IWhateverRepository, WhateverRepository>();
         }
