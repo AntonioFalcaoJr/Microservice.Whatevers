@@ -27,6 +27,6 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
             return this;
         }
 
-        public override Whatever Build() => new Whatever(_name, _time, _type);
+        public override Whatever Build() => new Whatever(Id, _name, _time, _type);
     }
 }

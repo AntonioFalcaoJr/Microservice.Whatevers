@@ -1,6 +1,6 @@
 using System;
 using Microservice.Whatevers.Domain.Entities.Whatevers;
-using Microservice.Whatevers.Repositories.Base;
+using Microservice.Whatevers.Repositories.Abstractions;
 
 namespace Microservice.Whatevers.Repositories
 {

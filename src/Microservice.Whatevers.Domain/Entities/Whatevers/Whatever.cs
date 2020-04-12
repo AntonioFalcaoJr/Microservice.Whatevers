@@ -7,15 +7,18 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {
     public class Whatever : EntityBase<Guid>
     {
-        internal Whatever(string name, DateTime time, string type)
+        internal Whatever(Guid id, string name, DateTime time, string type)
         {
+            SetId(id);
             SetName(name);
             SetTime(time);
             SetType(type);
         }
 
+        protected Whatever() { }
+        
         public string Name { get; private set; }
-        public ICollection<Thing> Things { get; set; }
+      //  public virtual ICollection<Thing> Things { get; set; }
         public DateTime Time { get; private set; }
         public string Type { get; private set; }
 

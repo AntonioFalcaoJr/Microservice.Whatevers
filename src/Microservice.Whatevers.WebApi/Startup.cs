@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Http;
 using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Repositories.IoC;
-using Microservice.Whatevers.Services;
+using Microservice.Whatevers.Services.IoC;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,11 +49,7 @@ namespace Microservice.Whatevers.Api
             services.AddMvcCore(options => options.SuppressAsyncSuffixInActionNames = false)
                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<WhateverModelValidator>());
 
-            services.AddHttpClient("google",
-                    c =>
-                    {
-                        c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]);
-                    })
+            services.AddHttpClient("google", c => { c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]); })
                .AddPolicyHandler(GetRetryPolicy());
 
             IocServices.Register(services);
@@ -63,6 +59,6 @@ namespace Microservice.Whatevers.Api
         private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() =>
             HttpPolicyExtensions.HandleTransientHttpError()
                .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
-               .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
+               .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(3, retryAttempt)));
     }
 }

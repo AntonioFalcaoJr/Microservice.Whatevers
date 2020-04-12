@@ -4,16 +4,16 @@ using System.Threading.Tasks;
 using Microservice.Whatevers.Domain.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Microservice.Whatevers.Repositories.Base
+namespace Microservice.Whatevers.Repositories.Abstractions
 {
-    public abstract class BaseRepository<TEntity, TId> : IRepository<TEntity, TId>
+    public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId>
         where TEntity : EntityBase<TId>
         where TId : struct
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        protected BaseRepository(DbContext context)
+        protected Repository(DbContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

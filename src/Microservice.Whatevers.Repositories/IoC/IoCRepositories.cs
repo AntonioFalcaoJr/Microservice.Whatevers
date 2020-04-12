@@ -9,8 +9,7 @@ namespace Microservice.Whatevers.Repositories.IoC
         public static void Register(IServiceCollection services)
         {
             services.AddDbContext<WhateverContext>(options =>
-                options.UseInMemoryDatabase("WhateverDb")
-                   .UseLazyLoadingProxies());
+                options.UseInMemoryDatabase("WhateverDb").UseLazyLoadingProxies());
 
             services.AddScoped<IWhateverRepository, WhateverRepository>();
         }

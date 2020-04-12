@@ -4,9 +4,9 @@ using Microservice.Whatevers.Services.Interfaces;
 using Microservice.Whatevers.Services.Mapper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Microservice.Whatevers.Services
+namespace Microservice.Whatevers.Services.IoC
 {
-    public class IocServices
+    public static class IocServices
     {
         public static void Register(IServiceCollection services)
         {
