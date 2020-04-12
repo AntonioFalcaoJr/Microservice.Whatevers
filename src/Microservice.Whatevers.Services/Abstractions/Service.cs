@@ -7,13 +7,12 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microservice.Whatevers.Domain.Abstractions;
 using Microservice.Whatevers.Repositories.Abstractions;
-using Microservice.Whatevers.Services.Interfaces;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Microservice.Whatevers.Services
+namespace Microservice.Whatevers.Services.Abstractions
 {
-    public abstract class ServiceBase<TEntity, TModel, TId> : IService<TEntity, TModel, TId>
+    public abstract class Service<TEntity, TModel, TId> : IService<TEntity, TModel, TId>
         where TEntity : EntityBase<TId>
         where TModel : BaseModel
         where TId : struct
@@ -21,7 +20,7 @@ namespace Microservice.Whatevers.Services
         private readonly IMapper _mapper;
         private readonly IRepository<TEntity, TId> _repository;
 
-        protected ServiceBase(IRepository<TEntity, TId> repository, IMapper mapper)
+        protected Service(IRepository<TEntity, TId> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -64,8 +63,7 @@ namespace Microservice.Whatevers.Services
                .ToList();
 
         public async Task<IList<TModel>> GetAllAsync(CancellationToken cancellationToken) =>
-            await _repository.SelectAll()
-               .ProjectTo<TModel>(_mapper.ConfigurationProvider)
+            await _repository.SelectAll().ProjectTo<TModel>(_mapper.ConfigurationProvider)
                .ToListAsync(cancellationToken);
 
         public TModel GetById(TId id) => _mapper.Map<TModel>(_repository.SelectById(id));

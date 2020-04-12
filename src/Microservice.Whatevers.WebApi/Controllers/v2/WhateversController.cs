@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Microservice.Whatevers.Services.Interfaces;
+using Microservice.Whatevers.Services.Abstractions;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
 

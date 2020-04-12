@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microservice.Whatevers.Domain.Abstractions;
 using Microservice.Whatevers.Services.Models;
 
-namespace Microservice.Whatevers.Services.Interfaces
+namespace Microservice.Whatevers.Services.Abstractions
 {
     public interface IService<TEntity, TModel, in TId>
         where TEntity : EntityBase<TId>
