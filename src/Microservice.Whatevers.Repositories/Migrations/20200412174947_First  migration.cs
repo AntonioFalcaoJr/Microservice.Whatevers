@@ -38,22 +38,22 @@ namespace Microservice.Whatevers.Repositories.Migrations
             migrationBuilder.InsertData(
                 table: "Whatever",
                 columns: new[] { "Id", "Name", "Time", "Type" },
-                values: new object[] { new Guid("fff424e2-18ae-413c-b53f-3c1bea2c88c5"), "Whatever", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Some type" });
+                values: new object[] { new Guid("491f4d02-7361-4740-b251-6917105eaf94"), "Whatever", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Some type" });
 
             migrationBuilder.InsertData(
                 table: "Whatever",
                 columns: new[] { "Id", "Name", "Time", "Type" },
-                values: new object[] { new Guid("c41d243b-7945-4ea3-a157-840c375f1596"), "Whatever", new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), "Another type" });
+                values: new object[] { new Guid("f45a9688-0dda-4e57-b1d2-b8d6f59bf892"), "Whatever", new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), "Another type" });
 
             migrationBuilder.InsertData(
                 table: "Whatever",
                 columns: new[] { "Id", "Name", "Time", "Type" },
-                values: new object[] { new Guid("a67be306-4417-4fff-a520-267c928c921e"), "Whatever", new DateTime(2020, 4, 12, 13, 31, 16, 23, DateTimeKind.Local).AddTicks(1318), "More another type" });
+                values: new object[] { new Guid("92fe8164-1e26-407a-aeee-6d6297416666"), "Whatever", new DateTime(2020, 4, 12, 14, 49, 47, 417, DateTimeKind.Local).AddTicks(9161), "More another type" });
 
             migrationBuilder.InsertData(
                 table: "Whatever",
                 columns: new[] { "Id", "Name", "Time", "Type" },
-                values: new object[] { new Guid("e1ac1f62-77f0-4e10-ac8d-3be83b879939"), "Whatever", new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), "Once more type" });
+                values: new object[] { new Guid("10b38c17-0e76-427a-84a6-f2c6c514858c"), "Whatever", new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), "Once more type" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
