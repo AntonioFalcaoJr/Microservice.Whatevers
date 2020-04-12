@@ -6,11 +6,11 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services
 {
-    public class GoogleClientService : IGoogleClientService
+    public class GoogleService : IGoogleService
     {
         private readonly IGoogleClient _googleClient;
 
-        public GoogleClientService(IGoogleClient googleClient)
+        public GoogleService(IGoogleClient googleClient)
         {
             _googleClient = googleClient;
         }

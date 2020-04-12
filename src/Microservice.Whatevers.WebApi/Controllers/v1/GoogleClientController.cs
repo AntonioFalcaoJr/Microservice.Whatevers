@@ -8,17 +8,17 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
     [ApiVersion("1")]
     public class GoogleClientController : WhateverControllerBase
     {
-        private readonly IGoogleClientService _googleClientService;
+        private readonly IGoogleService _googleService;
 
-        public GoogleClientController(IGoogleClientService googleClientService)
+        public GoogleClientController(IGoogleService googleService)
         {
-            _googleClientService = googleClientService;
+            _googleService = googleService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAsync(CancellationToken cancellationToken)
         {
-            var googleClientModel = await _googleClientService.GetAsync(cancellationToken);
+            var googleClientModel = await _googleService.GetAsync(cancellationToken);
             if (googleClientModel.IsValid()) return Ok(googleClientModel);
             return BadRequest(googleClientModel.GetErrors());
         }

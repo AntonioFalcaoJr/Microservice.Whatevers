@@ -27,7 +27,7 @@ namespace Microservice.Whatevers.Repositories.Abstractions
 
         public virtual async Task DeleteAsync(TId id, CancellationToken cancellationToken)
         {
-            _dbSet.Remove(await SelectByIdAsync(id, cancellationToken));
+            _dbSet.Remove(await SelectByIdAsync(id, cancellationToken).ConfigureAwait(false));
             await _context.SaveChangesAsync(true, cancellationToken);
         }
 
@@ -46,7 +46,7 @@ namespace Microservice.Whatevers.Repositories.Abstractions
 
         public virtual async Task InsertAsync(TEntity entity, CancellationToken cancellationToken)
         {
-            if (await ExistsAsync(entity.Id, cancellationToken)) return;
+            if (await ExistsAsync(entity.Id, cancellationToken).ConfigureAwait(false)) return;
 
             await _dbSet.AddAsync(entity, cancellationToken);
             await _context.SaveChangesAsync(true, cancellationToken);
@@ -69,7 +69,7 @@ namespace Microservice.Whatevers.Repositories.Abstractions
 
         public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken)
         {
-            if (!await ExistsAsync(entity.Id, cancellationToken)) return;
+            if (await ExistsAsync(entity.Id, cancellationToken).ConfigureAwait(false) == false) return;
 
             _dbSet.Update(entity);
             await _context.SaveChangesAsync(cancellationToken);

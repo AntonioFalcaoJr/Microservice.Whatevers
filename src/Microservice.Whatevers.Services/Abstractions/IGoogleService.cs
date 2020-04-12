@@ -4,7 +4,7 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Abstractions
 {
-    public interface IGoogleClientService
+    public interface IGoogleService
     {
         Task<GoogleClientModel> GetAsync(CancellationToken cancellationToken);
     }

@@ -12,7 +12,7 @@ namespace Microservice.Whatevers.Services.IoC
         {
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<IWhateverService, WhateverService>();
-            services.AddScoped<IGoogleClientService, GoogleClientService>();
+            services.AddScoped<IGoogleService, GoogleService>();
             services.AddScoped<IGoogleClient, GoogleClient>();
         }
     }

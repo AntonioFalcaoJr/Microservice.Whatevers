@@ -9,34 +9,33 @@ namespace Microservice.Whatevers.Services.Abstractions
         where TClientModel : ClientModelBase, new()
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        protected abstract string ClientName { get; }
+        protected abstract string Endpoint { get; }
 
         protected ClientBase(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
 
-        protected abstract string ClientName { get; }
-        protected abstract string Endpoint { get; }
-
         public async Task<TClientModel> GetAsync(CancellationToken cancellationToken)
         {
             var responseMessage = await GetClient().GetAsync(Endpoint, cancellationToken);
 
             return responseMessage.IsSuccessStatusCode
-                ? await OnSuccessAsync(responseMessage)
+                ? await OnSuccessAsync(responseMessage).ConfigureAwait(false)
                 : OnError(responseMessage);
         }
 
         private HttpClient GetClient() => _httpClientFactory.CreateClient(ClientName);
 
-        private TClientModel OnError(HttpResponseMessage responseMessage)
+        private static TClientModel OnError(HttpResponseMessage responseMessage)
         {
             var model = new TClientModel();
             model.AddError(responseMessage.ToString());
             return model;
         }
 
-        private async Task<TClientModel> OnSuccessAsync(HttpResponseMessage responseMessage)
+        private static async Task<TClientModel> OnSuccessAsync(HttpResponseMessage responseMessage)
         {
             var resultAsString = await responseMessage.Content.ReadAsStringAsync();
             return new TClientModel {Result = resultAsString};
