@@ -1,4 +1,5 @@
 using System.Net.Http;
+using Microservice.Whatevers.Services.Abstractions;
 using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Clients

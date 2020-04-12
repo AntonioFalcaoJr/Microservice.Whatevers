@@ -7,12 +7,12 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microservice.Whatevers.Data\Microservice.Whatevers.Data.csproj" />
     <ProjectReference Include="..\Microservice.Whatevers.Domain\Microservice.Whatevers.Domain.csproj" />
+    <ProjectReference Include="..\Microservice.Whatevers.Repositories\Microservice.Whatevers.Repositories.csproj" />
   </ItemGroup>
 
 </Project>
