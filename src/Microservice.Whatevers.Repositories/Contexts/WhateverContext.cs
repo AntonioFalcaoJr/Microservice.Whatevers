@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using Microservice.Whatevers.Domain.Entities.Things;
 using Microservice.Whatevers.Domain.Entities.Whatevers;
 using Microsoft.EntityFrameworkCore;
@@ -14,48 +13,56 @@ namespace Microservice.Whatevers.Repositories.Contexts
 
         public DbSet<Thing> Things { get; set; }
         public DbSet<Whatever> Whatevers { get; set; }
-
+        
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (optionsBuilder.IsConfigured) return;
+            optionsBuilder.UseInMemoryDatabase("WhateverDb");
+        }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(WhateverContext).Assembly);
             Seed(modelBuilder);
-            //base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
         private void Seed(ModelBuilder modelBuilder)
         {
             var whateverBuilder = new WhateverBuilder();
-            
-            modelBuilder.Entity<Whatever>().HasData(new List<Whatever>
-            {
-                whateverBuilder
-                   .WithId(Guid.NewGuid())
-                   .WithName(nameof(Whatever))
-                   .WithTime(new DateTime())
-                   .WithType("Some type")
-                   .Build(),
-                
-                whateverBuilder
-                   .WithId(Guid.NewGuid())
-                   .WithName(nameof(Whatever))
-                   .WithTime(DateTime.MaxValue)
-                   .WithType("Another type")
-                   .Build(),
-                
-                whateverBuilder
-                   .WithId(Guid.NewGuid())
-                   .WithName(nameof(Whatever))
-                   .WithTime(DateTime.Now)
-                   .WithType("More another type")
-                   .Build(),
-                
-                whateverBuilder
-                   .WithId(Guid.NewGuid())
-                   .WithName(nameof(Whatever))
-                   .WithTime(DateTime.Today)
-                   .WithType("Once more type")
-                   .Build()
-            });
+
+            modelBuilder
+               .Entity<Whatever>()
+               .HasData(new List<Whatever>
+                {
+                    whateverBuilder
+                       .WithId(Guid.NewGuid())
+                       .WithName(nameof(Whatever))
+                       .WithTime(new DateTime())
+                       .WithType("Some type")
+                       .Build(),
+
+                    whateverBuilder
+                       .WithId(Guid.NewGuid())
+                       .WithName(nameof(Whatever))
+                       .WithTime(DateTime.MaxValue)
+                       .WithType("Another type")
+                       .Build(),
+
+                    whateverBuilder
+                       .WithId(Guid.NewGuid())
+                       .WithName(nameof(Whatever))
+                       .WithTime(DateTime.Now)
+                       .WithType("More another type")
+                       .Build(),
+
+                    whateverBuilder
+                       .WithId(Guid.NewGuid())
+                       .WithName(nameof(Whatever))
+                       .WithTime(DateTime.Today)
+                       .WithType("Once more type")
+                       .Build()
+                });
         }
     }
 }

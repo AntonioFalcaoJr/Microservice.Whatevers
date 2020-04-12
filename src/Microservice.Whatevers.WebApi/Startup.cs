@@ -1,12 +1,14 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Repositories.IoC;
 using Microservice.Whatevers.Services.IoC;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.DotNet.PlatformAbstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,6 +19,8 @@ namespace Microservice.Whatevers.Api
 {
     public class Startup
     {
+        private readonly IWebHostEnvironment _env;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -53,7 +57,7 @@ namespace Microservice.Whatevers.Api
                .AddPolicyHandler(GetRetryPolicy());
 
             IocServices.Register(services);
-            IoCRepositories.Register(services);
+            IoCRepositories.Register(services, Assembly.GetExecutingAssembly().GetName().Name);
         }
 
         private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() =>
