@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Microservice.Whatevers.Api.Migrations
+namespace Microservice.Whatevers.Repositories.Migrations
 {
     [DbContext(typeof(WhateverContext))]
     partial class WhateverContextModelSnapshot : ModelSnapshot
@@ -61,28 +61,28 @@ namespace Microservice.Whatevers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("32890bb3-92a3-483c-a026-4c9f05d357e5"),
+                            Id = new Guid("fff424e2-18ae-413c-b53f-3c1bea2c88c5"),
                             Name = "Whatever",
                             Time = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = "Some type"
                         },
                         new
                         {
-                            Id = new Guid("54874289-e551-4c6c-ac96-bba45e201245"),
+                            Id = new Guid("c41d243b-7945-4ea3-a157-840c375f1596"),
                             Name = "Whatever",
                             Time = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
                             Type = "Another type"
                         },
                         new
                         {
-                            Id = new Guid("dd0fd502-d6eb-408e-8836-754565946930"),
+                            Id = new Guid("a67be306-4417-4fff-a520-267c928c921e"),
                             Name = "Whatever",
-                            Time = new DateTime(2020, 4, 12, 1, 48, 15, 422, DateTimeKind.Local).AddTicks(2819),
+                            Time = new DateTime(2020, 4, 12, 13, 31, 16, 23, DateTimeKind.Local).AddTicks(1318),
                             Type = "More another type"
                         },
                         new
                         {
-                            Id = new Guid("ebfde1d8-2202-4ebe-856a-d8cf7dafcaf3"),
+                            Id = new Guid("e1ac1f62-77f0-4e10-ac8d-3be83b879939"),
                             Name = "Whatever",
                             Time = new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local),
                             Type = "Once more type"

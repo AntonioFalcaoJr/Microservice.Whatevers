@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microservice.Whatevers.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Microservice.Whatevers.Api.Controllers.v1
+namespace Microservice.Whatevers.WebApi.Controllers.v1
 {
     [ApiVersion("1")]
     public class GoogleClientController : WhateverControllerBase

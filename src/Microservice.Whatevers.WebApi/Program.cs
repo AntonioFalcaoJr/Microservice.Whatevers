@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Microservice.Whatevers.Api
+namespace Microservice.Whatevers.WebApi
 {
     public class Program
     {

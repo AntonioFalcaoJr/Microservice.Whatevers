@@ -6,7 +6,7 @@ using Microservice.Whatevers.Services.Abstractions;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Microservice.Whatevers.Api.Controllers.v2
+namespace Microservice.Whatevers.WebApi.Controllers.v2
 {
     [ApiVersion("2")]
     public class WhateversController : WhateverControllerBase

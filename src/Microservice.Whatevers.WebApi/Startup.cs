@@ -1,26 +1,24 @@
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Reflection;
 using FluentValidation.AspNetCore;
+using Microservice.Whatevers.Repositories.Contexts;
 using Microservice.Whatevers.Repositories.IoC;
 using Microservice.Whatevers.Services.IoC;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.DotNet.PlatformAbstractions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Polly;
 using Polly.Extensions.Http;
 
-namespace Microservice.Whatevers.Api
+namespace Microservice.Whatevers.WebApi
 {
     public class Startup
     {
-        private readonly IWebHostEnvironment _env;
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,7 +26,7 @@ namespace Microservice.Whatevers.Api
 
         private IConfiguration Configuration { get; }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WhateverContext whateverContext)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
@@ -38,10 +36,9 @@ namespace Microservice.Whatevers.Api
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+            whateverContext.Database.Migrate();
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -53,16 +50,16 @@ namespace Microservice.Whatevers.Api
             services.AddMvcCore(options => options.SuppressAsyncSuffixInActionNames = false)
                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<WhateverModelValidator>());
 
-            services.AddHttpClient("google", c => { c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]); })
+            services.AddHttpClient("google", c => c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]))
                .AddPolicyHandler(GetRetryPolicy());
 
             IocServices.Register(services);
-            IoCRepositories.Register(services, Assembly.GetExecutingAssembly().GetName().Name);
+            IoCRepositories.Register(services, Configuration);
         }
 
         private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() =>
             HttpPolicyExtensions.HandleTransientHttpError()
                .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
-               .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(3, retryAttempt)));
+               .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
     }
 }
