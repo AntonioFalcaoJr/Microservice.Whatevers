@@ -5,12 +5,12 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Mapper
 {
-    public class MappingProfile : Profile
+    public class DomainToModelProfile : Profile
     {
-        public MappingProfile()
+        public DomainToModelProfile()
         {
-            CreateMap<Whatever, WhateverModel>().ReverseMap();
-            CreateMap<Thing, ThingModel>().ReverseMap();
+            CreateMap<Whatever, WhateverModel>();
+            CreateMap<Thing, ThingModel>();
         }
     }
 }

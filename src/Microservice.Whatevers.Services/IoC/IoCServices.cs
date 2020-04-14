@@ -10,7 +10,7 @@ namespace Microservice.Whatevers.Services.IoC
     {
         public static void Register(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(MappingProfile));
+            services.AddAutoMapper(typeof(ModelToDomainProfile));
             services.AddScoped<IWhateverService, WhateverService>();
             services.AddScoped<IGoogleService, GoogleService>();
             services.AddScoped<IGoogleClient, GoogleClient>();

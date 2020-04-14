@@ -3,27 +3,26 @@ using System.Linq;
 
 namespace Microservice.Whatevers.Domain.Abstractions.Notifications
 {
-    public abstract class Notification<TNotification> : INotification<TNotification>
-        where TNotification : INotification<TNotification>
+    public class Notification : INotification
     {
         private readonly List<string> _errors = new List<string>();
 
         public void AddError(string error) => _errors.Add(error);
 
-        public void AddError(TNotification notification) => AddErrors(notification?.GetErrors());
+        public void AddError(INotification notification) => AddErrors(notification?.GetErrors());
 
         public void AddError<TExternalNotification>(TExternalNotification externalNotification)
-            where TExternalNotification : INotification<TExternalNotification> =>
+            where TExternalNotification : INotification =>
             AddErrors(externalNotification?.GetErrors());
 
         public void AddError<TExternalNotification>(string error, TExternalNotification externalNotification)
-            where TExternalNotification : INotification<TExternalNotification>
+            where TExternalNotification : INotification
         {
             AddError(error);
             AddErrors(externalNotification?.GetErrors());
         }
 
-        public void AddErrors(IEnumerable<TNotification> notifications) =>
+        public void AddErrors(IEnumerable<INotification> notifications) =>
             AddErrors(notifications?.SelectMany(notification => notification?.GetErrors()));
 
         public void AddErrors(IEnumerable<string> errors)
@@ -35,7 +34,5 @@ namespace Microservice.Whatevers.Domain.Abstractions.Notifications
         public IEnumerable<string> GetErrors() => _errors;
 
         public string GetError() => string.Join(", ", _errors);
-
-        public bool IsValid() => _errors?.Any() == false;
     }
 }

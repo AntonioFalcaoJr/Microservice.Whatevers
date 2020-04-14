@@ -19,9 +19,11 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
         [HttpGet]
         public async Task<IActionResult> GetAsync(CancellationToken cancellationToken)
         {
-            var googleClientModel = await _googleService.GetAsync(cancellationToken);
-            if (googleClientModel.IsValid()) return Ok(googleClientModel);
-            return BadRequest(googleClientModel.GetErrors());
+            // var googleClientModel = await _googleService.GetAsync(cancellationToken);
+            // if (googleClientModel.IsValid()) return Ok(googleClientModel);
+            // return BadRequest(googleClientModel.GetErrors());
+
+            return null;
         }
     }
 }

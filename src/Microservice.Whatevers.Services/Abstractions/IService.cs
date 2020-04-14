@@ -14,19 +14,19 @@ namespace Microservice.Whatevers.Services.Abstractions
         void Delete(TId id);
         Task DeleteAsync(TId id, CancellationToken cancellationToken);
 
-        TModel Edit(TModel model);
-        Task<TModel> EditAsync(TModel model, CancellationToken cancellationToken);
+        TEntity Edit(TModel model);
+        Task<TEntity> EditAsync(TModel model, CancellationToken cancellationToken);
 
         bool Exists(TId id);
         Task<bool> ExistsAsync(TId id, CancellationToken cancellationToken);
 
-        IList<TModel> GetAll();
-        Task<IList<TModel>> GetAllAsync(CancellationToken cancellationToken);
+        IList<TEntity> GetAll();
+        Task<IList<TEntity>> GetAllAsync(CancellationToken cancellationToken);
 
-        TModel GetById(TId id);
-        Task<TModel> GetByIdAsync(TId id, CancellationToken cancellationToken);
+        TEntity GetById(TId id);
+        Task<TEntity> GetByIdAsync(TId id, CancellationToken cancellationToken);
 
-        TModel Save(TModel model);
-        Task<TModel> SaveAsync(TModel model, CancellationToken cancellationToken);
+        TEntity Save(TModel model);
+        Task<TEntity> SaveAsync(TModel model, CancellationToken cancellationToken);
     }
 }

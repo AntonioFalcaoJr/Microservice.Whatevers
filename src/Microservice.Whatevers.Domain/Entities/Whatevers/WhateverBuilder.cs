@@ -1,5 +1,6 @@
 using System;
 using Microservice.Whatevers.Domain.Abstractions.Builders;
+using Microservice.Whatevers.Domain.Abstractions.Notifications;
 
 namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {

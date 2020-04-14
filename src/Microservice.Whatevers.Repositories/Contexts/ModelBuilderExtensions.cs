@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microservice.Whatevers.Domain.Abstractions.Notifications;
 using Microservice.Whatevers.Domain.Entities.Whatevers;
 using Microsoft.EntityFrameworkCore;
 

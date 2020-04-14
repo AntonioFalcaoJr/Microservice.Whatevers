@@ -51,6 +51,9 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
         {
             var whatever = _whateverService.Save(model);
 
+            if (whatever.IsValid() == false) 
+                return BadRequest(whatever.Notification.GetErrors());
+
             return CreatedAtAction(nameof(GetById),
                 new {id = whatever.Id, version = HttpContext.GetRequestedApiVersion().ToString()},
                 whatever);
@@ -63,6 +66,10 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
             if (model?.Id != id) return BadRequest("Identificador diverge do objeto solicitado.");
 
             var whatever = _whateverService.Edit(model);
+            
+            if (whatever.IsValid() == false) 
+                return BadRequest(whatever.Notification.GetErrors());
+            
             return Ok(whatever);
         }
     }

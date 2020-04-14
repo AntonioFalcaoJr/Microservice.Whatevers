@@ -38,18 +38,24 @@ namespace Microservice.Whatevers.Services.Abstractions
             await _repository.DeleteAsync(id, cancellationToken);
         }
 
-        public TModel Edit(TModel model)
+        public TEntity Edit(TModel model)
         {
             var entity = _mapper.Map<TEntity>(model);
-            _repository.Update(entity);
-            return _mapper.Map<TModel>(entity);
+            
+            if (entity.IsValid())
+                _repository.Update(entity);
+
+            return entity;
         }
 
-        public async Task<TModel> EditAsync(TModel model, CancellationToken cancellationToken)
+        public async Task<TEntity> EditAsync(TModel model, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<TEntity>(model);
-            await _repository.UpdateAsync(entity, cancellationToken);
-            return _mapper.Map<TModel>(entity);
+            
+            if (entity.IsValid())
+                await _repository.UpdateAsync(entity, cancellationToken);
+
+            return entity;
         }
 
         public bool Exists(TId id) => _repository.Exists(id);
@@ -57,32 +63,34 @@ namespace Microservice.Whatevers.Services.Abstractions
         public async Task<bool> ExistsAsync(TId id, CancellationToken cancellationToken) =>
             await _repository.ExistsAsync(id, cancellationToken);
 
-        public IList<TModel> GetAll() =>
-            _repository.SelectAll()
-               .ProjectTo<TModel>(_mapper.ConfigurationProvider)
-               .ToList();
+        public IList<TEntity> GetAll() => _repository.SelectAll().ToList();
 
-        public async Task<IList<TModel>> GetAllAsync(CancellationToken cancellationToken) =>
-            await _repository.SelectAll().ProjectTo<TModel>(_mapper.ConfigurationProvider)
-               .ToListAsync(cancellationToken);
+        public async Task<IList<TEntity>> GetAllAsync(CancellationToken cancellationToken) =>
+            await _repository.SelectAll().ToListAsync(cancellationToken);
 
-        public TModel GetById(TId id) => _mapper.Map<TModel>(_repository.SelectById(id));
+        public TEntity GetById(TId id) => _repository.SelectById(id);
 
-        public async Task<TModel> GetByIdAsync(TId id, CancellationToken cancellationToken) =>
-            _mapper.Map<TModel>(await _repository.SelectByIdAsync(id, cancellationToken));
+        public async Task<TEntity> GetByIdAsync(TId id, CancellationToken cancellationToken) =>
+            await _repository.SelectByIdAsync(id, cancellationToken);
 
-        public TModel Save(TModel model)
+        public TEntity Save(TModel model)
         {
             var entity = _mapper.Map<TEntity>(model);
-            _repository.Insert(entity);
-            return _mapper.Map<TModel>(entity);
+
+            if (entity.IsValid())
+                _repository.Insert(entity);
+            
+            return entity;
         }
 
-        public async Task<TModel> SaveAsync(TModel model, CancellationToken cancellationToken)
+        public async Task<TEntity> SaveAsync(TModel model, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<TEntity>(model);
-            await _repository.InsertAsync(entity, cancellationToken);
-            return _mapper.Map<TModel>(entity);
+            
+            if (entity.IsValid())
+                await _repository.InsertAsync(entity, cancellationToken);
+            
+            return entity;
         }
     }
 }
