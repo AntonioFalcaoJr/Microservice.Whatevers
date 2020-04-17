@@ -18,6 +18,5 @@
     <ProjectReference Include="..\Microservice.Whatevers.Repositories\Microservice.Whatevers.Repositories.csproj" />
     <ProjectReference Include="..\Microservice.Whatevers.Services\Microservice.Whatevers.Services.csproj" />
   </ItemGroup>
-
-
+  
 </Project>

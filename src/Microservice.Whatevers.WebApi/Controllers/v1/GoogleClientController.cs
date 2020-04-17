@@ -1,7 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Microservice.Whatevers.Services;
-using Microservice.Whatevers.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Microservice.Whatevers.WebApi.Controllers.v1
@@ -17,13 +16,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAsync(CancellationToken cancellationToken)
-        {
-            // var googleClientModel = await _googleService.GetAsync(cancellationToken);
-            // if (googleClientModel.IsValid()) return Ok(googleClientModel);
-            // return BadRequest(googleClientModel.GetErrors());
-
-            return null;
-        }
+        public async Task<IActionResult> GetAsync(CancellationToken cancellationToken) => 
+            Ok(await _googleService.GetAsync(cancellationToken));
     }
 }

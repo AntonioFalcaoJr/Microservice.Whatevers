@@ -12,7 +12,7 @@ namespace Microservice.Whatevers.Services.Mapper
         {
             CreateMap<WhateverModel, Whatever>()
                .ConvertUsing<WhateverModelToDomainConverter>();
-            
+
             CreateMap<ThingModel, Thing>()
                .ConvertUsing<ThingModelToDomainConverter>();
         }

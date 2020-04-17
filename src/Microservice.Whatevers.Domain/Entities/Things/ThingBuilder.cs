@@ -1,6 +1,5 @@
 using System;
 using Microservice.Whatevers.Domain.Abstractions.Builders;
-using Microservice.Whatevers.Domain.Abstractions.Notifications;
 
 namespace Microservice.Whatevers.Domain.Entities.Things
 {
@@ -9,7 +8,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         private string _name;
         private string _type;
         private double _value;
-        
+
         public IThingBuilder WithName(string name)
         {
             _name = name;

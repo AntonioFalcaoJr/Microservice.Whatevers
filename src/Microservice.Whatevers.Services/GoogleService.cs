@@ -1,6 +1,5 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Microservice.Whatevers.Services.Abstractions;
 using Microservice.Whatevers.Services.Clients;
 using Microservice.Whatevers.Services.Models;
 

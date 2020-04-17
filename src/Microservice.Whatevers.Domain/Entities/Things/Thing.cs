@@ -1,6 +1,5 @@
 using System;
 using Microservice.Whatevers.Domain.Abstractions;
-using Microservice.Whatevers.Domain.Abstractions.Notifications;
 
 namespace Microservice.Whatevers.Domain.Entities.Things
 {
@@ -14,7 +13,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
             SetValue(value);
         }
 
-        protected Thing(){}
+        protected Thing() { }
 
         public string Name { get; private set; }
         public string Type { get; private set; }
@@ -24,7 +23,6 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         {
             if (id.Equals(Guid.Empty))
             {
-                
                 Notification.AddError(DomainResource.Thing_Identifier_invalid);
                 return;
             }

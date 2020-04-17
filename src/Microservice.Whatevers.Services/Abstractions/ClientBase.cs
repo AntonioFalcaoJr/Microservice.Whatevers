@@ -29,14 +29,8 @@ namespace Microservice.Whatevers.Services.Abstractions
 
         private HttpClient GetClient() => _httpClientFactory.CreateClient(ClientName);
 
-        private static TClientModel OnError(HttpResponseMessage responseMessage)
-        {
-            // var model = new TClientModel();
-            // model.AddError(responseMessage.ToString());
-            // return model;
-
-            return null;
-        }
+        private static TClientModel OnError(HttpResponseMessage responseMessage) => 
+            new TClientModel {Result = responseMessage.ToString()};
 
         private static async Task<TClientModel> OnSuccessAsync(HttpResponseMessage responseMessage)
         {

@@ -6,7 +6,7 @@ using Microservice.Whatevers.Services.Models;
 
 namespace Microservice.Whatevers.Services.Abstractions
 {
-    public interface IService<TEntity, TModel, in TId>
+    public interface IService<TEntity, in TModel, in TId>
         where TEntity : EntityBase<TId>
         where TModel : BaseModel
         where TId : struct

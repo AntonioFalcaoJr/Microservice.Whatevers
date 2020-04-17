@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microservice.Whatevers.Services;
-using Microservice.Whatevers.Services.Abstractions;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -53,13 +52,14 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] WhateverModel model, CancellationToken cancellationToken)
         {
-            var whatever = await _whateverService.SaveAsync(model, cancellationToken);
+            if(model.Id.HasValue && await _whateverService.ExistsAsync(model.Id.Value, cancellationToken))
+                return BadRequest("Registro já informado.");
             
-            if (whatever.IsValid() == false) 
-                return BadRequest(whatever.Notification.GetErrors());
+            var whatever = await _whateverService.SaveAsync(model, cancellationToken);
+            if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
 
             return CreatedAtAction(nameof(GetByIdAsync),
-                new {id = whatever.Id, cancellationToken, version = HttpContext.GetRequestedApiVersion().ToString()},
+                new {id = whatever.Id, cancellationToken, version = HttpContext.GetRequestedApiVersion()?.ToString()},
                 whatever);
         }
 
@@ -71,10 +71,8 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
             if (model?.Id != id) return BadRequest("Identificador diverge do objeto solicitado.");
 
             var whatever = await _whateverService.EditAsync(model, cancellationToken);
-            
-            if (whatever.IsValid() == false) 
-                return BadRequest(whatever.Notification.GetErrors());
-            
+            if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
+
             return Ok(whatever);
         }
     }

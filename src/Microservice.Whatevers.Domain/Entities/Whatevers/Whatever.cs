@@ -1,6 +1,5 @@
 using System;
 using Microservice.Whatevers.Domain.Abstractions;
-using Microservice.Whatevers.Domain.Abstractions.Notifications;
 
 namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {
@@ -14,7 +13,7 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
             SetType(type);
         }
 
-        protected Whatever(){ }
+        protected Whatever() { }
 
         public string Name { get; private set; }
         public DateTime Time { get; private set; }

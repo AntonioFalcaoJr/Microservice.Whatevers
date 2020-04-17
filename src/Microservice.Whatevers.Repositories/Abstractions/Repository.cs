@@ -61,7 +61,7 @@ namespace Microservice.Whatevers.Repositories.Abstractions
 
         public void Update(TEntity entity)
         {
-            if (!Exists(entity.Id)) return;
+            if (Exists(entity.Id) == false) return;
 
             _dbSet.Update(entity);
             _context.SaveChanges();
