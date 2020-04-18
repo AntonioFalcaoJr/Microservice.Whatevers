@@ -29,7 +29,7 @@ namespace Microservice.Whatevers.Repositories.Migrations
                     Name = table.Column<string>(nullable: false),
                     Type = table.Column<string>(nullable: true),
                     Value = table.Column<double>(nullable: false),
-                    WhateverId = table.Column<Guid>(nullable: false)
+                    WhateverId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,28 +39,28 @@ namespace Microservice.Whatevers.Repositories.Migrations
                         column: x => x.WhateverId,
                         principalTable: "Whatever",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
                 table: "Whatever",
                 columns: new[] { "Id", "Name", "Time", "Type" },
-                values: new object[] { new Guid("059afab1-e03f-4154-8f59-a201ac6b6f72"), "Whatever", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Some type" });
+                values: new object[] { new Guid("c267dc0e-8829-49a9-9d1c-54e1488298f4"), "Whatever", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Some type" });
 
             migrationBuilder.InsertData(
                 table: "Whatever",
                 columns: new[] { "Id", "Name", "Time", "Type" },
-                values: new object[] { new Guid("7480dbeb-913f-4239-bddd-3453dc9ed3bf"), "Whatever", new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), "Another type" });
+                values: new object[] { new Guid("e43bf835-dac0-4805-a29b-4117d3cf06ea"), "Whatever", new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), "Another type" });
 
             migrationBuilder.InsertData(
                 table: "Whatever",
                 columns: new[] { "Id", "Name", "Time", "Type" },
-                values: new object[] { new Guid("9aeb431d-7c1f-4c7e-a689-8ce6db155f71"), "Whatever", new DateTime(2020, 4, 17, 23, 53, 3, 808, DateTimeKind.Local).AddTicks(168), "More another type" });
+                values: new object[] { new Guid("532b162e-f5a4-4595-a8a8-cc9e4270a05f"), "Whatever", new DateTime(2020, 4, 18, 0, 21, 46, 898, DateTimeKind.Local).AddTicks(5592), "More another type" });
 
             migrationBuilder.InsertData(
                 table: "Whatever",
                 columns: new[] { "Id", "Name", "Time", "Type" },
-                values: new object[] { new Guid("5da530d9-15d3-4ed0-90d8-280658342e44"), "Whatever", new DateTime(2020, 4, 17, 0, 0, 0, 0, DateTimeKind.Local), "Once more another type" });
+                values: new object[] { new Guid("9288ccdf-bd54-4a45-82c7-1b0351baf2f5"), "Whatever", new DateTime(2020, 4, 18, 0, 0, 0, 0, DateTimeKind.Local), "Once more another type" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Thing_WhateverId",

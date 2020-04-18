@@ -63,7 +63,8 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
         {
             if (Guid.Empty == id) return BadRequest("Identificador inválido.");
             if (model?.Id != id) return BadRequest("Identificador diverge do objeto solicitado.");
-
+            if (_whateverService.Exists(id) == false) return NotFound();
+            
             var whatever = _whateverService.Edit(model);
             if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Microservice.Whatevers.Domain.Entities.Things;
 using Microservice.Whatevers.Domain.Entities.Whatevers;
@@ -17,7 +18,7 @@ namespace Microservice.Whatevers.Services.Mapper.Converters
                .WithType(source.Type)
                .Build();
 
-            foreach (var sourceThing in source.Things)
+            foreach (var sourceThing in source.Things ?? new List<ThingModel>())
                 whatever.AddThing(context.Mapper.Map<ThingModel, Thing>(sourceThing));
 
             return whatever;

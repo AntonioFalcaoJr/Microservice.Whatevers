@@ -33,7 +33,7 @@ namespace Microservice.Whatevers.Repositories.Migrations
                     b.Property<double>("Value")
                         .HasColumnType("REAL");
 
-                    b.Property<Guid>("WhateverId")
+                    b.Property<Guid?>("WhateverId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -66,41 +66,39 @@ namespace Microservice.Whatevers.Repositories.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("059afab1-e03f-4154-8f59-a201ac6b6f72"),
+                            Id = new Guid("c267dc0e-8829-49a9-9d1c-54e1488298f4"),
                             Name = "Whatever",
                             Time = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = "Some type"
                         },
                         new
                         {
-                            Id = new Guid("7480dbeb-913f-4239-bddd-3453dc9ed3bf"),
+                            Id = new Guid("e43bf835-dac0-4805-a29b-4117d3cf06ea"),
                             Name = "Whatever",
                             Time = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
                             Type = "Another type"
                         },
                         new
                         {
-                            Id = new Guid("9aeb431d-7c1f-4c7e-a689-8ce6db155f71"),
+                            Id = new Guid("532b162e-f5a4-4595-a8a8-cc9e4270a05f"),
                             Name = "Whatever",
-                            Time = new DateTime(2020, 4, 17, 23, 53, 3, 808, DateTimeKind.Local).AddTicks(168),
+                            Time = new DateTime(2020, 4, 18, 0, 21, 46, 898, DateTimeKind.Local).AddTicks(5592),
                             Type = "More another type"
                         },
                         new
                         {
-                            Id = new Guid("5da530d9-15d3-4ed0-90d8-280658342e44"),
+                            Id = new Guid("9288ccdf-bd54-4a45-82c7-1b0351baf2f5"),
                             Name = "Whatever",
-                            Time = new DateTime(2020, 4, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Time = new DateTime(2020, 4, 18, 0, 0, 0, 0, DateTimeKind.Local),
                             Type = "Once more another type"
                         });
                 });
 
             modelBuilder.Entity("Microservice.Whatevers.Domain.Entities.Things.Thing", b =>
                 {
-                    b.HasOne("Microservice.Whatevers.Domain.Entities.Whatevers.Whatever", "Whatever")
+                    b.HasOne("Microservice.Whatevers.Domain.Entities.Whatevers.Whatever", null)
                         .WithMany("Things")
-                        .HasForeignKey("WhateverId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("WhateverId");
                 });
 #pragma warning restore 612, 618
         }
