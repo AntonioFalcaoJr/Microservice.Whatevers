@@ -18,8 +18,6 @@ namespace Microservice.Whatevers.Repositories.Configs
 
             builder.Property(c => c.Value)
                .IsRequired();
-
-
         }
     }
 }
