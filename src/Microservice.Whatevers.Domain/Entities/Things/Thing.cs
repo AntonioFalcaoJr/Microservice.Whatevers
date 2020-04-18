@@ -19,8 +19,6 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         public string Name { get; private set; }
         public string Type { get; private set; }
         public double Value { get; private set; }
-        public virtual Whatever Whatever { get; set; }
-        public Guid WhateverId { get; set; }
 
         protected sealed override void SetId(Guid id)
         {

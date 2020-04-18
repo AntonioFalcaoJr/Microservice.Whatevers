@@ -17,8 +17,7 @@ namespace Microservice.Whatevers.Repositories.Configs
 
             builder.Property(c => c.Time);
 
-            builder.HasMany(x => x.Things)
-               .WithOne(e => e.Whatever);
+            builder.HasMany(x => x.Things);
         }
     }
 }

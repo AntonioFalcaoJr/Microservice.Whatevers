@@ -41,40 +41,6 @@ namespace Microservice.Whatevers.Repositories.Migrations
                     b.HasIndex("WhateverId");
 
                     b.ToTable("Thing");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8cf9506f-a19e-4ece-be56-89ef57572fc7"),
-                            Name = "Thing",
-                            Type = "Some type",
-                            Value = 5.0,
-                            WhateverId = new Guid("d54c0aab-0014-4270-a6d6-ec3b4f6da372")
-                        },
-                        new
-                        {
-                            Id = new Guid("4c1c68f7-c95f-4a2a-ba1f-a4ae72c5e530"),
-                            Name = "Thing",
-                            Type = "Another type",
-                            Value = 5.0,
-                            WhateverId = new Guid("5b72f8d7-4f33-480a-ad05-93672580a456")
-                        },
-                        new
-                        {
-                            Id = new Guid("865d1e49-165f-4fef-aebd-817133b73828"),
-                            Name = "Thing",
-                            Type = "More another type",
-                            Value = 5.0,
-                            WhateverId = new Guid("f1934e57-61fa-4a84-b281-d43d005a7331")
-                        },
-                        new
-                        {
-                            Id = new Guid("3c02b410-b02b-438a-a87e-1226e1a69141"),
-                            Name = "Thing",
-                            Type = "Once more another type",
-                            Value = 5.0,
-                            WhateverId = new Guid("f08e706c-c599-4e9f-8ae1-e873ff404b75")
-                        });
                 });
 
             modelBuilder.Entity("Microservice.Whatevers.Domain.Entities.Whatevers.Whatever", b =>
@@ -100,28 +66,28 @@ namespace Microservice.Whatevers.Repositories.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d54c0aab-0014-4270-a6d6-ec3b4f6da372"),
+                            Id = new Guid("059afab1-e03f-4154-8f59-a201ac6b6f72"),
                             Name = "Whatever",
                             Time = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = "Some type"
                         },
                         new
                         {
-                            Id = new Guid("5b72f8d7-4f33-480a-ad05-93672580a456"),
+                            Id = new Guid("7480dbeb-913f-4239-bddd-3453dc9ed3bf"),
                             Name = "Whatever",
                             Time = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
                             Type = "Another type"
                         },
                         new
                         {
-                            Id = new Guid("f1934e57-61fa-4a84-b281-d43d005a7331"),
+                            Id = new Guid("9aeb431d-7c1f-4c7e-a689-8ce6db155f71"),
                             Name = "Whatever",
-                            Time = new DateTime(2020, 4, 17, 23, 6, 32, 444, DateTimeKind.Local).AddTicks(3156),
+                            Time = new DateTime(2020, 4, 17, 23, 53, 3, 808, DateTimeKind.Local).AddTicks(168),
                             Type = "More another type"
                         },
                         new
                         {
-                            Id = new Guid("f08e706c-c599-4e9f-8ae1-e873ff404b75"),
+                            Id = new Guid("5da530d9-15d3-4ed0-90d8-280658342e44"),
                             Name = "Whatever",
                             Time = new DateTime(2020, 4, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             Type = "Once more another type"
