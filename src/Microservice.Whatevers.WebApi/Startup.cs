@@ -1,7 +1,6 @@
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Text.Json.Serialization;
 using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Repositories.Contexts;
 using Microservice.Whatevers.Repositories.IoC;

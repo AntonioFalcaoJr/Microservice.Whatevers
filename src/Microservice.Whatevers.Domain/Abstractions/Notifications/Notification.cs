@@ -8,8 +8,8 @@ namespace Microservice.Whatevers.Domain.Abstractions.Notifications
         private readonly List<string> _errors = new List<string>();
 
         public void AddError(string error) => _errors.Add(error);
-
         public void AddError(INotification notification) => AddErrors(notification?.GetErrors());
+
         public void AddError(string error, INotification externalNotification)
         {
             AddError(error);
@@ -26,7 +26,6 @@ namespace Microservice.Whatevers.Domain.Abstractions.Notifications
         }
 
         public IEnumerable<string> GetErrors() => _errors;
-
         public string GetError() => string.Join(", ", _errors);
     }
 }

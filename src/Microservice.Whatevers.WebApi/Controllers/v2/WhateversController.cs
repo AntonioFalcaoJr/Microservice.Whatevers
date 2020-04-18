@@ -52,9 +52,9 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] WhateverModel model, CancellationToken cancellationToken)
         {
-            if(model.Id.HasValue && await _whateverService.ExistsAsync(model.Id.Value, cancellationToken))
+            if (model.Id.HasValue && await _whateverService.ExistsAsync(model.Id.Value, cancellationToken))
                 return BadRequest("Registro já informado.");
-            
+
             var whatever = await _whateverService.SaveAsync(model, cancellationToken);
             if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
 
@@ -70,7 +70,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
             if (Guid.Empty == id) return BadRequest("Identificador inválido.");
             if (model?.Id != id) return BadRequest("Identificador diverge do objeto solicitado.");
             if (await _whateverService.ExistsAsync(id, cancellationToken) == false) return NotFound();
-            
+
             var whatever = await _whateverService.EditAsync(model, cancellationToken);
             if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
 

@@ -42,4 +42,7 @@
     <data name="Whatever_Time_invalid" xml:space="preserve">
         <value>O Tempo informado para Whatever é inválido.</value>
     </data>
+    <data name="Whatever_Thing_invalid" xml:space="preserve">
+        <value>Thing informado para Whatever é inválido.</value>
+    </data>
 </root>
