@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Microservice.Whatevers.Domain.Abstractions;
+using Microservice.Whatevers.Domain.Entities.Things;
 
 namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {
@@ -7,6 +10,7 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
     {
         internal Whatever(Guid id, string name, DateTime time, string type)
         {
+            Things = new List<Thing>();
             SetId(id);
             SetName(name);
             SetTime(time);
@@ -16,16 +20,15 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
         protected Whatever() { }
 
         public string Name { get; private set; }
-
-        //  public virtual ICollection<Thing> Things { get; set; }
         public DateTime Time { get; private set; }
         public string Type { get; private set; }
+        public virtual ICollection<Thing> Things { get; }
 
         protected sealed override void SetId(Guid id)
         {
             if (id.Equals(Guid.Empty))
             {
-                AddError(DomainResource.Whatever_Identifier_invalid);
+                Notification.AddError(DomainResource.Whatever_Identifier_invalid);
                 return;
             }
 
@@ -36,7 +39,7 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
         {
             if (string.IsNullOrEmpty(name))
             {
-                AddError(DomainResource.Whatever_Name_invalid);
+                Notification.AddError(DomainResource.Whatever_Name_invalid);
                 return;
             }
 
@@ -47,7 +50,7 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
         {
             if (time.Equals(DateTime.MinValue))
             {
-                AddError(DomainResource.Whatever_Time_invalid);
+                Notification.AddError(DomainResource.Whatever_Time_invalid);
                 return;
             }
 
@@ -58,11 +61,28 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
         {
             if (string.IsNullOrEmpty(type))
             {
-                AddError(DomainResource.Whatever_Type_invalid);
+                Notification.AddError(DomainResource.Whatever_Type_invalid);
                 return;
             }
 
             Type = type;
+        }
+
+        public void AddThing(Thing thing)
+        {
+            if (thing is null)
+            {
+                Notification.AddError("");
+                return;
+            }
+
+            if (thing.IsValid() == false)
+            {
+                Notification.AddError("", thing.Notification);
+                return;
+            }
+            
+            Things.Add(thing);
         }
     }
 }

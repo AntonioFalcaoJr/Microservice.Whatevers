@@ -1,5 +1,6 @@
 using System;
 using Microservice.Whatevers.Domain.Abstractions;
+using Microservice.Whatevers.Domain.Entities.Whatevers;
 
 namespace Microservice.Whatevers.Domain.Entities.Things
 {
@@ -23,7 +24,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         {
             if (id.Equals(Guid.Empty))
             {
-                AddError(DomainResource.Thing_Identifier_invalid);
+                Notification.AddError(DomainResource.Thing_Identifier_invalid);
                 return;
             }
 
@@ -34,7 +35,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         {
             if (string.IsNullOrEmpty(name))
             {
-                AddError(DomainResource.Thing_Name_invalid);
+                Notification.AddError(DomainResource.Thing_Name_invalid);
                 return;
             }
 
@@ -45,7 +46,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         {
             if (string.IsNullOrEmpty(type))
             {
-                AddError(DomainResource.Thing_Type_invalid);
+                Notification.AddError(DomainResource.Thing_Type_invalid);
                 return;
             }
 
@@ -56,7 +57,7 @@ namespace Microservice.Whatevers.Domain.Entities.Things
         {
             if (value <= 0)
             {
-                AddError(DomainResource.Thing_Value_less_than_zero);
+                Notification.AddError(DomainResource.Thing_Value_less_than_zero);
                 return;
             }
 

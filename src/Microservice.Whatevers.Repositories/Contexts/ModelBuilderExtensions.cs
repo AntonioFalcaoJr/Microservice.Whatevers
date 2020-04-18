@@ -40,7 +40,7 @@ namespace Microservice.Whatevers.Repositories.Contexts
                        .WithId(Guid.NewGuid())
                        .WithName(nameof(Whatever))
                        .WithTime(DateTime.Today)
-                       .WithType("Once more type")
+                       .WithType("Once more another type")
                        .Build()
                 });
         }
