@@ -10,13 +10,7 @@ namespace Microservice.Whatevers.Domain.Abstractions.Notifications
         public void AddError(string error) => _errors.Add(error);
 
         public void AddError(INotification notification) => AddErrors(notification?.GetErrors());
-
-        public void AddError<TExternalNotification>(TExternalNotification externalNotification)
-            where TExternalNotification : INotification =>
-            AddErrors(externalNotification?.GetErrors());
-
-        public void AddError<TExternalNotification>(string error, TExternalNotification externalNotification)
-            where TExternalNotification : INotification
+        public void AddError(string error, INotification externalNotification)
         {
             AddError(error);
             AddErrors(externalNotification?.GetErrors());

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Microservice.Whatevers.Repositories.Migrations
 {
     [DbContext(typeof(WhateverContext))]
-    [Migration("20200412174947_First  migration")]
+    [Migration("20200418020632_First  migration")]
     partial class Firstmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,9 +35,48 @@ namespace Microservice.Whatevers.Repositories.Migrations
                     b.Property<double>("Value")
                         .HasColumnType("REAL");
 
+                    b.Property<Guid>("WhateverId")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("WhateverId");
+
                     b.ToTable("Thing");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("8cf9506f-a19e-4ece-be56-89ef57572fc7"),
+                            Name = "Thing",
+                            Type = "Some type",
+                            Value = 5.0,
+                            WhateverId = new Guid("d54c0aab-0014-4270-a6d6-ec3b4f6da372")
+                        },
+                        new
+                        {
+                            Id = new Guid("4c1c68f7-c95f-4a2a-ba1f-a4ae72c5e530"),
+                            Name = "Thing",
+                            Type = "Another type",
+                            Value = 5.0,
+                            WhateverId = new Guid("5b72f8d7-4f33-480a-ad05-93672580a456")
+                        },
+                        new
+                        {
+                            Id = new Guid("865d1e49-165f-4fef-aebd-817133b73828"),
+                            Name = "Thing",
+                            Type = "More another type",
+                            Value = 5.0,
+                            WhateverId = new Guid("f1934e57-61fa-4a84-b281-d43d005a7331")
+                        },
+                        new
+                        {
+                            Id = new Guid("3c02b410-b02b-438a-a87e-1226e1a69141"),
+                            Name = "Thing",
+                            Type = "Once more another type",
+                            Value = 5.0,
+                            WhateverId = new Guid("f08e706c-c599-4e9f-8ae1-e873ff404b75")
+                        });
                 });
 
             modelBuilder.Entity("Microservice.Whatevers.Domain.Entities.Whatevers.Whatever", b =>
@@ -63,32 +102,41 @@ namespace Microservice.Whatevers.Repositories.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("491f4d02-7361-4740-b251-6917105eaf94"),
+                            Id = new Guid("d54c0aab-0014-4270-a6d6-ec3b4f6da372"),
                             Name = "Whatever",
                             Time = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = "Some type"
                         },
                         new
                         {
-                            Id = new Guid("f45a9688-0dda-4e57-b1d2-b8d6f59bf892"),
+                            Id = new Guid("5b72f8d7-4f33-480a-ad05-93672580a456"),
                             Name = "Whatever",
                             Time = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
                             Type = "Another type"
                         },
                         new
                         {
-                            Id = new Guid("92fe8164-1e26-407a-aeee-6d6297416666"),
+                            Id = new Guid("f1934e57-61fa-4a84-b281-d43d005a7331"),
                             Name = "Whatever",
-                            Time = new DateTime(2020, 4, 12, 14, 49, 47, 417, DateTimeKind.Local).AddTicks(9161),
+                            Time = new DateTime(2020, 4, 17, 23, 6, 32, 444, DateTimeKind.Local).AddTicks(3156),
                             Type = "More another type"
                         },
                         new
                         {
-                            Id = new Guid("10b38c17-0e76-427a-84a6-f2c6c514858c"),
+                            Id = new Guid("f08e706c-c599-4e9f-8ae1-e873ff404b75"),
                             Name = "Whatever",
-                            Time = new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local),
-                            Type = "Once more type"
+                            Time = new DateTime(2020, 4, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Type = "Once more another type"
                         });
+                });
+
+            modelBuilder.Entity("Microservice.Whatevers.Domain.Entities.Things.Thing", b =>
+                {
+                    b.HasOne("Microservice.Whatevers.Domain.Entities.Whatevers.Whatever", "Whatever")
+                        .WithMany("Things")
+                        .HasForeignKey("WhateverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

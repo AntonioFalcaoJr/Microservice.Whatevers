@@ -18,6 +18,9 @@ namespace Microservice.Whatevers.Repositories.Configs
 
             builder.Property(c => c.Value)
                .IsRequired();
+
+            builder.HasOne(x => x.Whatever)
+               .WithMany(e => e.Things);
         }
     }
 }

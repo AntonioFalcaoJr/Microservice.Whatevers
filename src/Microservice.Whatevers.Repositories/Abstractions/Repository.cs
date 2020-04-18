@@ -57,7 +57,7 @@ namespace Microservice.Whatevers.Repositories.Abstractions
         public virtual async Task<TEntity> SelectByIdAsync(TId id, CancellationToken cancellationToken) =>
             await _dbSet.FindAsync(new object[] {id}, cancellationToken);
 
-        public IQueryable<TEntity> SelectAll() => _dbSet.AsNoTracking();
+        public IQueryable<TEntity> SelectAll() => _dbSet;
 
         public void Update(TEntity entity)
         {

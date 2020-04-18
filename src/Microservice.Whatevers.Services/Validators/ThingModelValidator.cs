@@ -19,8 +19,10 @@ namespace Microservice.Whatevers.Services.Validators
                .NotEmpty().WithMessage("Nome para Thing deve ser informado");
 
             RuleFor(x => x.Value)
-               .GreaterThan(1000)
-               .WithMessage("Valor maximo para Value deve ser 1000");
+               .GreaterThan(0)
+               .WithMessage("Valor deve ser maior que zero.")
+               .LessThan(1000)
+               .WithMessage("Valor maximo deve ser 1000");
         }
     }
 }

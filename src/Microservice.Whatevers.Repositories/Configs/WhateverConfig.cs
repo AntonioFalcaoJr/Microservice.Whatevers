@@ -16,6 +16,9 @@ namespace Microservice.Whatevers.Repositories.Configs
                .IsRequired();
 
             builder.Property(c => c.Time);
+
+            builder.HasMany(x => x.Things)
+               .WithOne(e => e.Whatever);
         }
     }
 }
