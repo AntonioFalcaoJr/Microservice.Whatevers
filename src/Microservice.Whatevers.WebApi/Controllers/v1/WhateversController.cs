@@ -48,9 +48,9 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
         [HttpPost]
         public IActionResult Post([FromBody] WhateverModel model)
         {
-            if(model.Id.HasValue && _whateverService.Exists(model.Id.Value))
+            if (model.Id.HasValue && _whateverService.Exists(model.Id.Value))
                 return BadRequest("Registro já informado.");
-            
+
             var whatever = _whateverService.Save(model);
             if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
 
@@ -64,7 +64,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
             if (Guid.Empty == id) return BadRequest("Identificador inválido.");
             if (model?.Id != id) return BadRequest("Identificador diverge do objeto solicitado.");
             if (_whateverService.Exists(id) == false) return NotFound();
-            
+
             var whatever = _whateverService.Edit(model);
             if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
 

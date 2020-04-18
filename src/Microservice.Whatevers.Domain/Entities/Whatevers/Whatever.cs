@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Microservice.Whatevers.Domain.Abstractions;
 using Microservice.Whatevers.Domain.Entities.Things;
@@ -10,19 +9,32 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
     {
         internal Whatever(Guid id, string name, DateTime time, string type)
         {
-            Things = new List<Thing>();
             SetId(id);
             SetName(name);
             SetTime(time);
             SetType(type);
+            Things = new List<Thing>();
         }
 
         protected Whatever() { }
 
         public string Name { get; private set; }
+        public virtual ICollection<Thing> Things { get; }
         public DateTime Time { get; private set; }
         public string Type { get; private set; }
-        public virtual ICollection<Thing> Things { get; }
+
+        public void AddThing(Thing thing)
+        {
+            if (thing is null) return;
+
+            if (thing.IsValid() == false)
+            {
+                Notification.AddError(DomainResource.Whatever_Thing_invalid, thing.Notification);
+                return;
+            }
+
+            Things.Add(thing);
+        }
 
         protected sealed override void SetId(Guid id)
         {
@@ -66,23 +78,6 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
             }
 
             Type = type;
-        }
-
-        public void AddThing(Thing thing)
-        {
-            if (thing is null)
-            {
-                Notification.AddError("");
-                return;
-            }
-
-            if (thing.IsValid() == false)
-            {
-                Notification.AddError("", thing.Notification);
-                return;
-            }
-            
-            Things.Add(thing);
         }
     }
 }
