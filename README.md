@@ -7,20 +7,19 @@ Projeto inicial para meetup/hand's-on .NET Core
 
 Nos próximos encontros, iremos evoluir o projeto para tópicos:
 
-- Estruturação de Projeto com derivação arquitetural DDD;
+- Estruturação de Projeto com derivação conceitual Domain Driven;
 - Conhecendo o Dotnet CLI;
 - Conhecendo o *.SLN e *.CSPROJ;
-- Implementação de designs, tais como: Template Method, Strategy, Repository, dentre outros... 
+- Implementação de designs, tais como: Template Method, Strategy, Repository, Buider, Strategy, dentre outros... 
 - Fluent Validation;
 - Auto Mapper;
-- Entity Framework in Memory;
-- Evoluindo API para alta disponibilidade com processamento assíncrono;
+- Entity Framework com SQLite, Migrations e SEED.
+- Evoluindo API para alta disponibilidade com processamento assíncrono (Async/Await);
 - Versionamento de API;
 - Documentação de API's com Swagger;
 - Serviço de Log utilizando ILogger e Log4Net;
 - Tratar esgotamento de socket com IHttpClientFactory e respectivo design para clients;
-- Resiliência com Polly e Refresh token with Polly-retry;
-- Conhecendo conceitos e implementação de Autenticação e Autorização com JWT e .NET Core 3;
+- Resiliência com Polly;
 
 ## Getting Started
 
@@ -32,6 +31,7 @@ dotnet run
 ### Prerequisites
 
 Microsoft .NET Core 3.1
+Microsoft .NET Standard 2.0
 
 ```
 dotnet --version
@@ -54,3 +54,4 @@ dotnet test
 * [Entity Framework Core](https://docs.microsoft.com/en-us/ef/#pivot=efcore) 
 * [Fluent Validation](https://fluentvalidation.net/) 
 * [Auto Mapper](https://automapper.org/) 
+* [SQlite](https://www.sqlite.org/index.html/)
