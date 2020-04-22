@@ -29,13 +29,9 @@ namespace Microservice.Whatevers.WebApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WhateverContext whateverContext)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             whateverContext.Database.Migrate();
@@ -53,12 +49,14 @@ namespace Microservice.Whatevers.WebApi
             services.AddHttpClient("google", c => c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]))
                .AddPolicyHandler(GetRetryPolicy());
 
-            IocServices.Register(services);
-            IoCRepositories.Register(services, Configuration);
+            services.AddDbContext(Configuration);
+            services.AddRepository();
+            services.AddAutoMapper();
+            services.AddServices();
         }
 
-        private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() =>
-            HttpPolicyExtensions.HandleTransientHttpError()
+        private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+            => HttpPolicyExtensions.HandleTransientHttpError()
                .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
                .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
     }
