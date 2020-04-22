@@ -40,7 +40,6 @@ namespace Microservice.Whatevers.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             services.AddApiVersioning();
 
             services.AddMvcCore(options => options.SuppressAsyncSuffixInActionNames = false)
