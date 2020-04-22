@@ -54,4 +54,4 @@ dotnet test
 * [Entity Framework Core](https://docs.microsoft.com/en-us/ef/#pivot=efcore) 
 * [Fluent Validation](https://fluentvalidation.net/) 
 * [Auto Mapper](https://automapper.org/) 
-* [SQlite](https://www.sqlite.org/index.html/)
+* [SQLite](https://www.sqlite.org/index.html/)
