@@ -48,7 +48,7 @@ namespace Microservice.Whatevers.WebApi
             services.AddHttpClient("google", c => c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]))
                .AddPolicyHandler(GetRetryPolicy());
 
-            services.AddDbContext(Configuration);
+            services.AddDbContext(Configuration.GetConnectionString("DefaultConnection"));
             services.AddRepository();
             services.AddAutoMapper();
             services.AddServices();
