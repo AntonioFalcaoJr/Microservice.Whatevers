@@ -11,10 +11,10 @@ namespace Microservice.Whatevers.Services.IoC
         public static IServiceCollection AddAutoMapper(this IServiceCollection services)
             => services.AddAutoMapper(typeof(ModelToDomainProfile), typeof(DomainToModelProfile));
 
-        public static IServiceCollection AddServices(this IServiceCollection services) 
-            => services.AddScoped<IWhateverService, WhateverService>();
-
-        public static IMvcCoreBuilder AddFluentValidation(this IMvcCoreBuilder builder) 
+        public static IMvcCoreBuilder AddFluentValidation(this IMvcCoreBuilder builder)
             => builder.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<WhateverModelValidator>());
+
+        public static IServiceCollection AddServices(this IServiceCollection services)
+            => services.AddScoped<IWhateverService, WhateverService>();
     }
 }

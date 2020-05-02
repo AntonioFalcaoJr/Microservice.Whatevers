@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microservice.Whatevers.Domain.Entities.Whatevers;
 using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Models;
