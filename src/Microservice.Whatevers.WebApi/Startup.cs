@@ -1,11 +1,9 @@
 using System;
 using System.Net;
 using System.Net.Http;
-using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Repositories.Contexts;
 using Microservice.Whatevers.Repositories.IoC;
 using Microservice.Whatevers.Services.IoC;
-using Microservice.Whatevers.Services.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -43,7 +41,7 @@ namespace Microservice.Whatevers.WebApi
             services.AddApiVersioning();
 
             services.AddMvcCore(options => options.SuppressAsyncSuffixInActionNames = false)
-               .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<WhateverModelValidator>());
+               .AddFluentValidation();
 
             services.AddHttpClient("google", c => c.BaseAddress = new Uri(Configuration["UrlBaseGoogle"]))
                .AddPolicyHandler(GetRetryPolicy());
