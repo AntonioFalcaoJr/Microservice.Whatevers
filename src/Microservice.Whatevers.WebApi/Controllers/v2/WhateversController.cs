@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Microservice.Whatevers.Domain.Entities.Whatevers;
 using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -21,14 +22,14 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
-            if (!await _whateverService.ExistsAsync(id, cancellationToken)) return NotFound();
+            if (await _whateverService.ExistsAsync(id, cancellationToken) == false) return NotFound();
 
             await _whateverService.DeleteAsync(id, cancellationToken);
             return Accepted();
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<WhateverModel>>> GetAllAsync(CancellationToken cancellationToken)
+        public async Task<ActionResult<IEnumerable<Whatever>>> GetAllAsync(CancellationToken cancellationToken)
         {
             var whatevers = await _whateverService.GetAllAsync(cancellationToken);
             if (whatevers is {Count: 0}) return NoContent();
