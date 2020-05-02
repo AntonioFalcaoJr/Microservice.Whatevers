@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Microservice.Whatevers.Repositories.Abstractions
 {
     public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId>
-        where TEntity : EntityBase<TId>
+        where TEntity : Entity<TId>
         where TId : struct
     {
         private readonly DbContext _context;

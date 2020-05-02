@@ -3,7 +3,7 @@ using Microservice.Whatevers.Domain.Abstractions.Notifications;
 
 namespace Microservice.Whatevers.Domain.Abstractions
 {
-    public abstract class EntityBase<TId>
+    public abstract class Entity<TId>
         where TId : struct
     {
         public readonly INotification Notification = new Notification();

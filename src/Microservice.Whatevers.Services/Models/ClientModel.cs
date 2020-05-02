@@ -1,6 +1,6 @@
 namespace Microservice.Whatevers.Services.Models
 {
-    public class ClientModelBase : BaseModel
+    public class ClientModel : Model
     {
         public string Result { get; set; }
     }

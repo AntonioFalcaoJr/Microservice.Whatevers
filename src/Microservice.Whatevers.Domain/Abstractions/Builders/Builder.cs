@@ -2,7 +2,7 @@ namespace Microservice.Whatevers.Domain.Abstractions.Builders
 {
     public abstract class Builder<TBuilder, TEntity, TId> : IBuilder<TEntity, TId>
         where TBuilder : Builder<TBuilder, TEntity, TId>
-        where TEntity : EntityBase<TId>
+        where TEntity : Entity<TId>
         where TId : struct
     {
         protected TId Id;
