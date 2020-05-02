@@ -3,7 +3,7 @@ using Microservice.Whatevers.Domain.Abstractions;
 
 namespace Microservice.Whatevers.Domain.Entities.Things
 {
-    public class Thing : EntityBase<Guid>
+    public class Thing : Entity<Guid>
     {
         internal Thing(Guid id, string name, string type, double value)
         {

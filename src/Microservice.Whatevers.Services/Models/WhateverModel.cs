@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Microservice.Whatevers.Services.Models
 {
-    public class WhateverModel : BaseModel
+    public class WhateverModel : Model
     {
         public string Name { get; set; }
         public IList<ThingModel> Things { get; set; }

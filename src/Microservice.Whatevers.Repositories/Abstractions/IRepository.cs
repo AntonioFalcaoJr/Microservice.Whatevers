@@ -6,7 +6,7 @@ using Microservice.Whatevers.Domain.Abstractions;
 namespace Microservice.Whatevers.Repositories.Abstractions
 {
     public interface IRepository<TEntity, in TId>
-        where TEntity : EntityBase<TId>
+        where TEntity : Entity<TId>
         where TId : struct
     {
         void Delete(TId id);

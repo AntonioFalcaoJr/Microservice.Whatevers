@@ -5,7 +5,7 @@ using Microservice.Whatevers.Domain.Entities.Things;
 
 namespace Microservice.Whatevers.Domain.Entities.Whatevers
 {
-    public class Whatever : EntityBase<Guid>
+    public class Whatever : Entity<Guid>
     {
         internal Whatever(Guid id, string name, DateTime time, string type)
         {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Microservice.Whatevers.Services.Abstractions
 {
     public abstract class Service<TEntity, TModel, TId> : IService<TEntity, TModel, TId>
-        where TEntity : EntityBase<TId>
-        where TModel : BaseModel
+        where TEntity : Entity<TId>
+        where TModel : Model
         where TId : struct
     {
         private readonly IMapper _mapper;

@@ -6,7 +6,7 @@ using Microservice.Whatevers.Services.Models;
 namespace Microservice.Whatevers.Services.Abstractions
 {
     public abstract class ClientBase<TClientModel>
-        where TClientModel : ClientModelBase, new()
+        where TClientModel : ClientModel, new()
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
