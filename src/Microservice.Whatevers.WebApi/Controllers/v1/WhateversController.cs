@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microservice.Whatevers.Domain.Entities.Whatevers;
 using Microservice.Whatevers.Services;
 using Microservice.Whatevers.Services.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -19,14 +20,14 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
-            if (!_whateverService.Exists(id)) return NotFound();
+            if (_whateverService.Exists(id) == false) return NotFound();
 
             _whateverService.Delete(id);
             return Accepted();
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<WhateverModel>> GetAll()
+        public ActionResult<IEnumerable<Whatever>> GetAll()
         {
             var whatevers = _whateverService.GetAll();
             if (whatevers is {Count: 0}) return NoContent();

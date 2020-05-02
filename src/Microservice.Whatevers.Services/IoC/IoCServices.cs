@@ -1,19 +1,20 @@
 using AutoMapper;
-using Microservice.Whatevers.Services.Clients;
+using FluentValidation.AspNetCore;
 using Microservice.Whatevers.Services.Mapper;
+using Microservice.Whatevers.Services.Validators;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Microservice.Whatevers.Services.IoC
 {
-    public static class IocServices
+    public static class IoCServices
     {
         public static IServiceCollection AddAutoMapper(this IServiceCollection services)
-            => services.AddAutoMapper(typeof(ModelToDomainProfile));
+            => services.AddAutoMapper(typeof(ModelToDomainProfile), typeof(DomainToModelProfile));
+
+        public static IMvcCoreBuilder AddFluentValidation(this IMvcCoreBuilder builder)
+            => builder.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<WhateverModelValidator>());
 
         public static IServiceCollection AddServices(this IServiceCollection services)
-            => services
-               .AddScoped<IWhateverService, WhateverService>()
-               .AddScoped<IGoogleService, GoogleService>()
-               .AddScoped<IGoogleClient, GoogleClient>();
+            => services.AddScoped<IWhateverService, WhateverService>();
     }
 }
