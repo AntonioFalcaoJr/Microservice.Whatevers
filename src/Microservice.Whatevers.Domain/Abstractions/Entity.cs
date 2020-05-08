@@ -6,7 +6,13 @@ namespace Microservice.Whatevers.Domain.Abstractions
     public abstract class Entity<TId>
         where TId : struct
     {
-        public readonly INotification Notification = new Notification();
+        public INotification Notification { get; }
+
+        protected Entity()
+        {
+            Notification = new Notification();
+        }
+        
         public TId Id { get; protected set; }
         public bool Valid => Notification?.Errors?.Any() == false;
 
