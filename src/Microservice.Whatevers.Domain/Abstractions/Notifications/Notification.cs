@@ -11,7 +11,7 @@ namespace Microservice.Whatevers.Domain.Abstractions.Notifications
         }
 
         public List<string> Errors { get; }
-        string INotification.Error => string.Join(", ", Errors);
+        public string Error => string.Join(", ", Errors);
 
         public void AddError(string error) => Errors.Add(error);
         
