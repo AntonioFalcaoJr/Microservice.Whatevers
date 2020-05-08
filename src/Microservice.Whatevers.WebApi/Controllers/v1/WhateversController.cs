@@ -20,6 +20,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
+            if (Guid.Empty == id) return BadRequest("Identificador inválido.");
             if (_whateverService.Exists(id) == false) return NotFound();
 
             _whateverService.Delete(id);
@@ -41,7 +42,9 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
             if (Guid.Empty == id) return BadRequest("Identificador inválido.");
 
             var whatever = _whateverService.GetById(id);
+            
             if (whatever is null) return NotFound();
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Error);
 
             return Ok(whatever);
         }
@@ -52,7 +55,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
             if (model.Id.HasValue && _whateverService.Exists(model.Id.Value)) return Conflict();
 
             var whatever = _whateverService.Save(model);
-            if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Error);
 
             return CreatedAtAction(nameof(GetById),
                 new {id = whatever.Id, version = HttpContext.GetRequestedApiVersion()?.ToString()}, whatever);
@@ -66,7 +69,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
             if (_whateverService.Exists(id) == false) return NotFound();
 
             var whatever = _whateverService.Edit(model);
-            if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Error);
 
             return Ok(whatever);
         }

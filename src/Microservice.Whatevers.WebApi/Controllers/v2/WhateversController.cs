@@ -22,6 +22,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
+            if (Guid.Empty == id) return BadRequest("Identificador inválido.");
             if (await _whateverService.ExistsAsync(id, cancellationToken) == false) return NotFound();
 
             await _whateverService.DeleteAsync(id, cancellationToken);
@@ -45,7 +46,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
             var whatever = await _whateverService.GetByIdAsync(id, cancellationToken);
 
             if (whatever is null) return NotFound();
-            if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Error);
 
             return Ok(whatever);
         }
@@ -56,7 +57,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
             if (model.Id.HasValue && await _whateverService.ExistsAsync(model.Id.Value, cancellationToken)) return Conflict();
 
             var whatever = await _whateverService.SaveAsync(model, cancellationToken);
-            if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Error);
 
             return CreatedAtAction(nameof(GetByIdAsync),
                 new {id = whatever.Id, cancellationToken, version = HttpContext.GetRequestedApiVersion()?.ToString()},
@@ -72,7 +73,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
             if (await _whateverService.ExistsAsync(id, cancellationToken) == false) return NotFound();
 
             var whatever = await _whateverService.EditAsync(model, cancellationToken);
-            if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Error);
 
             return Ok(whatever);
         }
