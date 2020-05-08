@@ -8,8 +8,7 @@ namespace Microservice.Whatevers.Domain.Abstractions
     {
         public readonly INotification Notification = new Notification();
         public TId Id { get; protected set; }
-
-        public bool IsValid() => Notification.GetErrors()?.Any() == false;
+        public bool Valid => Notification?.Errors?.Any() == false;
 
         protected abstract void SetId(TId id);
     }

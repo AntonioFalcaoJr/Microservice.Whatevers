@@ -45,7 +45,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
             var whatever = await _whateverService.GetByIdAsync(id, cancellationToken);
 
             if (whatever is null) return NotFound();
-            if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
 
             return Ok(whatever);
         }
@@ -57,7 +57,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
                 return Conflict();
 
             var whatever = await _whateverService.SaveAsync(model, cancellationToken);
-            if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
 
             return CreatedAtAction(nameof(GetByIdAsync),
                 new {id = whatever.Id, cancellationToken, version = HttpContext.GetRequestedApiVersion()?.ToString()},
@@ -73,7 +73,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
             if (await _whateverService.ExistsAsync(id, cancellationToken) == false) return NotFound();
 
             var whatever = await _whateverService.EditAsync(model, cancellationToken);
-            if (whatever.IsValid() == false) return BadRequest(whatever.Notification.GetErrors());
+            if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
 
             return Ok(whatever);
         }

@@ -27,7 +27,7 @@ namespace Microservice.Whatevers.Domain.Entities.Whatevers
         {
             if (thing is null) return;
 
-            if (thing.IsValid() == false)
+            if (thing.Valid == false)
             {
                 Notification.AddError(DomainResource.Whatever_Thing_invalid, thing.Notification);
                 return;
