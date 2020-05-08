@@ -5,13 +5,13 @@ namespace Microservice.Whatevers.Domain.Abstractions.Notifications
 {
     public class Notification : INotification
     {
-        public List<string> Errors { get; }
-        string INotification.Error => string.Join(", ", Errors);
-
         public Notification()
         {
             Errors = new List<string>();
         }
+
+        public List<string> Errors { get; }
+        string INotification.Error => string.Join(", ", Errors);
 
         public void AddError(string error) => Errors.Add(error);
         public void AddError(INotification notification) => AddErrors(notification?.Errors);

@@ -53,8 +53,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v2
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] WhateverModel model, CancellationToken cancellationToken)
         {
-            if (model.Id.HasValue && await _whateverService.ExistsAsync(model.Id.Value, cancellationToken)) 
-                return Conflict();
+            if (model.Id.HasValue && await _whateverService.ExistsAsync(model.Id.Value, cancellationToken)) return Conflict();
 
             var whatever = await _whateverService.SaveAsync(model, cancellationToken);
             if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);

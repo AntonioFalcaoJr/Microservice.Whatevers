@@ -49,8 +49,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
         [HttpPost]
         public IActionResult Post([FromBody] WhateverModel model)
         {
-            if (model.Id.HasValue && _whateverService.Exists(model.Id.Value)) 
-                return Conflict();
+            if (model.Id.HasValue && _whateverService.Exists(model.Id.Value)) return Conflict();
 
             var whatever = _whateverService.Save(model);
             if (whatever.Valid == false) return BadRequest(whatever.Notification.Errors);
