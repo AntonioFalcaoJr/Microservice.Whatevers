@@ -34,7 +34,7 @@ namespace Microservice.Whatevers.Domain.UnitTest.Entities.Whatevers
             whatever.Type.Should().Be(type);
         }
 
-        private Whatever BuildWhatever(Guid id, string name, DateTime time, string type)
+        private static Whatever BuildWhatever(Guid id, string name, DateTime time, string type)
             => new WhateverBuilder()
                .WithId(id)
                .WithName(name)

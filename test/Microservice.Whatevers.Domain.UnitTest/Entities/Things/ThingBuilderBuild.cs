@@ -34,7 +34,7 @@ namespace Microservice.Whatevers.Domain.UnitTest.Entities.Things
             thing.Value.Should().Be(value);
         }
 
-        private Thing BuildThing(Guid id, string name, string type, double value)
+        private static Thing BuildThing(Guid id, string name, string type, double value)
             => new ThingBuilder()
                .WithId(id)
                .WithName(name)
