@@ -15,10 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Entities\Whatevers" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\..\src\Microservice.Whatevers.Domain\Microservice.Whatevers.Domain.csproj" />
     </ItemGroup>
 

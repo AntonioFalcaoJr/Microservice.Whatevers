@@ -25,14 +25,14 @@ namespace Microservice.Whatevers.Domain.UnitTest.Entities.Things
         
         // Given
         [Theory, ClassData(typeof(ThingInvalidTestData))]
-        public void Should_Build_Invalid_Domain_With_Incorrect_Input(Guid id, string name, string type, double value, string errorEsperado)
+        public void Should_Build_Invalid_Domain_With_Incorrect_Input(Guid id, string name, string type, double value, string erroEsperado)
         {
             // When 
             var thing = BuildThing(id, name, type, value);
             
             // Then
             thing.Valid.Should().BeFalse();
-            thing.Notification.Errors.Should().Contain(errorEsperado);
+            thing.Notification.Errors.Should().Contain(erroEsperado);
         }
 
         private  Thing BuildThing(Guid id, string name, string type, double value)
