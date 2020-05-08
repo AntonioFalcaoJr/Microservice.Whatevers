@@ -40,14 +40,14 @@ namespace Microservice.Whatevers.Services.Abstractions
         public TEntity Edit(TModel model)
         {
             var entity = _mapper.Map<TEntity>(model);
-            if (entity.IsValid()) _repository.Update(entity);
+            if (entity.Valid) _repository.Update(entity);
             return entity;
         }
 
         public async Task<TEntity> EditAsync(TModel model, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<TEntity>(model);
-            if (entity.IsValid()) await _repository.UpdateAsync(entity, cancellationToken);
+            if (entity.Valid) await _repository.UpdateAsync(entity, cancellationToken);
             return entity;
         }
 
@@ -69,14 +69,14 @@ namespace Microservice.Whatevers.Services.Abstractions
         public TEntity Save(TModel model)
         {
             var entity = _mapper.Map<TEntity>(model);
-            if (entity.IsValid()) _repository.Insert(entity);
+            if (entity.Valid) _repository.Insert(entity);
             return entity;
         }
 
         public async Task<TEntity> SaveAsync(TModel model, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<TEntity>(model);
-            if (entity.IsValid()) await _repository.InsertAsync(entity, cancellationToken);
+            if (entity.Valid) await _repository.InsertAsync(entity, cancellationToken);
             return entity;
         }
     }
