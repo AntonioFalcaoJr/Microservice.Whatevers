@@ -14,7 +14,7 @@ namespace Microservice.Whatevers.Domain.Abstractions.Notifications
         public string Error => string.Join(", ", Errors);
 
         public void AddError(string error) => Errors.Add(error);
-        
+
         public void AddError(INotification notification) => AddErrors(notification?.Errors);
 
         public void AddError(string error, INotification externalNotification)
