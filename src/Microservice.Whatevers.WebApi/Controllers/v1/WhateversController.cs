@@ -42,7 +42,7 @@ namespace Microservice.Whatevers.WebApi.Controllers.v1
             if (Guid.Empty == id) return BadRequest("Identificador inválido.");
 
             var whatever = _whateverService.GetById(id);
-            
+
             if (whatever is null) return NotFound();
             if (whatever.Valid == false) return BadRequest(whatever.Notification.Error);
 
