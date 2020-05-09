@@ -64,3 +64,4 @@ dotnet test
 [Fluent Validation](https://fluentvalidation.net/)  
 [Auto Mapper](https://automapper.org/)  
 [SQLite](https://www.sqlite.org/index.html/)
+[xUnit](https://xunit.net/)
