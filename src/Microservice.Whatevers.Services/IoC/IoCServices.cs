@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentValidation.AspNetCore;
+using Microservice.Whatevers.Services.Clients;
 using Microservice.Whatevers.Services.Mapper;
 using Microservice.Whatevers.Services.Validators;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,8 @@ namespace Microservice.Whatevers.Services.IoC
             => builder.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<WhateverModelValidator>());
 
         public static IServiceCollection AddServices(this IServiceCollection services)
-            => services.AddScoped<IWhateverService, WhateverService>();
+            => services.AddScoped<IWhateverService, WhateverService>()
+               .AddScoped<IGoogleService, GoogleService>()
+               .AddScoped<IGoogleClient, GoogleClient>();
     }
 }

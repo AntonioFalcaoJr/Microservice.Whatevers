@@ -50,7 +50,7 @@ namespace Microservice.Whatevers.Repositories.Migrations
                 new[] {"Id", "Name", "Time", "Type"},
                 new object[]
                 {
-                    new Guid("c267dc0e-8829-49a9-9d1c-54e1488298f4"), "Whatever",
+                    new Guid("b1732550-2b45-4eee-af19-bbf34e403ed1"), "Whatever",
                     new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Some type"
                 });
 
@@ -58,7 +58,7 @@ namespace Microservice.Whatevers.Repositories.Migrations
                 new[] {"Id", "Name", "Time", "Type"},
                 new object[]
                 {
-                    new Guid("e43bf835-dac0-4805-a29b-4117d3cf06ea"), "Whatever",
+                    new Guid("34ec1b0c-e8fc-4394-8496-8a2ee0f6e6f4"), "Whatever",
                     new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999), "Another type"
                 });
 
@@ -66,16 +66,16 @@ namespace Microservice.Whatevers.Repositories.Migrations
                 new[] {"Id", "Name", "Time", "Type"},
                 new object[]
                 {
-                    new Guid("532b162e-f5a4-4595-a8a8-cc9e4270a05f"), "Whatever",
-                    new DateTime(2020, 4, 18, 0, 21, 46, 898, DateTimeKind.Local).AddTicks(5592), "More another type"
+                    new Guid("0ede8633-b422-4c46-b064-810f5b10f21e"), "Whatever",
+                    new DateTime(2020, 5, 9, 9, 19, 2, 166, DateTimeKind.Local).AddTicks(3060), "More another type"
                 });
 
             migrationBuilder.InsertData("Whatever",
                 new[] {"Id", "Name", "Time", "Type"},
                 new object[]
                 {
-                    new Guid("9288ccdf-bd54-4a45-82c7-1b0351baf2f5"), "Whatever",
-                    new DateTime(2020, 4, 18, 0, 0, 0, 0, DateTimeKind.Local), "Once more another type"
+                    new Guid("d002fd42-0a70-4dab-a12f-9119c643e37c"), "Whatever", new DateTime(2020, 5, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                    "Once more another type"
                 });
 
             migrationBuilder.CreateIndex("IX_Thing_WhateverId",
