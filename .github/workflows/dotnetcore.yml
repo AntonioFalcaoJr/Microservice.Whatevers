@@ -17,12 +17,23 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+
     - name: Install dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      
+    - name: Cover
+      run: dotnet test --collect:"XPlat Code Coverage" --no-restore --verbosity normal
+
+    - name: Copy
+      shell: bash  
+      run: find ./TestResults/ -type f -name "*.xml" -exec cp {} ../../coverege.xml \;
+      
     - name: Codacy Coverage Reporter
       uses: codacy/codacy-coverage-reporter-action@0.2.0
       with:
