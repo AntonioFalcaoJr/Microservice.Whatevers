@@ -26,5 +26,5 @@ jobs:
     - name: Codacy Coverage Reporter
       uses: codacy/codacy-coverage-reporter-action@0.2.0
       with:
-        # Project token for the Codacy project you want to send coverage information
-        project-token: 4e2bb36b3a26401783f6ff8af81e3b8e
+        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        coverage-reports: ''
