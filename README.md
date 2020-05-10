@@ -1,8 +1,8 @@
 # WIP - Microservice.Whatevers (Work in progress)
 
 ![.NET Core](https://github.com/AntonioFalcao/Microservice.Whatevers/workflows/.NET%20Core/badge.svg?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/7b3fd1197a4d4da98aa6704ffde219a3)](https://www.codacy.com/manual/arfj/Microservice.Whatevers?utm_source=github.com&utm_medium=referral&utm_content=AntonioFalcao/Microservice.Whatevers&utm_campaign=Badge_Coverage)
 ![Docker Image CI](https://github.com/AntonioFalcao/Microservice.Whatevers/workflows/Docker%20Image%20CI/badge.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/7b3fd1197a4d4da98aa6704ffde219a3)](https://www.codacy.com/manual/arfj/Microservice.Whatevers?utm_source=github.com&utm_medium=referral&utm_content=AntonioFalcao/Microservice.Whatevers&utm_campaign=Badge_Coverage)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ee6104d0e614426b989cefb353215412)](https://app.codacy.com/manual/arfj/Microservice.Whatevers?utm_source=github.com&utm_medium=referral&utm_content=AntonioFalcao/Microservice.Whatevers&utm_campaign=Badge_Grade_Dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/antoniofalcao/microservice.whatevers/badge/master)](https://www.codefactor.io/repository/github/antoniofalcao/microservice.whatevers/overview/master)
 
