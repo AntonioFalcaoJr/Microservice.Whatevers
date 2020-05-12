@@ -14,5 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag microservice_whatever:$(date +%s)
+      
+    - name: Publish the Docker image
+      run: docker push antoniofalcaojr/microservice_whatevers:$(date +%s)
