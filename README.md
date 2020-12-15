@@ -13,7 +13,7 @@ Nos próximos encontros, iremos evoluir o projeto para tópicos:
 *   Estruturação de Projeto com derivação conceitual Domain Driven;
 *   Conhecendo o Dotnet CLI;
 *   Conhecendo o *.SLN e *.CSPROJ;
-*   Implementação de designs, tais como: Template Method, Strategy, Repository, Buider, Strategy, dentre outros... 
+*   Implementação de designs, tais como: Template Method, Strategy, Repository, Buider, dentre outros... 
 *   Fluent Validation;
 *   Auto Mapper;
 *   Entity Framework com SQLite, Migrations e SEED.
