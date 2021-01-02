@@ -32,19 +32,10 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.101
+          
       - name: Test
         run: dotnet test --no-restore -v m
-        
-  cover:
-    name: Cover
-    needs: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.101
+
       - name: Cover
         run: dotnet test --collect:"XPlat Code Coverage" --no-restore --verbosity normal
 
