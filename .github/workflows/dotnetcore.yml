@@ -8,7 +8,9 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -22,29 +24,18 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
       
-  test:
-    name: Test
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.101
-          
-      - name: Test
-        run: dotnet test --no-restore -v m
-
-      - name: Cover
-        run: dotnet test --collect:"XPlat Code Coverage" --no-restore --verbosity normal
-
-      - name: Copy
-        shell: bash  
-        run: find ./test/Microservice.Whatevers.Domain.UnitTest/TestResults/ -type f -name "*.xml" -exec cp {} ./coverege.xml \;
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
       
-      - name: Codacy Coverage Reporter
-        uses: codacy/codacy-coverage-reporter-action@0.2.0
-        with:
-          project-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: coverege.xml
+    - name: Cover
+      run: dotnet test --collect:"XPlat Code Coverage" --no-restore --verbosity normal
+
+    - name: Copy
+      shell: bash  
+      run: find ./test/Microservice.Whatevers.Domain.UnitTest/TestResults/ -type f -name "*.xml" -exec cp {} ./coverege.xml \;
+      
+    - name: Codacy Coverage Reporter
+      uses: codacy/codacy-coverage-reporter-action@0.2.0
+      with:
+        project-token: ${{ secrets.CODACY_API_TOKEN }}
+        coverage-reports: coverege.xml
