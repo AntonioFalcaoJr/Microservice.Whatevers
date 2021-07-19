@@ -17,6 +17,3 @@ jobs:
       
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $(date +%s)
-      
-    - name: Publish the Docker image
-      run: docker push antoniofalcaojr/microservice_whatevers:$(date +%s)
